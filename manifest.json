@@ -1,0 +1,63 @@
+{
+  "name": "Bolsas Lucrativas — Área do Aluno & Moldes",
+  "short_name": "Bolsas Lucrativas",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a1128",
+  "theme_color": "#101d4d",
+  "description": "App oficial do curso Bolsas Lucrativas com 200+ moldes em jeans, 53 videoaulas, guia completo de vendas, calculadora de preços e comunidade.",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "categories": ["education", "lifestyle", "business"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Moldes e Modelos",
+      "short_name": "Moldes",
+      "description": "Ver catálogo com 200+ moldes de bolsas e necessaires",
+      "url": "./index.html?tab=moldes",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Videoaulas Práticas",
+      "short_name": "Aulas",
+      "description": "Acessar as 53 aulas passo a passo de costura",
+      "url": "./index.html?tab=aulas",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Guia de Vendas",
+      "short_name": "Guia 20 Módulos",
+      "description": "Trilha para vender suas bolsas no WhatsApp, Shopee e OLX",
+      "url": "./index.html?tab=guia",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Calculadora de Preço",
+      "short_name": "Calculadora",
+      "description": "Calcular custos e preço justo de venda das peças",
+      "url": "./index.html?tab=calculadora",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Bolsas Lucrativas — Área do Aluno & Moldes Profissionais</title>
+  <meta name="description" content="Aplicativo oficial do curso Bolsas Lucrativas: 200+ moldes profissionais em jeans, 53 videoaulas passo a passo, guia de vendas de 20 módulos e calculadora de precificação." />
+  <meta name="theme-color" content="#101d4d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Bolsas Lucrativas" />
+
+  <!-- Icons & PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="icons/favicon.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Desktop Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🧵</div>
+        <div class="brand-text">
+          <h1>Bolsas Lucrativas</h1>
+          <span>Área da Aluna</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#inicio" class="nav-link active" data-tab="inicio" id="nav-side-inicio">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Início</span>
+        </a>
+        <a href="#moldes" class="nav-link" data-tab="moldes" id="nav-side-moldes">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <span>Moldes & Modelos</span>
+          <span class="nav-badge" id="side-moldes-count">135+</span>
+        </a>
+        <a href="#aulas" class="nav-link" data-tab="aulas" id="nav-side-aulas">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>Videoaulas</span>
+          <span class="nav-badge" id="side-aulas-count">53</span>
+        </a>
+        <a href="#guia" class="nav-link" data-tab="guia" id="nav-side-guia">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>Guia de Vendas</span>
+          <span class="nav-badge" id="side-guia-count">20 Módulos</span>
+        </a>
+        <a href="#calculadora" class="nav-link" data-tab="calculadora" id="nav-side-calc">
+          <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+          <span>Calculadora de Preço</span>
+        </a>
+        <a href="#bonus" class="nav-link" data-tab="bonus" id="nav-side-bonus">
+          <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          <span>Bônus & Fornecedores</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="vip-pill">
+          <div class="vip-avatar">VIP</div>
+          <div class="vip-info">
+            <b>Acesso Vitalício</b>
+            <span>Aluna Certificada</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+      <!-- Top Sticky App Bar -->
+      <header class="topbar">
+        <div class="topbar-mobile-brand">
+          <div class="brand-icon">🧵</div>
+          <span class="brand-title">Bolsas Lucrativas</span>
+        </div>
+
+        <div class="topbar-search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="globalSearchInput" placeholder="Buscar moldes, aulas ou módulos..." autocomplete="off" />
+        </div>
+
+        <div class="topbar-actions">
+          <!-- PWA Install Trigger -->
+          <button type="button" class="pwa-btn-header" id="btnInstallPwa" title="Instalar App no Celular ou Computador">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Instalar App</span>
+          </button>
+
+          <!-- Favorites Quick Link -->
+          <button type="button" class="favs-shortcut-btn" id="btnFavoritesShortcut" title="Meus Favoritos">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span id="favsCountBadge">0</span>
+          </button>
+
+          <!-- WhatsApp VIP Link -->
+          <a href="https://chat.whatsapp.com/LrtX7Vxc7R99Nwars1vDAv" target="_blank" rel="noopener" class="whatsapp-top-btn" title="Comunidade WhatsApp">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.969.587 1.956.966 2.792.966 3.182 0 5.768-2.587 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.503-4.467 9.969-9.969 9.969-1.748 0-3.385-.45-4.819-1.239l-5.212 1.332 1.385-4.992c-.896-1.492-1.423-3.238-1.423-5.07 0-5.502 4.467-9.969 9.969-9.969 5.502 0 9.969 4.467 9.969 9.969z"/></svg>
+            <span>Grupo VIP</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Content Viewport -->
+      <div class="content-viewport">
+
+        <!-- ==========================================
+             TAB 1: INÍCIO (DASHBOARD)
+             ========================================== -->
+        <section class="app-view active" id="view-inicio">
+          <!-- Hero Card -->
+          <div class="hero-card">
+            <div class="hero-grid">
+              <div class="hero-text-content">
+                <div class="hero-badge-row">
+                  <span class="badge-green">✓ Acesso Completo Liberado</span>
+                  <span class="badge-gold">👑 Curso Vitalício</span>
+                </div>
+                <h2 class="hero-title">Bem-vinda ao seu <span>Ateliê Lucrativo</span></h2>
+                <p class="hero-desc">
+                  Tudo que você precisa para transformar tecido jeans e retalhos em bolsas e necessaires de alto valor percebido, com passo a passo ilustrado, medidas exatas e técnicas de venda.
+                </p>
+
+                <!-- Course Progress Tracker -->
+                <div class="hero-progress-box">
+                  <div class="hp-label">
+                    <span>Progresso da sua Trilha</span>
+                    <span id="homeProgressPercent">0%</span>
+                  </div>
+                  <div class="hp-track">
+                    <div class="hp-bar" id="homeProgressBar"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-image-wrap">
+                <img src="assets/capa-inicio.jpg" alt="Coleção de Bolsas Lucrativas" loading="eager" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Navigation Cards -->
+          <div class="quick-grid">
+            <div class="quick-card pink" data-goto="moldes">
+              <div class="quick-icon">📐</div>
+              <div class="quick-info">
+                <h4>135+ Moldes</h4>
+                <p>Com medidas e em PDF</p>
+              </div>
+            </div>
+            <div class="quick-card blue" data-goto="aulas">
+              <div class="quick-icon">🎬</div>
+              <div class="quick-info">
+                <h4>53 Videoaulas</h4>
+                <p>Passo a passo prático</p>
+              </div>
+            </div>
+            <div class="quick-card gold" data-goto="guia">
+              <div class="quick-icon">📖</div>
+              <div class="quick-info">
+                <h4>Guia de Vendas</h4>
+                <p>20 módulos de lucro</p>
+              </div>
+            </div>
+            <div class="quick-card green" data-goto="calculadora">
+              <div class="quick-icon">🧮</div>
+              <div class="quick-info">
+                <h4>Calculadora</h4>
+                <p>Precifique sem erro</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Golden Card: 200 Moldes Jeans -->
+          <div class="featured-gold-card">
+            <div class="fg-inner">
+              <div class="fg-thumb-wrap">
+                <img src="assets/thumbs/destaque-200-moldes.jpg" alt="200 Moldes Bolsas Jeans" />
+              </div>
+              <div class="fg-content">
+                <span class="fg-ribbon">⭐ Coleção Completa Oficial</span>
+                <h3 class="fg-title">200 Moldes de Bolsas & Necessaires em Jeans</h3>
+                <p class="fg-desc">
+                  A coleção mais completa do Brasil reunida em um arquivo único em alta resolução. Baixe, visualize ou imprima quando quiser para confeccionar todas as peças do curso.
+                </p>
+                <div class="fg-actions">
+                  <button type="button" class="btn-gold" id="btnOpenDestaqueModal">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>Visualizar na Tela</span>
+                  </button>
+                  <a href="assets/moldes/200-moldes-bolsas-jeans.pdf" download="200-moldes-bolsas-jeans.pdf" class="btn-outline-gold">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span>Baixar Arquivo Completo (PDF)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sorteio Oficial Banner -->
+          <div class="sorteio-banner">
+            <div class="sb-header">
+              <span class="sb-tag">🍀 Sorteio Thaíse Costuras</span>
+              <span class="sb-date">Data Oficial: 30/12</span>
+            </div>
+            <h3 class="sb-title">Você já está concorrendo aos prêmios oficiais!</h3>
+            <div class="sb-prizes">
+              <div class="sb-prize-chip">🧵 Máquina Singer Facilita Pro</div>
+              <div class="sb-prize-chip">💰 R$ 500 em Dinheiro</div>
+              <div class="sb-prize-chip">🧰 Super Kit de Aviamentos</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             TAB 2: MOLDES (CATÁLOGO)
+             ========================================== -->
+        <section class="app-view" id="view-moldes">
+          <div class="section-header">
+            <span class="section-tag">Coleção Completa</span>
+            <h2 class="section-title">Moldes & Modelos Prontos</h2>
+            <p class="section-subtitle">
+              Selecione o modelo desejado para ver a prévia em tamanho real ou baixar o arquivo pronto para impressão.
+            </p>
+          </div>
+
+          <!-- Controls: Search, Layout Toggle, Categories -->
+          <div class="moldes-controls">
+            <div class="search-and-view-bar">
+              <div class="search-box">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="moldesSearchInput" placeholder="Pesquisar por nome do molde..." />
+              </div>
+              <div class="view-toggle-btns">
+                <button type="button" class="vt-btn active" id="btnGridMode" title="Grade de Cards">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </button>
+                <button type="button" class="vt-btn" id="btnListMode" title="Lista Compacta">
+                  <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="category-filter-scroll" id="catFilterScroll">
+              <button type="button" class="cat-chip active" data-cat="all">Todos <span class="cat-chip-count" id="count-all">135+</span></button>
+              <button type="button" class="cat-chip" data-cat="favoritos">❤️ Favoritos <span class="cat-chip-count" id="count-favs">0</span></button>
+              <button type="button" class="cat-chip" data-cat="local">📂 Pasta moldes_bolsas <span class="cat-chip-count" id="count-local">47</span></button>
+              <button type="button" class="cat-chip" data-cat="bolsas">👜 Bolsas & Sacolas</button>
+              <button type="button" class="cat-chip" data-cat="mochilas">🎒 Mochilas</button>
+              <button type="button" class="cat-chip" data-cat="necessaires">👛 Necessaires & Carteiras</button>
+              <button type="button" class="cat-chip" data-cat="bonus">🎁 Bônus & Guias</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Moldes Grid -->
+          <div class="moldes-grid" id="moldesGridContainer">
+            <!-- Injected via app.js -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             TAB 3: AULAS (VIDEO PLAYER & PLAYLIST)
+             ========================================== -->
+        <section class="app-view" id="view-aulas">
+          <div class="section-header">
+            <span class="section-tag">Passo a Passo em Vídeo</span>
+            <h2 class="section-title">Videoaulas de Costura & Upcycling</h2>
+            <p class="section-subtitle">
+              Aprenda as técnicas essenciais de reaproveitamento de calças jeans velhas, bolsos, zíperes embutidos e acabamentos impecáveis.
+            </p>
+          </div>
+
+          <div class="cinema-layout">
+            <!-- Cinema Player Box -->
+            <div class="cinema-player-box">
+              <div class="video-responsive-wrap">
+                <iframe id="mainVideoPlayer" src="https://www.youtube-nocookie.com/embed/pwCX2WksmEY?rel=0&enablejsapi=1" title="Videoaula Bolsas Lucrativas" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="video-info-card">
+                <div class="vic-meta-row">
+                  <span class="vic-tag" id="currentVideoTag">Aula em Reprodução</span>
+                  <span class="nav-badge" id="currentVideoIndex">Aula 1 de 53</span>
+                </div>
+                <h3 class="vic-title" id="currentVideoTitle">DIY Small Denim Accordion Wallet With Zipper</h3>
+
+                <div class="vic-controls">
+                  <button type="button" class="btn-watched-toggle" id="btnToggleWatched">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span id="btnWatchedText">Marcar como Concluída</span>
+                  </button>
+                  <button type="button" class="btn-next-lesson" id="btnNextLesson">
+                    <span>Próxima Aula</span>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Playlist Column -->
+            <div class="playlist-card">
+              <div class="playlist-head">
+                <div class="pl-title-row">
+                  <h3>Lista de Aulas</h3>
+                  <span class="pl-count" id="plCompletedCount">0 / 53 concluídas</span>
+                </div>
+                <div class="playlist-search">
+                  <input type="text" id="playlistSearchInput" placeholder="Filtrar aulas..." />
+                </div>
+              </div>
+              <div class="playlist-items" id="playlistContainer">
+                <!-- Injected via app.js -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             TAB 4: GUIA DE VENDAS (20 MÓDULOS)
+             ========================================== -->
+        <section class="app-view" id="view-guia">
+          <div class="section-header">
+            <span class="section-tag">Método de Vendas & Negócio</span>
+            <h2 class="section-title">Guia Completo de Vendas de Bolsas</h2>
+            <p class="section-subtitle">
+              Aprenda a vender suas peças todos os dias no WhatsApp, Shopee, Mercado Livre e redes sociais com passos práticos e missões interativas.
+            </p>
+          </div>
+
+          <div class="guia-layout">
+            <!-- Modules Sidebar Navigation -->
+            <div class="guia-nav-card">
+              <div class="guia-header-box">
+                <div class="pl-title-row">
+                  <h4>Sua Trilha (20 Módulos)</h4>
+                  <span id="guiaProgressText" style="font-size:0.8rem; font-weight:700; color:var(--pink-400);">0 / 20</span>
+                </div>
+                <div class="guia-progress-bar">
+                  <div class="guia-progress-fill" id="guiaProgressBar"></div>
+                </div>
+
+                <button type="button" class="cert-cta-btn" id="btnOpenCertModal">
+                  🎓 Emitir Meu Certificado
+                </button>
+              </div>
+
+              <div class="modules-list" id="guiaModulesList">
+                <!-- Injected via app.js -->
+              </div>
+            </div>
+
+            <!-- Module Reading Pane -->
+            <div class="module-reader-card" id="moduleReaderContainer">
+              <!-- Injected via app.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             TAB 5: CALCULADORA DE PREÇO
+             ========================================== -->
+        <section class="app-view" id="view-calculadora">
+          <div class="section-header">
+            <span class="section-tag">Ferramenta Financeira</span>
+            <h2 class="section-title">Calculadora de Precificação de Bolsas</h2>
+            <p class="section-subtitle">
+              Chega de cobrar barato ou ter prejuízo! Calcule o custo real de tecidos, aviamentos, mão de obra por hora e sua margem de lucro exata.
+            </p>
+          </div>
+
+          <div class="calc-container">
+            <!-- Inputs & Material Table Card -->
+            <div class="calc-editor-card">
+              <div class="calc-subhead">
+                <span>Modelos Rápidos (Presets)</span>
+                <small style="color:var(--text-dim);">Clique para carregar</small>
+              </div>
+              <div class="calc-presets-row" id="calcPresetsRow">
+                <!-- Injected via app.js -->
+              </div>
+
+              <div class="calc-subhead">
+                <span>1. Materiais & Insumos Utilizados</span>
+              </div>
+              <div class="materials-table" id="materialsTableBody">
+                <!-- Injected via app.js -->
+              </div>
+              <button type="button" class="btn-add-mat" id="btnAddMaterialRow">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Adicionar Outro Material</span>
+              </button>
+
+              <!-- Labor & Profit Margin -->
+              <div class="calc-params-grid">
+                <div class="param-field">
+                  <label for="inputLaborHours">Tempo de Produção (Horas)</label>
+                  <div class="param-input-wrap">
+                    <input type="number" id="inputLaborHours" min="0.5" step="0.5" value="2.5" />
+                  </div>
+                </div>
+
+                <div class="param-field">
+                  <label for="inputHourRate">Valor da Sua Hora (R$)</label>
+                  <div class="param-input-wrap">
+                    <input type="number" id="inputHourRate" min="5" step="1" value="20.00" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="param-field" style="margin-top: 18px;">
+                <label>Margem de Lucro Desejada</label>
+                <div class="margin-presets" id="marginPresetsContainer">
+                  <button type="button" class="mp-btn" data-margin="50">50%</button>
+                  <button type="button" class="mp-btn active" data-margin="80">80%</button>
+                  <button type="button" class="mp-btn" data-margin="100">100%</button>
+                  <button type="button" class="mp-btn" data-margin="120">120%</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sticky Results Card -->
+            <div class="calc-result-card">
+              <div class="res-header">
+                <span class="res-tag">Preço de Venda Sugerido</span>
+                <div class="res-price">
+                  <span>R$</span> <b id="calcFinalPrice">0,00</b>
+                </div>
+              </div>
+
+              <div class="res-breakdown-grid">
+                <div class="res-box">
+                  <small>Materiais</small>
+                  <b id="calcResMaterials">R$ 0</b>
+                </div>
+                <div class="res-box">
+                  <small>Sua Mão de Obra</small>
+                  <b id="calcResLabor">R$ 0</b>
+                </div>
+                <div class="res-box profit">
+                  <small>Lucro Líquido</small>
+                  <b id="calcResProfit">R$ 0</b>
+                </div>
+              </div>
+
+              <div class="res-scenarios">
+                <div class="scen-row">
+                  <span>À Vista no Pix (-5% desc):</span>
+                  <b id="calcPricePix">R$ 0,00</b>
+                </div>
+                <div class="scen-row">
+                  <span>Em até 3x no Cartão:</span>
+                  <b id="calcPriceCard">3x de R$ 0,00</b>
+                </div>
+                <div class="scen-row">
+                  <span>Custo Total de Produção:</span>
+                  <b id="calcCostTotal">R$ 0,00</b>
+                </div>
+              </div>
+
+              <button type="button" class="btn-calc-action btn-calc-primary" id="btnCopyQuote">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar Orçamento para Cliente</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             TAB 6: BÔNUS & FORNECEDORES
+             ========================================== -->
+        <section class="app-view" id="view-bonus">
+          <div class="section-header">
+            <span class="section-tag">Materiais & Fornecedores</span>
+            <h2 class="section-title">Fornecedores Confiáveis</h2>
+            <p class="section-subtitle">
+              Lojas oficiais e confiáveis no Mercado Livre e fabricantes para comprar tecidos jeans, ferragens, alças, zíperes e estruturadores com o melhor preço.
+            </p>
+          </div>
+
+          <div class="bonus-grid" id="suppliersGrid">
+            <!-- Injected via app.js -->
+          </div>
+
+          <!-- Fotos Que Vendem Section -->
+          <div class="section-header" style="margin-top: 48px;">
+            <span class="section-tag">Guia de Fotografia com Celular</span>
+            <h2 class="section-title">Fotos Que Vendem — 20 Dicas Práticas</h2>
+            <p class="section-subtitle">
+              Aprenda a fotografar suas bolsas no celular para postar no Instagram e WhatsApp como uma profissional.
+            </p>
+          </div>
+
+          <div class="fotos-grid" id="fotosGrid">
+            <!-- Injected via app.js -->
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="#inicio" class="bnav-item active" data-tab="inicio" id="bnav-inicio">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Início</span>
+    </a>
+    <a href="#moldes" class="bnav-item" data-tab="moldes" id="bnav-moldes">
+      <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/></svg>
+      <span>Moldes</span>
+    </a>
+    <a href="#aulas" class="bnav-item" data-tab="aulas" id="bnav-aulas">
+      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <span>Aulas</span>
+    </a>
+    <a href="#guia" class="bnav-item" data-tab="guia" id="bnav-guia">
+      <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <span>Guia</span>
+    </a>
+    <a href="#calculadora" class="bnav-item" data-tab="calculadora" id="bnav-calc">
+      <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+      <span>Preço</span>
+    </a>
+  </nav>
+
+  <!-- ==========================================
+       MODAL 1: PREVIEW DE MOLDE (PDF / IMAGEM)
+       ========================================== -->
+  <div class="app-modal-overlay" id="moldePreviewModal" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <h3 id="modalMoldeTitle">Visualizar Molde</h3>
+        <button type="button" class="modal-close-btn" id="btnCloseMoldeModal" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" id="modalMoldeBody">
+        <!-- Iframe or Img injected here -->
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn-mc-view" id="btnModalPrint">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Imprimir Molde</span>
+        </button>
+        <a href="#" download class="btn-mc-dl" id="btnModalDownload">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Baixar Arquivo</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 2: CERTIFICADO DE CONCLUSÃO
+       ========================================== -->
+  <div class="app-modal-overlay" id="certModal" role="dialog" aria-modal="true">
+    <div class="modal-dialog cert-dialog">
+      <div class="modal-head">
+        <h3>Certificado Oficial de Conclusão</h3>
+        <button type="button" class="modal-close-btn" id="btnCloseCertModal" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 10px;">
+        <div class="cert-card-visual" id="printableCertificate">
+          <div class="cert-logo">🧵✨</div>
+          <h2 class="cert-title">Certificado de Conclusão</h2>
+          <p class="cert-statement">Certificamos com louvor que</p>
+          <div class="cert-name" id="certStudentName" contenteditable="true" title="Clique para editar seu nome">
+            Sua Graça / Seu Nome Aqui
+          </div>
+          <p class="cert-desc">
+            Concluiu com aproveitamento a Trilha Profissional de Confecção de Bolsas, Modelagem em Jeans, Precificação Justa e Vendas do programa <b>Bolsas Lucrativas</b>.
+          </p>
+          <div class="cert-date" id="certDateDisplay">Data de Emissão: 24/10/2026</div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn-gold" id="btnPrintCert">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Imprimir / Salvar em PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 3: INSTRUÇÕES DE INSTALAÇÃO NO IPHONE / IOS
+       ========================================== -->
+  <div class="app-modal-overlay" id="iosInstallModal" role="dialog" aria-modal="true">
+    <div class="modal-dialog" style="max-width: 480px;">
+      <div class="modal-head">
+        <h3>Instalar no iPhone / iPad</h3>
+        <button type="button" class="modal-close-btn" id="btnCloseIosModal" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 24px; text-align: left; display: block;">
+        <p style="color:#cbd5e1; font-size:0.95rem; line-height: 1.6; margin-bottom: 18px;">
+          Para ter o ícone do aplicativo na tela inicial do seu iPhone sem precisar de App Store:
+        </p>
+        <ol style="color:#f1f5f9; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 0.95rem;">
+          <li>Toque no botão <b>Compartilhar</b> (ícone de quadrado com seta para cima ⎋) na barra inferior do Safari.</li>
+          <li>Role a lista de opções para baixo e toque em <b>"Adicionar à Tela de Início"</b> ➕.</li>
+          <li>Toque em <b>"Adicionar"</b> no canto superior direito.</li>
+        </ol>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn-mc-dl" id="btnConfirmIosModal">Entendido!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="app-toast" id="appToast" role="status">
+    <span id="toastIcon">✨</span>
+    <span id="toastMessage">Ação realizada com sucesso!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app-data.js"></script>
+  <script src="guia-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
