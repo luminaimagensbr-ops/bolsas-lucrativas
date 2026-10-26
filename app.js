@@ -9,7 +9,7 @@
   // --- Data Access ---
   const DATA = window.APP_DATA || {};
   const MOLDES = DATA.MOLDES || [];
-  const VIDEOS = DATA.VIDEOS || [];
+  let VIDEOS = DATA.VIDEOS || [];
   const DESTAQUE = DATA.DESTAQUE || [];
   const SUPPLIERS = DATA.SUPPLIERS || [];
   const FOTOS_DICAS = DATA.FOTOS_DICAS || [];
@@ -444,9 +444,41 @@
   // =========================================================================
   // Video Lessons Player & Playlist
   // =========================================================================
+  async function loadVideosFromJson() {
+    try {
+      const response = await fetch('./video_aulas.json');
+      if (response.ok) {
+        const json = await response.json();
+        const list = Array.isArray(json) ? json : (json.aulas || json.videos || json.VIDEOS || []);
+        if (list && list.length > 0) {
+          VIDEOS = list.map((item, idx) => ({
+            yt: item.yt || item.id,
+            id: item.id || item.yt,
+            t: item.t || item.titulo,
+            titulo: item.titulo || item.t,
+            titulo_original: item.titulo_original || '',
+            url_youtube: item.url_youtube || `https://www.youtube.com/watch?v=${item.yt || item.id}`,
+            url_embed: item.url_embed || `https://www.youtube-nocookie.com/embed/${item.yt || item.id}?rel=0&autoplay=1`,
+            thumbnail: item.thumbnail || `https://i.ytimg.com/vi/${item.yt || item.id}/hqdefault.jpg`,
+            numero: item.numero || (idx + 1)
+          }));
+          const currentFilter = DOM.playlistSearch ? DOM.playlistSearch.value.trim().toLowerCase() : '';
+          renderPlaylist(currentFilter);
+          loadVideo(state.currentVideoIdx);
+          updateGlobalCounters();
+          updateHomeProgress();
+          console.log(`[BolsasApp] 50 Videoaulas carregadas e vinculadas de video_aulas.json com sucesso.`);
+        }
+      }
+    } catch (err) {
+      console.log('[BolsasApp] Carregando vídeoaulas do cache local (offline/fallback ativo):', err);
+    }
+  }
+
   function setupVideoLessons() {
     renderPlaylist();
     loadVideo(state.currentVideoIdx);
+    loadVideosFromJson();
 
     if (DOM.playlistSearch) {
       DOM.playlistSearch.addEventListener('input', (e) => {
@@ -458,7 +490,7 @@
       DOM.btnToggleWatched.addEventListener('click', () => {
         const v = VIDEOS[state.currentVideoIdx];
         if (!v) return;
-        const vId = v.yt;
+        const vId = v.yt || v.id;
         const watchedIdx = state.watchedVideos.indexOf(vId);
 
         if (watchedIdx > -1) {
@@ -491,26 +523,29 @@
     if (idx < 0 || idx >= VIDEOS.length) return;
     state.currentVideoIdx = idx;
     const v = VIDEOS[idx];
+    const vidId = v.yt || v.id;
+    const vidTitle = v.t || v.titulo;
 
     if (DOM.mainVideoPlayer) {
-      DOM.mainVideoPlayer.src = `https://www.youtube-nocookie.com/embed/${v.yt}?rel=0&autoplay=1`;
+      DOM.mainVideoPlayer.src = `https://www.youtube-nocookie.com/embed/${vidId}?rel=0&autoplay=1`;
     }
     if (DOM.currentVideoTitle) {
-      DOM.currentVideoTitle.textContent = v.t;
+      DOM.currentVideoTitle.textContent = vidTitle;
     }
     if (DOM.currentVideoIndex) {
       DOM.currentVideoIndex.textContent = `Aula ${idx + 1} de ${VIDEOS.length}`;
     }
 
     updateVideoWatchedUI();
-    renderPlaylist();
+    renderPlaylist(DOM.playlistSearch ? DOM.playlistSearch.value.trim().toLowerCase() : '');
   }
 
   function updateVideoWatchedUI() {
     const v = VIDEOS[state.currentVideoIdx];
     if (!v || !DOM.btnToggleWatched) return;
 
-    const isWatched = state.watchedVideos.includes(v.yt);
+    const vidId = v.yt || v.id;
+    const isWatched = state.watchedVideos.includes(vidId);
     DOM.btnToggleWatched.classList.toggle('watched', isWatched);
     if (DOM.btnWatchedText) {
       DOM.btnWatchedText.textContent = isWatched ? '✓ Aula Concluída' : 'Marcar como Concluída';
@@ -524,19 +559,22 @@
     if (!DOM.playlistContainer) return;
 
     DOM.playlistContainer.innerHTML = VIDEOS.map((v, i) => {
-      if (filterQuery && !v.t.toLowerCase().includes(filterQuery)) {
+      const vidTitle = v.t || v.titulo || '';
+      const vidId = v.yt || v.id;
+      if (filterQuery && !vidTitle.toLowerCase().includes(filterQuery)) {
         return '';
       }
       const isActive = i === state.currentVideoIdx;
-      const isDone = state.watchedVideos.includes(v.yt);
+      const isDone = state.watchedVideos.includes(vidId);
+      const thumbUrl = v.thumbnail || `https://i.ytimg.com/vi/${vidId}/hqdefault.jpg`;
 
       return `
         <div class="playlist-item ${isActive ? 'active' : ''} ${isDone ? 'completed' : ''}" onclick="window.BolsasApp.loadVideo(${i})">
           <div class="pli-thumb">
-            <img src="https://i.ytimg.com/vi/${v.yt}/hqdefault.jpg" alt="${v.t}" loading="lazy" />
+            <img src="${thumbUrl}" alt="${vidTitle}" loading="lazy" />
           </div>
           <div class="pli-info">
-            <div class="pli-title">${i + 1}. ${v.t}</div>
+            <div class="pli-title">${i + 1}. ${vidTitle}</div>
           </div>
           <div class="pli-status">${isDone ? '✓' : ''}</div>
         </div>
@@ -981,6 +1019,8 @@
     openMoldePreview,
     toggleFavorite,
     loadVideo,
+    loadVideosFromJson,
+    getVideos: () => VIDEOS,
     loadGuiaModule,
     toggleMissionItem,
     loadCalcPreset,

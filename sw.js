@@ -1,5 +1,5 @@
 // Bolsas Lucrativas - Service Worker PWA
-const CACHE_NAME = 'bolsas-lucrativas-v1.0';
+const CACHE_NAME = 'bolsas-lucrativas-v1.1';
 
 const PRECACHE_ASSETS = [
   './',
@@ -7,6 +7,7 @@ const PRECACHE_ASSETS = [
   './index.css',
   './app.js',
   './app-data.js',
+  './video_aulas.json',
   './guia-data.js',
   './manifest.json',
   './icons/icon-192.png',
