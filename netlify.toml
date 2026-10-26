@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+
+# Garantir que o Service Worker e JSONs não fiquem presos no cache do Netlify CDN
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/video_aulas.json"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
