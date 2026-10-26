@@ -6,7 +6,7 @@
   "display": "standalone",
   "background_color": "#0a1128",
   "theme_color": "#101d4d",
-  "description": "App oficial do curso Bolsas Lucrativas com 200+ moldes em jeans, 53 videoaulas, guia completo de vendas, calculadora de preços e comunidade.",
+  "description": "App oficial do curso Bolsas Lucrativas com 200+ moldes em jeans, 50 videoaulas, guia completo de vendas, calculadora de preços e comunidade.",
   "orientation": "portrait-primary",
   "lang": "pt-BR",
   "categories": ["education", "lifestyle", "business"],
@@ -41,7 +41,7 @@
     {
       "name": "Videoaulas Práticas",
       "short_name": "Aulas",
-      "description": "Acessar as 53 aulas passo a passo de costura",
+      "description": "Acessar as 50 aulas passo a passo de costura",
       "url": "./index.html?tab=aulas",
       "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
     },

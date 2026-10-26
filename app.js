@@ -941,6 +941,10 @@
     if (countFavs) {
       countFavs.textContent = state.favorites.length;
     }
+    const sideAulas = document.getElementById('side-aulas-count');
+    if (sideAulas) {
+      sideAulas.textContent = VIDEOS.length;
+    }
   }
 
   function updateHomeProgress() {

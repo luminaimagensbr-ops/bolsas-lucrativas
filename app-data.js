@@ -1376,203 +1376,203 @@ window.APP_DATA = {
   "VIDEOS": [
     {
       "yt": "4moD3XiT_bs",
-      "t": "Aula 01 — Como Fazer Enfeites de Natal Delicados com Retalhos Pequenos de Jeans — Costura Relaxante e Upcycling"
+      "t": "Como Fazer Enfeites de Natal Delicados com Retalhos Pequenos de Jeans — Costura Relaxante e Upcycling"
     },
     {
       "yt": "PiKu8FnqRRw",
-      "t": "Aula 02 — Bolsa Transversal Jeans com Bolso Frontal de Aba Feita de Calça Velha"
+      "t": "Bolsa Transversal Jeans com Bolso Frontal de Aba Feita de Calça Velha"
     },
     {
       "yt": "rvvecvmQbTM",
-      "t": "Aula 03 — Mini Carteira Jeans com Divisórias para Cartões a partir de Calça Velha"
+      "t": "Mini Carteira Jeans com Divisórias para Cartões a partir de Calça Velha"
     },
     {
       "yt": "9uGigiE-Kys",
-      "t": "Aula 04 — 4 Ideias com Jeans Usado — Bolsas Lindas e Fáceis de Fazer (Compilação Passo a Passo)"
+      "t": "4 Ideias com Jeans Usado — Bolsas Lindas e Fáceis de Fazer (Compilação Passo a Passo)"
     },
     {
       "yt": "5YTpTFhDXgQ",
-      "t": "Aula 05 — Bolsa de Ombro Casual em Patchwork com Retalhos de Jeans Velho"
+      "t": "Bolsa de Ombro Casual em Patchwork com Retalhos de Jeans Velho"
     },
     {
       "yt": "JOQKKfRjrmw",
-      "t": "Aula 06 — Bolsa de Punho (Wristlet) para Itens Essenciais com Retalhos de Jeans"
+      "t": "Bolsa de Punho (Wristlet) para Itens Essenciais com Retalhos de Jeans"
     },
     {
       "yt": "VUHLohZvn-c",
-      "t": "Aula 07 — Bolsa Tiracolo Transversal Jeans com Bolso Frontal Prático"
+      "t": "Bolsa Tiracolo Transversal Jeans com Bolso Frontal Prático"
     },
     {
       "yt": "pwCX2WksmEY",
-      "t": "Aula 08 — Mini Carteira Sanfonada Jeans com Zíper — Upcycling de Jeans Velho"
+      "t": "Mini Carteira Sanfonada Jeans com Zíper — Upcycling de Jeans Velho"
     },
     {
       "yt": "P-L-Iy1Px74",
-      "t": "Aula 09 — 4 Ideias com Jeans Velho — Bolsas e Carteira Jeans em Patchwork (Compilação)"
+      "t": "4 Ideias com Jeans Velho — Bolsas e Carteira Jeans em Patchwork (Compilação)"
     },
     {
       "yt": "k0tqFlq04Pg",
-      "t": "Aula 10 — Bolsa de Ombro Jeans Redonda Minimalista Sem Zíper"
+      "t": "Bolsa de Ombro Jeans Redonda Minimalista Sem Zíper"
     },
     {
       "yt": "t8ZP63ulXUo",
-      "t": "Aula 11 — Como Emendar Retalhos Pequenos de Jeans para Criar Tecido Grande"
+      "t": "Como Emendar Retalhos Pequenos de Jeans para Criar Tecido Grande"
     },
     {
       "yt": "OwSV52r7zYk",
-      "t": "Aula 12 — Bolsa de Punho com Bolsos Internos para Cartões usando Jeans e Tecido Estampado"
+      "t": "Bolsa de Punho com Bolsos Internos para Cartões usando Jeans e Tecido Estampado"
     },
     {
       "yt": "ETAqxusZkI4",
-      "t": "Aula 13 — Bolsa Transversal Pequena em Patchwork Diagonal com Jeans Usado"
+      "t": "Bolsa Transversal Pequena em Patchwork Diagonal com Jeans Usado"
     },
     {
       "yt": "ET99-_GT-Wc",
-      "t": "Aula 14 — 9 Bolsas Jeans Criativas Feitas com Jeans Usado (Parte 7 — Compilação Rápida)"
+      "t": "9 Bolsas Jeans Criativas Feitas com Jeans Usado (Parte 7 — Compilação Rápida)"
     },
     {
       "yt": "flhiDnaIECA",
-      "t": "Aula 15 — Bolsa Tote Clássica Jeans Inspirada na Trader Joe's com Jeans e Forro"
+      "t": "Bolsa Tote Clássica Jeans Inspirada na Trader Joe's com Jeans e Forro"
     },
     {
       "yt": "lhzytkepEnw",
-      "t": "Aula 16 — Bolsa de Mão / Punho Jeans com Detalhe em Patchwork Geométrico"
+      "t": "Bolsa de Mão / Punho Jeans com Detalhe em Patchwork Geométrico"
     },
     {
       "yt": "iW7DjvBZ0qM",
-      "t": "Aula 17 — 4 Ideias com Jeans Velho — Bolsas e Carteiras Estilosas (Compilação)"
+      "t": "4 Ideias com Jeans Velho — Bolsas e Carteiras Estilosas (Compilação)"
     },
     {
       "yt": "CFXRC0a0_dA",
-      "t": "Aula 18 — Bolsa Transversal Jeans Minimalista para o Dia a Dia com Zíper"
+      "t": "Bolsa Transversal Jeans Minimalista para o Dia a Dia com Zíper"
     },
     {
       "yt": "JyDK4oPI8RQ",
-      "t": "Aula 19 — 6 Modelos de Bolsas Jeans com Tecido Estampado (Compilação Passo a Passo)"
+      "t": "6 Modelos de Bolsas Jeans com Tecido Estampado (Compilação Passo a Passo)"
     },
     {
       "yt": "2-9-iAoej18",
-      "t": "Aula 20 — Bolsa Jeans com Formato Especial em Patchwork usando Retalhos"
+      "t": "Bolsa Jeans com Formato Especial em Patchwork usando Retalhos"
     },
     {
       "yt": "8xXvlNaazwY",
-      "t": "Aula 21 — Bolsa Transversal Jeans com Tamanho Ideal para Tablet / iPad"
+      "t": "Bolsa Transversal Jeans com Tamanho Ideal para Tablet / iPad"
     },
     {
       "yt": "TjZkXnLQ8Fg",
-      "t": "Aula 22 — Coleção de 4 Bolsas Artesanais Incríveis com Jeans e Retalhos"
+      "t": "Coleção de 4 Bolsas Artesanais Incríveis com Jeans e Retalhos"
     },
     {
       "yt": "x-iA9w22eUc",
-      "t": "Aula 23 — Como Fazer Bolsa Nécessaire Grande Quiltada em Patchwork com Retalhos"
+      "t": "Como Fazer Bolsa Nécessaire Grande Quiltada em Patchwork com Retalhos"
     },
     {
       "yt": "6XbNqRcLhVE",
-      "t": "Aula 24 — Carteira Jeans com Velcro, 6 Divisórias de Cartão e Bolso com Zíper"
+      "t": "Carteira Jeans com Velcro, 6 Divisórias de Cartão e Bolso com Zíper"
     },
     {
       "yt": "Kii5pNnECiU",
-      "t": "Aula 25 — Bolsa Porta-Celular Minimalista Jeans Feita de Calça Usada"
+      "t": "Bolsa Porta-Celular Minimalista Jeans Feita de Calça Usada"
     },
     {
       "yt": "AnOypC4bkzQ",
-      "t": "Aula 26 — Bolsa Transversal Jeans com Zíper e Alças Duplas de Mão"
+      "t": "Bolsa Transversal Jeans com Zíper e Alças Duplas de Mão"
     },
     {
       "yt": "_qtb2P5X_Z0",
-      "t": "Aula 27 — Bolsinha Jeans Delicada com Aplique Frontal em Patchwork"
+      "t": "Bolsinha Jeans Delicada com Aplique Frontal em Patchwork"
     },
     {
       "yt": "Zq1IP1F1d4k",
-      "t": "Aula 28 — 4 Ideias com Jeans Usado — Bolsas e Carteiras Femininas (Compilação)"
+      "t": "4 Ideias com Jeans Usado — Bolsas e Carteiras Femininas (Compilação)"
     },
     {
       "yt": "AJKH2GF_eZs",
-      "t": "Aula 29 — Bolsa Transversal Casual em Patchwork Xadrez com Jeans Usado"
+      "t": "Bolsa Transversal Casual em Patchwork Xadrez com Jeans Usado"
     },
     {
       "yt": "YHzcQI4zniw",
-      "t": "Aula 30 — Bolsa Nécessaire Charmosa combinando Tecido Estampado e Jeans"
+      "t": "Bolsa Nécessaire Charmosa combinando Tecido Estampado e Jeans"
     },
     {
       "yt": "PYJJYQC2L1s",
-      "t": "Aula 31 — Bolsinha Fofa de Jeans com Tecido Estampado usando Sobras de Calça"
+      "t": "Bolsinha Fofa de Jeans com Tecido Estampado usando Sobras de Calça"
     },
     {
       "yt": "xWv4bdLtAww",
-      "t": "Aula 32 — Bolsa Transversal em Patchwork com Alças Fixas e Removíveis"
+      "t": "Bolsa Transversal em Patchwork com Alças Fixas e Removíveis"
     },
     {
       "yt": "MbHgsj-xoes",
-      "t": "Aula 33 — 4 Projetos Criativos com Jeans Usado — Bolsas Variadas (Compilação)"
+      "t": "4 Projetos Criativos com Jeans Usado — Bolsas Variadas (Compilação)"
     },
     {
       "yt": "QjfPqQcVJ58",
-      "t": "Aula 34 — Bolsa Nécessaire com Efeito Torcido e Alça de Punho em Jeans"
+      "t": "Bolsa Nécessaire com Efeito Torcido e Alça de Punho em Jeans"
     },
     {
       "yt": "BJ_Bo-fDUg8",
-      "t": "Aula 35 — 3 Bolsas Transversais Feitas com Roupas Antigas e Tecidos Reaproveitados"
+      "t": "3 Bolsas Transversais Feitas com Roupas Antigas e Tecidos Reaproveitados"
     },
     {
       "yt": "dyIoxlcgojU",
-      "t": "Aula 36 — Carteira Longa Sem Zíper em Jeans e Tecido Floral — Muito Fácil"
+      "t": "Carteira Longa Sem Zíper em Jeans e Tecido Floral — Muito Fácil"
     },
     {
       "yt": "zK5vwJnmFtg",
-      "t": "Aula 37 — Bolsa Transversal com Tampa/Aba e Bolso Frontal com Zíper"
+      "t": "Bolsa Transversal com Tampa/Aba e Bolso Frontal com Zíper"
     },
     {
       "yt": "DguttO2AHD8",
-      "t": "Aula 38 — 4 Ideias Fáceis com Jeans e Tecido Estampado (Compilação de Aulas)"
+      "t": "4 Ideias Fáceis com Jeans e Tecido Estampado (Compilação de Aulas)"
     },
     {
       "yt": "PGxNTo68ZgE",
-      "t": "Aula 39 — 9 Bolsas Fáceis de Fazer com Jeans Usado (Parte 6 — Compilação)"
+      "t": "9 Bolsas Fáceis de Fazer com Jeans Usado (Parte 6 — Compilação)"
     },
     {
       "yt": "jfzHiYfPhXU",
-      "t": "Aula 40 — Bolsa de Punho com Patchwork de Jeans e Tecido Estampado"
+      "t": "Bolsa de Punho com Patchwork de Jeans e Tecido Estampado"
     },
     {
       "yt": "g5y6kzpngHI",
-      "t": "Aula 41 — Mini Bolsa / Bolsinha Jeans com Retalhos e Sobras de Tecido"
+      "t": "Mini Bolsa / Bolsinha Jeans com Retalhos e Sobras de Tecido"
     },
     {
       "yt": "r1HwjWDZf78",
-      "t": "Aula 42 — Bolsa Tiracolo Transversal em Patchwork Jeans com Zíper"
+      "t": "Bolsa Tiracolo Transversal em Patchwork Jeans com Zíper"
     },
     {
       "yt": "jmygM0HIQ_U",
-      "t": "Aula 43 — Bolsinha Nécessaire Sem Zíper com Fechamento Prático em Jeans"
+      "t": "Bolsinha Nécessaire Sem Zíper com Fechamento Prático em Jeans"
     },
     {
       "yt": "uCRmvMfoR4k",
-      "t": "Aula 44 — 4 Ideias com Jeans Usado — Bolsas Estilosas e Capa de Almofada"
+      "t": "4 Ideias com Jeans Usado — Bolsas Estilosas e Capa de Almofada"
     },
     {
       "yt": "Qsq8H6B8O-8",
-      "t": "Aula 45 — Carteira Dobrável Pequena em Jeans com Bolso de Zíper para Moedas"
+      "t": "Carteira Dobrável Pequena em Jeans com Bolso de Zíper para Moedas"
     },
     {
       "yt": "CG9JlL1KQws",
-      "t": "Aula 46 — Bolsa Clutch Jeans e Tecido Estampado com 2 Compartimentos de Zíper"
+      "t": "Bolsa Clutch Jeans e Tecido Estampado com 2 Compartimentos de Zíper"
     },
     {
       "yt": "kSb6IMafNhE",
-      "t": "Aula 47 — Bolsa Tiracolo Pequena com Bolso Frontal Prático usando Jeans Usado"
+      "t": "Bolsa Tiracolo Pequena com Bolso Frontal Prático usando Jeans Usado"
     },
     {
       "yt": "OOkSOlGcNBA",
-      "t": "Aula 48 — Bolsa de Punho em Jeans e Tecido Liso com Retalhos de Calça Velha"
+      "t": "Bolsa de Punho em Jeans e Tecido Liso com Retalhos de Calça Velha"
     },
     {
       "yt": "ttATyYAzEa0",
-      "t": "Aula 49 — 4 Ideias com Jeans Velho — Bolsas Modernas e Carteira Compacta"
+      "t": "4 Ideias com Jeans Velho — Bolsas Modernas e Carteira Compacta"
     },
     {
       "yt": "9YufUzIPJhA",
-      "t": "Aula 50 — Bolsa Nécessaire Grande com Alça Lateral em Jeans e Estampa"
+      "t": "Bolsa Nécessaire Grande com Alça Lateral em Jeans e Estampa"
     }
   ],
   "DESTAQUE": [
