@@ -1,0 +1,574 @@
+================================================================================
+                    CURSO BOLSAS LUCRATIVAS — VIDEOAULAS
+        Base de Dados Oficial de Vídeos (@IreHeartCrafting - YouTube)
+                    Total de Aulas Mapeadas: 50 Vídeos
+================================================================================
+
+Instruções de Uso:
+- Cada item abaixo contém o título traduzido para Português, o título original,
+  o link direto do YouTube, o link otimizado para Incorporação (Embed) e o ID do vídeo.
+- No final deste arquivo há o código JavaScript/JSON pronto para colar diretamente
+  no arquivo  para atualizar o player do aplicativo automaticamente.
+
+--------------------------------------------------------------------------------
+                     LISTA SEQUENCIAL DAS 50 VIDEOAULAS
+--------------------------------------------------------------------------------
+
+[AULA 01]
+Título (PT-BR): Como Fazer Enfeites de Natal Delicados com Retalhos Pequenos de Jeans — Costura Relaxante e Upcycling
+Título Original: 🌿 Ways to Make Cute Christmas Ornaments From Small Denim Scraps 🌱 RELAXING SEWING 🍃 Upcycled Craft
+ID do Vídeo:    4moD3XiT_bs
+Link YouTube:   https://www.youtube.com/watch?v=4moD3XiT_bs
+Link Embed:     https://www.youtube-nocookie.com/embed/4moD3XiT_bs?rel=0&autoplay=1
+
+[AULA 02]
+Título (PT-BR): Bolsa Transversal Jeans com Bolso Frontal de Aba Feita de Calça Velha
+Título Original: 🌿 DIY Upcycled Denim Crossbody Bag With Flap Pocket Out of Old Jeans 🌱 Bag Tutorial 🍃 Upcycled Craft
+ID do Vídeo:    PiKu8FnqRRw
+Link YouTube:   https://www.youtube.com/watch?v=PiKu8FnqRRw
+Link Embed:     https://www.youtube-nocookie.com/embed/PiKu8FnqRRw?rel=0&autoplay=1
+
+[AULA 03]
+Título (PT-BR): Mini Carteira Jeans com Divisórias para Cartões a partir de Calça Velha
+Título Original: 🌿 DIY Small Upcycled Denim Wallet With Front Card Slots Out of Old Jeans 🌱 Wallet Tutorial 🍃 Upcycle
+ID do Vídeo:    rvvecvmQbTM
+Link YouTube:   https://www.youtube.com/watch?v=rvvecvmQbTM
+Link Embed:     https://www.youtube-nocookie.com/embed/rvvecvmQbTM?rel=0&autoplay=1
+
+[AULA 04]
+Título (PT-BR): 4 Ideias com Jeans Usado — Bolsas Lindas e Fáceis de Fazer (Compilação Passo a Passo)
+Título Original: ✅ 4 Old Jeans Ideas 🌿 DIY Cute Denim Bags 🌱 Compilation 🪴 Bag Tutorial 🍃 Upcycled Crafts ♻️
+ID do Vídeo:    9uGigiE-Kys
+Link YouTube:   https://www.youtube.com/watch?v=9uGigiE-Kys
+Link Embed:     https://www.youtube-nocookie.com/embed/9uGigiE-Kys?rel=0&autoplay=1
+
+[AULA 05]
+Título (PT-BR): Bolsa de Ombro Casual em Patchwork com Retalhos de Jeans Velho
+Título Original: 🌿 DIY Upcycled Denim Scraps Casual Patchwork  Shoulder Bag From Old Jeans 🌱 Bag Tutorial 🍃
+ID do Vídeo:    5YTpTFhDXgQ
+Link YouTube:   https://www.youtube.com/watch?v=5YTpTFhDXgQ
+Link Embed:     https://www.youtube-nocookie.com/embed/5YTpTFhDXgQ?rel=0&autoplay=1
+
+[AULA 06]
+Título (PT-BR): Bolsa de Punho (Wristlet) para Itens Essenciais com Retalhos de Jeans
+Título Original: 🌿DIY Daily Essentials Upcycled Denim Wristlet Bag Out of Old Jeans Fabric Scraps 🌱 Bag Tutorial 🍃
+ID do Vídeo:    JOQKKfRjrmw
+Link YouTube:   https://www.youtube.com/watch?v=JOQKKfRjrmw
+Link Embed:     https://www.youtube-nocookie.com/embed/JOQKKfRjrmw?rel=0&autoplay=1
+
+[AULA 07]
+Título (PT-BR): Bolsa Tiracolo Transversal Jeans com Bolso Frontal Prático
+Título Original: 🌿 DIY Upcycled Denim Front Pocket Crossbody Bag Out of Old Jeans 🌱 Bag Tutorial 🍃 Upcycled Craft
+ID do Vídeo:    VUHLohZvn-c
+Link YouTube:   https://www.youtube.com/watch?v=VUHLohZvn-c
+Link Embed:     https://www.youtube-nocookie.com/embed/VUHLohZvn-c?rel=0&autoplay=1
+
+[AULA 08]
+Título (PT-BR): Mini Carteira Sanfonada Jeans com Zíper — Upcycling de Jeans Velho
+Título Original: 🌿 DIY Small Denim Accordion Wallet With Zipper 🌱 Upcycling Old Jeans 🍃 Tutorial 🪴
+ID do Vídeo:    pwCX2WksmEY
+Link YouTube:   https://www.youtube.com/watch?v=pwCX2WksmEY
+Link Embed:     https://www.youtube-nocookie.com/embed/pwCX2WksmEY?rel=0&autoplay=1
+
+[AULA 09]
+Título (PT-BR): 4 Ideias com Jeans Velho — Bolsas e Carteira Jeans em Patchwork (Compilação)
+Título Original: ✅ 4 Old Jeans Ideas 🌿DIY Patchwork Denim Bags & Denim Wallet 🌱 Compilation 🪴 Bag Tutorial🍃#upcycling
+ID do Vídeo:    P-L-Iy1Px74
+Link YouTube:   https://www.youtube.com/watch?v=P-L-Iy1Px74
+Link Embed:     https://www.youtube-nocookie.com/embed/P-L-Iy1Px74?rel=0&autoplay=1
+
+[AULA 10]
+Título (PT-BR): Bolsa de Ombro Jeans Redonda Minimalista Sem Zíper
+Título Original: 🌿 DIY Round Minimalist No Zipper Denim Shoulder Bag Out of Old Jeans 🌱 Bag Tutorial 🍃 Upcycled Craft
+ID do Vídeo:    k0tqFlq04Pg
+Link YouTube:   https://www.youtube.com/watch?v=k0tqFlq04Pg
+Link Embed:     https://www.youtube-nocookie.com/embed/k0tqFlq04Pg?rel=0&autoplay=1
+
+[AULA 11]
+Título (PT-BR): Como Emendar Retalhos Pequenos de Jeans para Criar Tecido Grande
+Título Original: 🌿 Ways to  Make Larger Denim Fabric From Small Denim Scraps 🌱 RELAXING SEWING 🍃 Upcycled Craft ♻️
+ID do Vídeo:    t8ZP63ulXUo
+Link YouTube:   https://www.youtube.com/watch?v=t8ZP63ulXUo
+Link Embed:     https://www.youtube-nocookie.com/embed/t8ZP63ulXUo?rel=0&autoplay=1
+
+[AULA 12]
+Título (PT-BR): Bolsa de Punho com Bolsos Internos para Cartões usando Jeans e Tecido Estampado
+Título Original: 🌿How to Make a Cute Wristlet Bag With Inside Card Pockets Out of Denim Scraps and Printed Fabric🌱
+ID do Vídeo:    OwSV52r7zYk
+Link YouTube:   https://www.youtube.com/watch?v=OwSV52r7zYk
+Link Embed:     https://www.youtube-nocookie.com/embed/OwSV52r7zYk?rel=0&autoplay=1
+
+[AULA 13]
+Título (PT-BR): Bolsa Transversal Pequena em Patchwork Diagonal com Jeans Usado
+Título Original: 🌿How to Make a Diagonal Patchwork Small Denim Crossbody Bag Out of Old Jeans 🌱 Bag Tutorial 🍃Upcycle
+ID do Vídeo:    ETAqxusZkI4
+Link YouTube:   https://www.youtube.com/watch?v=ETAqxusZkI4
+Link Embed:     https://www.youtube-nocookie.com/embed/ETAqxusZkI4?rel=0&autoplay=1
+
+[AULA 14]
+Título (PT-BR): 9 Bolsas Jeans Criativas Feitas com Jeans Usado (Parte 7 — Compilação Rápida)
+Título Original: ✅ 9 DIY Cute Denim Bags Out of Old Jeans Part 7 | Compilation | Fast Speed Tutorial | Upcycle Crafts
+ID do Vídeo:    ET99-_GT-Wc
+Link YouTube:   https://www.youtube.com/watch?v=ET99-_GT-Wc
+Link Embed:     https://www.youtube-nocookie.com/embed/ET99-_GT-Wc?rel=0&autoplay=1
+
+[AULA 15]
+Título (PT-BR): Bolsa Tote Clássica Jeans Inspirada na Trader Joe's com Jeans e Forro
+Título Original: 🌿DIY Classic Denim & Plain (Viral Trader Joe's Bag Inspired) Tote Bag From Old Jeans & Old Bedsheet🌱
+ID do Vídeo:    flhiDnaIECA
+Link YouTube:   https://www.youtube.com/watch?v=flhiDnaIECA
+Link Embed:     https://www.youtube-nocookie.com/embed/flhiDnaIECA?rel=0&autoplay=1
+
+[AULA 16]
+Título (PT-BR): Bolsa de Mão / Punho Jeans com Detalhe em Patchwork Geométrico
+Título Original: 🌿Denim Wristlet Bag With Patchwork Accent Tutorial 🌱 Upcycling Old Jeans 🪴 DIY
+ID do Vídeo:    lhzytkepEnw
+Link YouTube:   https://www.youtube.com/watch?v=lhzytkepEnw
+Link Embed:     https://www.youtube-nocookie.com/embed/lhzytkepEnw?rel=0&autoplay=1
+
+[AULA 17]
+Título (PT-BR): 4 Ideias com Jeans Velho — Bolsas e Carteiras Estilosas (Compilação)
+Título Original: ✅ 4 Old Jeans Ideas 🌿  DIY Denim Bags and Wallets 🌱 Compilation ♻️ Upcycled Craft 🪴 Bag Tutorial
+ID do Vídeo:    iW7DjvBZ0qM
+Link YouTube:   https://www.youtube.com/watch?v=iW7DjvBZ0qM
+Link Embed:     https://www.youtube-nocookie.com/embed/iW7DjvBZ0qM?rel=0&autoplay=1
+
+[AULA 18]
+Título (PT-BR): Bolsa Transversal Jeans Minimalista para o Dia a Dia com Zíper
+Título Original: 🌿Make Your Own Bag 🌱 DIY Everyday Minimalist Denim Crossbody Bag With Zipper Out of Old Jeans 🍃
+ID do Vídeo:    CFXRC0a0_dA
+Link YouTube:   https://www.youtube.com/watch?v=CFXRC0a0_dA
+Link Embed:     https://www.youtube-nocookie.com/embed/CFXRC0a0_dA?rel=0&autoplay=1
+
+[AULA 19]
+Título (PT-BR): 6 Modelos de Bolsas Jeans com Tecido Estampado (Compilação Passo a Passo)
+Título Original: ✅6 DIY Cute Denim and Printed Fabric Bags 🌿 Compilation 🌱 Old Jeans Ideas ♻️ Upcycled Crafts
+ID do Vídeo:    JyDK4oPI8RQ
+Link YouTube:   https://www.youtube.com/watch?v=JyDK4oPI8RQ
+Link Embed:     https://www.youtube-nocookie.com/embed/JyDK4oPI8RQ?rel=0&autoplay=1
+
+[AULA 20]
+Título (PT-BR): Bolsa Jeans com Formato Especial em Patchwork usando Retalhos
+Título Original: 🌿Uniquely Shaped Small Denim Patchwork Bag 🌱 Bag Tutorial 🪴 Old Jeans Scraps Idea 🍃 DIY
+ID do Vídeo:    2-9-iAoej18
+Link YouTube:   https://www.youtube.com/watch?v=2-9-iAoej18
+Link Embed:     https://www.youtube-nocookie.com/embed/2-9-iAoej18?rel=0&autoplay=1
+
+[AULA 21]
+Título (PT-BR): Bolsa Transversal Jeans com Tamanho Ideal para Tablet / iPad
+Título Original: DIY Denim Crossbody Bag That Fits a Tablet / iPad From Old Jeans 🩷 Upcycled Craft 🩷 Bag Tutorial
+ID do Vídeo:    8xXvlNaazwY
+Link YouTube:   https://www.youtube.com/watch?v=8xXvlNaazwY
+Link Embed:     https://www.youtube-nocookie.com/embed/8xXvlNaazwY?rel=0&autoplay=1
+
+[AULA 22]
+Título (PT-BR): Coleção de 4 Bolsas Artesanais Incríveis com Jeans e Retalhos
+Título Original: Handcrafted Bag Collection | I Turned Old Jeans and Other Scraps into these 4 Bags
+ID do Vídeo:    TjZkXnLQ8Fg
+Link YouTube:   https://www.youtube.com/watch?v=TjZkXnLQ8Fg
+Link Embed:     https://www.youtube-nocookie.com/embed/TjZkXnLQ8Fg?rel=0&autoplay=1
+
+[AULA 23]
+Título (PT-BR): Como Fazer Bolsa Nécessaire Grande Quiltada em Patchwork com Retalhos
+Título Original: DIY | Turn Small Denim Scraps Into a Large Patchwork Quilted Pouch Bag | Bag Tutorial | #upcycling
+ID do Vídeo:    x-iA9w22eUc
+Link YouTube:   https://www.youtube.com/watch?v=x-iA9w22eUc
+Link Embed:     https://www.youtube-nocookie.com/embed/x-iA9w22eUc?rel=0&autoplay=1
+
+[AULA 24]
+Título (PT-BR): Carteira Jeans com Velcro, 6 Divisórias de Cartão e Bolso com Zíper
+Título Original: DIY Velcro Denim and Plain Fabric Wallet With 6 Card Slots and a Zippered Compartment
+ID do Vídeo:    6XbNqRcLhVE
+Link YouTube:   https://www.youtube.com/watch?v=6XbNqRcLhVE
+Link Embed:     https://www.youtube-nocookie.com/embed/6XbNqRcLhVE?rel=0&autoplay=1
+
+[AULA 25]
+Título (PT-BR): Bolsa Porta-Celular Minimalista Jeans Feita de Calça Usada
+Título Original: Sew Your Own Denim Minimalist Smartphone Bag Easily Out of Old Jeans | Bag Tutorial | DIY | Upcycle
+ID do Vídeo:    Kii5pNnECiU
+Link YouTube:   https://www.youtube.com/watch?v=Kii5pNnECiU
+Link Embed:     https://www.youtube-nocookie.com/embed/Kii5pNnECiU?rel=0&autoplay=1
+
+[AULA 26]
+Título (PT-BR): Bolsa Transversal Jeans com Zíper e Alças Duplas de Mão
+Título Original: DIY Denim Crossbody Bag With Zipper and Handles Out of Old Jeans | Bag Tutorial | Upcycled Craft
+ID do Vídeo:    AnOypC4bkzQ
+Link YouTube:   https://www.youtube.com/watch?v=AnOypC4bkzQ
+Link Embed:     https://www.youtube-nocookie.com/embed/AnOypC4bkzQ?rel=0&autoplay=1
+
+[AULA 27]
+Título (PT-BR): Bolsinha Jeans Delicada com Aplique Frontal em Patchwork
+Título Original: DIY  Small Cute Denim Bag With Patchwork Accent Out of Old Jeans | Bag Tutorial | Upcycled Craft
+ID do Vídeo:    _qtb2P5X_Z0
+Link YouTube:   https://www.youtube.com/watch?v=_qtb2P5X_Z0
+Link Embed:     https://www.youtube-nocookie.com/embed/_qtb2P5X_Z0?rel=0&autoplay=1
+
+[AULA 28]
+Título (PT-BR): 4 Ideias com Jeans Usado — Bolsas e Carteiras Femininas (Compilação)
+Título Original: ✅ 4 Old Jeans Ideas |  DIY Denim Bags and Purse | Compilation | Bag Tutorial | Upcycled Crafts
+ID do Vídeo:    Zq1IP1F1d4k
+Link YouTube:   https://www.youtube.com/watch?v=Zq1IP1F1d4k
+Link Embed:     https://www.youtube-nocookie.com/embed/Zq1IP1F1d4k?rel=0&autoplay=1
+
+[AULA 29]
+Título (PT-BR): Bolsa Transversal Casual em Patchwork Xadrez com Jeans Usado
+Título Original: DIY Casual Checkered Denim Patchwork  Crossbody Bag Out of Old Jeans | Bag Tutorial | Upcycled Craft
+ID do Vídeo:    AJKH2GF_eZs
+Link YouTube:   https://www.youtube.com/watch?v=AJKH2GF_eZs
+Link Embed:     https://www.youtube-nocookie.com/embed/AJKH2GF_eZs?rel=0&autoplay=1
+
+[AULA 30]
+Título (PT-BR): Bolsa Nécessaire Charmosa combinando Tecido Estampado e Jeans
+Título Original: DIY Pretty Printed Fabric and Denim Patchwork Pouch Bag | Old Jeans Idea | Bag Tutorial | Upcycle
+ID do Vídeo:    YHzcQI4zniw
+Link YouTube:   https://www.youtube.com/watch?v=YHzcQI4zniw
+Link Embed:     https://www.youtube-nocookie.com/embed/YHzcQI4zniw?rel=0&autoplay=1
+
+[AULA 31]
+Título (PT-BR): Bolsinha Fofa de Jeans com Tecido Estampado usando Sobras de Calça
+Título Original: DIY Adorable Denim and Printed Fabric Purse Out of Old Jeans Leftover Fabric| Bag Tutorial | Upcycle
+ID do Vídeo:    PYJJYQC2L1s
+Link YouTube:   https://www.youtube.com/watch?v=PYJJYQC2L1s
+Link Embed:     https://www.youtube-nocookie.com/embed/PYJJYQC2L1s?rel=0&autoplay=1
+
+[AULA 32]
+Título (PT-BR): Bolsa Transversal em Patchwork com Alças Fixas e Removíveis
+Título Original: DIY Patchwork Denim Crossbody Bag With Handles Out of Old Jeans Leftover Fabric | Bag Tutorial
+ID do Vídeo:    xWv4bdLtAww
+Link YouTube:   https://www.youtube.com/watch?v=xWv4bdLtAww
+Link Embed:     https://www.youtube-nocookie.com/embed/xWv4bdLtAww?rel=0&autoplay=1
+
+[AULA 33]
+Título (PT-BR): 4 Projetos Criativos com Jeans Usado — Bolsas Variadas (Compilação)
+Título Original: ✅ 4 Old Jeans Ideas | DIY Denim Bags  and Purse | Compilation | Upcycled Crafts | Bag Tutorial
+ID do Vídeo:    MbHgsj-xoes
+Link YouTube:   https://www.youtube.com/watch?v=MbHgsj-xoes
+Link Embed:     https://www.youtube-nocookie.com/embed/MbHgsj-xoes?rel=0&autoplay=1
+
+[AULA 34]
+Título (PT-BR): Bolsa Nécessaire com Efeito Torcido e Alça de Punho em Jeans
+Título Original: DIY Twisted Denim Pouch Bag With Wristlet Out of Old Jeans | Bag Tutorial | Upcycled Craft
+ID do Vídeo:    QjfPqQcVJ58
+Link YouTube:   https://www.youtube.com/watch?v=QjfPqQcVJ58
+Link Embed:     https://www.youtube-nocookie.com/embed/QjfPqQcVJ58?rel=0&autoplay=1
+
+[AULA 35]
+Título (PT-BR): 3 Bolsas Transversais Feitas com Roupas Antigas e Tecidos Reaproveitados
+Título Original: 3 DIY Crossbody Bags Out of Old Clothes and Thrifted Fabric | Bag Tutorial | Compilation | Upcycle
+ID do Vídeo:    BJ_Bo-fDUg8
+Link YouTube:   https://www.youtube.com/watch?v=BJ_Bo-fDUg8
+Link Embed:     https://www.youtube-nocookie.com/embed/BJ_Bo-fDUg8?rel=0&autoplay=1
+
+[AULA 36]
+Título (PT-BR): Carteira Longa Sem Zíper em Jeans e Tecido Floral — Muito Fácil
+Título Original: DIY Simple and Easy No Zipper Floral and Denim Long Wallet | Old Jeans Idea | Upcycle | Tutorial
+ID do Vídeo:    dyIoxlcgojU
+Link YouTube:   https://www.youtube.com/watch?v=dyIoxlcgojU
+Link Embed:     https://www.youtube-nocookie.com/embed/dyIoxlcgojU?rel=0&autoplay=1
+
+[AULA 37]
+Título (PT-BR): Bolsa Transversal com Tampa/Aba e Bolso Frontal com Zíper
+Título Original: DIY Denim Flap Over Crossbody Bag With Zipped Front Pocket Out of Old Jeans | Bag Tutorial | Upcycle
+ID do Vídeo:    zK5vwJnmFtg
+Link YouTube:   https://www.youtube.com/watch?v=zK5vwJnmFtg
+Link Embed:     https://www.youtube-nocookie.com/embed/zK5vwJnmFtg?rel=0&autoplay=1
+
+[AULA 38]
+Título (PT-BR): 4 Ideias Fáceis com Jeans e Tecido Estampado (Compilação de Aulas)
+Título Original: ✅ 4 DIY Cute Denim and Printed Fabric Ideas | Old Jeans Ideas | Compilation | Upcycle Crafts
+ID do Vídeo:    DguttO2AHD8
+Link YouTube:   https://www.youtube.com/watch?v=DguttO2AHD8
+Link Embed:     https://www.youtube-nocookie.com/embed/DguttO2AHD8?rel=0&autoplay=1
+
+[AULA 39]
+Título (PT-BR): 9 Bolsas Fáceis de Fazer com Jeans Usado (Parte 6 — Compilação)
+Título Original: ✅ 9 DIY Cute Denim Bags Out of Old Jeans Part 6 | Compilation | Fast Speed Tutorial | Upcycle Crafts
+ID do Vídeo:    PGxNTo68ZgE
+Link YouTube:   https://www.youtube.com/watch?v=PGxNTo68ZgE
+Link Embed:     https://www.youtube-nocookie.com/embed/PGxNTo68ZgE?rel=0&autoplay=1
+
+[AULA 40]
+Título (PT-BR): Bolsa de Punho com Patchwork de Jeans e Tecido Estampado
+Título Original: DIY Adorable Denim and Printed Fabric Patchwork Wristlet Bag | Bag Tutorial | Old Jeans Idea
+ID do Vídeo:    jfzHiYfPhXU
+Link YouTube:   https://www.youtube.com/watch?v=jfzHiYfPhXU
+Link Embed:     https://www.youtube-nocookie.com/embed/jfzHiYfPhXU?rel=0&autoplay=1
+
+[AULA 41]
+Título (PT-BR): Mini Bolsa / Bolsinha Jeans com Retalhos e Sobras de Tecido
+Título Original: DIY Cute Small Denim Purse Out of Old Jeans Fabric Scraps | Bag Tutorial | Upcycled Craft
+ID do Vídeo:    g5y6kzpngHI
+Link YouTube:   https://www.youtube.com/watch?v=g5y6kzpngHI
+Link Embed:     https://www.youtube-nocookie.com/embed/g5y6kzpngHI?rel=0&autoplay=1
+
+[AULA 42]
+Título (PT-BR): Bolsa Tiracolo Transversal em Patchwork Jeans com Zíper
+Título Original: DIY Denim and Printed Fabric Patchwork Crossbody Bag With Zipper | Old Jeans Idea | Bag Tutorial
+ID do Vídeo:    r1HwjWDZf78
+Link YouTube:   https://www.youtube.com/watch?v=r1HwjWDZf78
+Link Embed:     https://www.youtube-nocookie.com/embed/r1HwjWDZf78?rel=0&autoplay=1
+
+[AULA 43]
+Título (PT-BR): Bolsinha Nécessaire Sem Zíper com Fechamento Prático em Jeans
+Título Original: DIY Cute Old Jeans and Printed Fabric No Zipper Pouch Bag | Bag Tutorial | Upcycled Craft
+ID do Vídeo:    jmygM0HIQ_U
+Link YouTube:   https://www.youtube.com/watch?v=jmygM0HIQ_U
+Link Embed:     https://www.youtube-nocookie.com/embed/jmygM0HIQ_U?rel=0&autoplay=1
+
+[AULA 44]
+Título (PT-BR): 4 Ideias com Jeans Usado — Bolsas Estilosas e Capa de Almofada
+Título Original: ✅ 4 Old Jeans Ideas | DIY Denim Bags and Pillow Cover | Compilation | Upcycled Crafts | Bag Tutorial
+ID do Vídeo:    uCRmvMfoR4k
+Link YouTube:   https://www.youtube.com/watch?v=uCRmvMfoR4k
+Link Embed:     https://www.youtube-nocookie.com/embed/uCRmvMfoR4k?rel=0&autoplay=1
+
+[AULA 45]
+Título (PT-BR): Carteira Dobrável Pequena em Jeans com Bolso de Zíper para Moedas
+Título Original: DIY Small Bifold Denim Wallet With Zippered Pocket | Old Jeans Idea | Upcycled Craft
+ID do Vídeo:    Qsq8H6B8O-8
+Link YouTube:   https://www.youtube.com/watch?v=Qsq8H6B8O-8
+Link Embed:     https://www.youtube-nocookie.com/embed/Qsq8H6B8O-8?rel=0&autoplay=1
+
+[AULA 46]
+Título (PT-BR): Bolsa Clutch Jeans e Tecido Estampado com 2 Compartimentos de Zíper
+Título Original: DIY Denim and Printed Clutch Bag With 2 Zippered Compartments | Bag Tutorial | Upcycled Craft
+ID do Vídeo:    CG9JlL1KQws
+Link YouTube:   https://www.youtube.com/watch?v=CG9JlL1KQws
+Link Embed:     https://www.youtube-nocookie.com/embed/CG9JlL1KQws?rel=0&autoplay=1
+
+[AULA 47]
+Título (PT-BR): Bolsa Tiracolo Pequena com Bolso Frontal Prático usando Jeans Usado
+Título Original: DIY Small Denim Crossbody Bag With Front Pocket Out of Old Jeans | Bag Tutorial | Upcycle Craft
+ID do Vídeo:    kSb6IMafNhE
+Link YouTube:   https://www.youtube.com/watch?v=kSb6IMafNhE
+Link Embed:     https://www.youtube-nocookie.com/embed/kSb6IMafNhE?rel=0&autoplay=1
+
+[AULA 48]
+Título (PT-BR): Bolsa de Punho em Jeans e Tecido Liso com Retalhos de Calça Velha
+Título Original: DIY Denim and Plain Wristlet Bag Out of Old Jeans' Leftover Fabric | Upcycled Craft | Bag Tutorial
+ID do Vídeo:    OOkSOlGcNBA
+Link YouTube:   https://www.youtube.com/watch?v=OOkSOlGcNBA
+Link Embed:     https://www.youtube-nocookie.com/embed/OOkSOlGcNBA?rel=0&autoplay=1
+
+[AULA 49]
+Título (PT-BR): 4 Ideias com Jeans Velho — Bolsas Modernas e Carteira Compacta
+Título Original: ✅4 Old Jeans Ideas | DIY Denim Bags and Wallet | Compilation | Upcycled Crafts | Bag Tutorial
+ID do Vídeo:    ttATyYAzEa0
+Link YouTube:   https://www.youtube.com/watch?v=ttATyYAzEa0
+Link Embed:     https://www.youtube-nocookie.com/embed/ttATyYAzEa0?rel=0&autoplay=1
+
+[AULA 50]
+Título (PT-BR): Bolsa Nécessaire Grande com Alça Lateral em Jeans e Estampa
+Título Original: DIY Cute Printed and Denim Large Pouch Bag With Handle | Old Jeans Idea | Bag Tutorial
+ID do Vídeo:    9YufUzIPJhA
+Link YouTube:   https://www.youtube.com/watch?v=9YufUzIPJhA
+Link Embed:     https://www.youtube-nocookie.com/embed/9YufUzIPJhA?rel=0&autoplay=1
+
+--------------------------------------------------------------------------------
+         FORMATO JAVASCRIPT / JSON PRONTO PARA O app-data.js
+--------------------------------------------------------------------------------
+
+  "VIDEOS": [
+    {
+      "yt": "4moD3XiT_bs",
+      "t": "Aula 01 — Como Fazer Enfeites de Natal Delicados com Retalhos Pequenos de Jeans — Costura Relaxante e Upcycling"
+    },
+    {
+      "yt": "PiKu8FnqRRw",
+      "t": "Aula 02 — Bolsa Transversal Jeans com Bolso Frontal de Aba Feita de Calça Velha"
+    },
+    {
+      "yt": "rvvecvmQbTM",
+      "t": "Aula 03 — Mini Carteira Jeans com Divisórias para Cartões a partir de Calça Velha"
+    },
+    {
+      "yt": "9uGigiE-Kys",
+      "t": "Aula 04 — 4 Ideias com Jeans Usado — Bolsas Lindas e Fáceis de Fazer (Compilação Passo a Passo)"
+    },
+    {
+      "yt": "5YTpTFhDXgQ",
+      "t": "Aula 05 — Bolsa de Ombro Casual em Patchwork com Retalhos de Jeans Velho"
+    },
+    {
+      "yt": "JOQKKfRjrmw",
+      "t": "Aula 06 — Bolsa de Punho (Wristlet) para Itens Essenciais com Retalhos de Jeans"
+    },
+    {
+      "yt": "VUHLohZvn-c",
+      "t": "Aula 07 — Bolsa Tiracolo Transversal Jeans com Bolso Frontal Prático"
+    },
+    {
+      "yt": "pwCX2WksmEY",
+      "t": "Aula 08 — Mini Carteira Sanfonada Jeans com Zíper — Upcycling de Jeans Velho"
+    },
+    {
+      "yt": "P-L-Iy1Px74",
+      "t": "Aula 09 — 4 Ideias com Jeans Velho — Bolsas e Carteira Jeans em Patchwork (Compilação)"
+    },
+    {
+      "yt": "k0tqFlq04Pg",
+      "t": "Aula 10 — Bolsa de Ombro Jeans Redonda Minimalista Sem Zíper"
+    },
+    {
+      "yt": "t8ZP63ulXUo",
+      "t": "Aula 11 — Como Emendar Retalhos Pequenos de Jeans para Criar Tecido Grande"
+    },
+    {
+      "yt": "OwSV52r7zYk",
+      "t": "Aula 12 — Bolsa de Punho com Bolsos Internos para Cartões usando Jeans e Tecido Estampado"
+    },
+    {
+      "yt": "ETAqxusZkI4",
+      "t": "Aula 13 — Bolsa Transversal Pequena em Patchwork Diagonal com Jeans Usado"
+    },
+    {
+      "yt": "ET99-_GT-Wc",
+      "t": "Aula 14 — 9 Bolsas Jeans Criativas Feitas com Jeans Usado (Parte 7 — Compilação Rápida)"
+    },
+    {
+      "yt": "flhiDnaIECA",
+      "t": "Aula 15 — Bolsa Tote Clássica Jeans Inspirada na Trader Joe's com Jeans e Forro"
+    },
+    {
+      "yt": "lhzytkepEnw",
+      "t": "Aula 16 — Bolsa de Mão / Punho Jeans com Detalhe em Patchwork Geométrico"
+    },
+    {
+      "yt": "iW7DjvBZ0qM",
+      "t": "Aula 17 — 4 Ideias com Jeans Velho — Bolsas e Carteiras Estilosas (Compilação)"
+    },
+    {
+      "yt": "CFXRC0a0_dA",
+      "t": "Aula 18 — Bolsa Transversal Jeans Minimalista para o Dia a Dia com Zíper"
+    },
+    {
+      "yt": "JyDK4oPI8RQ",
+      "t": "Aula 19 — 6 Modelos de Bolsas Jeans com Tecido Estampado (Compilação Passo a Passo)"
+    },
+    {
+      "yt": "2-9-iAoej18",
+      "t": "Aula 20 — Bolsa Jeans com Formato Especial em Patchwork usando Retalhos"
+    },
+    {
+      "yt": "8xXvlNaazwY",
+      "t": "Aula 21 — Bolsa Transversal Jeans com Tamanho Ideal para Tablet / iPad"
+    },
+    {
+      "yt": "TjZkXnLQ8Fg",
+      "t": "Aula 22 — Coleção de 4 Bolsas Artesanais Incríveis com Jeans e Retalhos"
+    },
+    {
+      "yt": "x-iA9w22eUc",
+      "t": "Aula 23 — Como Fazer Bolsa Nécessaire Grande Quiltada em Patchwork com Retalhos"
+    },
+    {
+      "yt": "6XbNqRcLhVE",
+      "t": "Aula 24 — Carteira Jeans com Velcro, 6 Divisórias de Cartão e Bolso com Zíper"
+    },
+    {
+      "yt": "Kii5pNnECiU",
+      "t": "Aula 25 — Bolsa Porta-Celular Minimalista Jeans Feita de Calça Usada"
+    },
+    {
+      "yt": "AnOypC4bkzQ",
+      "t": "Aula 26 — Bolsa Transversal Jeans com Zíper e Alças Duplas de Mão"
+    },
+    {
+      "yt": "_qtb2P5X_Z0",
+      "t": "Aula 27 — Bolsinha Jeans Delicada com Aplique Frontal em Patchwork"
+    },
+    {
+      "yt": "Zq1IP1F1d4k",
+      "t": "Aula 28 — 4 Ideias com Jeans Usado — Bolsas e Carteiras Femininas (Compilação)"
+    },
+    {
+      "yt": "AJKH2GF_eZs",
+      "t": "Aula 29 — Bolsa Transversal Casual em Patchwork Xadrez com Jeans Usado"
+    },
+    {
+      "yt": "YHzcQI4zniw",
+      "t": "Aula 30 — Bolsa Nécessaire Charmosa combinando Tecido Estampado e Jeans"
+    },
+    {
+      "yt": "PYJJYQC2L1s",
+      "t": "Aula 31 — Bolsinha Fofa de Jeans com Tecido Estampado usando Sobras de Calça"
+    },
+    {
+      "yt": "xWv4bdLtAww",
+      "t": "Aula 32 — Bolsa Transversal em Patchwork com Alças Fixas e Removíveis"
+    },
+    {
+      "yt": "MbHgsj-xoes",
+      "t": "Aula 33 — 4 Projetos Criativos com Jeans Usado — Bolsas Variadas (Compilação)"
+    },
+    {
+      "yt": "QjfPqQcVJ58",
+      "t": "Aula 34 — Bolsa Nécessaire com Efeito Torcido e Alça de Punho em Jeans"
+    },
+    {
+      "yt": "BJ_Bo-fDUg8",
+      "t": "Aula 35 — 3 Bolsas Transversais Feitas com Roupas Antigas e Tecidos Reaproveitados"
+    },
+    {
+      "yt": "dyIoxlcgojU",
+      "t": "Aula 36 — Carteira Longa Sem Zíper em Jeans e Tecido Floral — Muito Fácil"
+    },
+    {
+      "yt": "zK5vwJnmFtg",
+      "t": "Aula 37 — Bolsa Transversal com Tampa/Aba e Bolso Frontal com Zíper"
+    },
+    {
+      "yt": "DguttO2AHD8",
+      "t": "Aula 38 — 4 Ideias Fáceis com Jeans e Tecido Estampado (Compilação de Aulas)"
+    },
+    {
+      "yt": "PGxNTo68ZgE",
+      "t": "Aula 39 — 9 Bolsas Fáceis de Fazer com Jeans Usado (Parte 6 — Compilação)"
+    },
+    {
+      "yt": "jfzHiYfPhXU",
+      "t": "Aula 40 — Bolsa de Punho com Patchwork de Jeans e Tecido Estampado"
+    },
+    {
+      "yt": "g5y6kzpngHI",
+      "t": "Aula 41 — Mini Bolsa / Bolsinha Jeans com Retalhos e Sobras de Tecido"
+    },
+    {
+      "yt": "r1HwjWDZf78",
+      "t": "Aula 42 — Bolsa Tiracolo Transversal em Patchwork Jeans com Zíper"
+    },
+    {
+      "yt": "jmygM0HIQ_U",
+      "t": "Aula 43 — Bolsinha Nécessaire Sem Zíper com Fechamento Prático em Jeans"
+    },
+    {
+      "yt": "uCRmvMfoR4k",
+      "t": "Aula 44 — 4 Ideias com Jeans Usado — Bolsas Estilosas e Capa de Almofada"
+    },
+    {
+      "yt": "Qsq8H6B8O-8",
+      "t": "Aula 45 — Carteira Dobrável Pequena em Jeans com Bolso de Zíper para Moedas"
+    },
+    {
+      "yt": "CG9JlL1KQws",
+      "t": "Aula 46 — Bolsa Clutch Jeans e Tecido Estampado com 2 Compartimentos de Zíper"
+    },
+    {
+      "yt": "kSb6IMafNhE",
+      "t": "Aula 47 — Bolsa Tiracolo Pequena com Bolso Frontal Prático usando Jeans Usado"
+    },
+    {
+      "yt": "OOkSOlGcNBA",
+      "t": "Aula 48 — Bolsa de Punho em Jeans e Tecido Liso com Retalhos de Calça Velha"
+    },
+    {
+      "yt": "ttATyYAzEa0",
+      "t": "Aula 49 — 4 Ideias com Jeans Velho — Bolsas Modernas e Carteira Compacta"
+    },
+    {
+      "yt": "9YufUzIPJhA",
+      "t": "Aula 50 — Bolsa Nécessaire Grande com Alça Lateral em Jeans e Estampa"
+    }
+  ]
+
+================================================================================

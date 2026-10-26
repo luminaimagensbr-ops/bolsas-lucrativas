@@ -1375,216 +1375,204 @@ window.APP_DATA = {
   ],
   "VIDEOS": [
     {
+      "yt": "4moD3XiT_bs",
+      "t": "Aula 01 — Como Fazer Enfeites de Natal Delicados com Retalhos Pequenos de Jeans — Costura Relaxante e Upcycling"
+    },
+    {
+      "yt": "PiKu8FnqRRw",
+      "t": "Aula 02 — Bolsa Transversal Jeans com Bolso Frontal de Aba Feita de Calça Velha"
+    },
+    {
+      "yt": "rvvecvmQbTM",
+      "t": "Aula 03 — Mini Carteira Jeans com Divisórias para Cartões a partir de Calça Velha"
+    },
+    {
+      "yt": "9uGigiE-Kys",
+      "t": "Aula 04 — 4 Ideias com Jeans Usado — Bolsas Lindas e Fáceis de Fazer (Compilação Passo a Passo)"
+    },
+    {
+      "yt": "5YTpTFhDXgQ",
+      "t": "Aula 05 — Bolsa de Ombro Casual em Patchwork com Retalhos de Jeans Velho"
+    },
+    {
+      "yt": "JOQKKfRjrmw",
+      "t": "Aula 06 — Bolsa de Punho (Wristlet) para Itens Essenciais com Retalhos de Jeans"
+    },
+    {
+      "yt": "VUHLohZvn-c",
+      "t": "Aula 07 — Bolsa Tiracolo Transversal Jeans com Bolso Frontal Prático"
+    },
+    {
       "yt": "pwCX2WksmEY",
-      "t": "🌿 DIY Small Denim Accordion Wallet With Zipper — Upcycling Old Jeans (Tutorial)"
+      "t": "Aula 08 — Mini Carteira Sanfonada Jeans com Zíper — Upcycling de Jeans Velho"
     },
     {
       "yt": "P-L-Iy1Px74",
-      "t": "✅ 4 Old Jeans Ideas — DIY Patchwork Denim Bags & Denim Wallet (Compilation)"
+      "t": "Aula 09 — 4 Ideias com Jeans Velho — Bolsas e Carteira Jeans em Patchwork (Compilação)"
     },
     {
       "yt": "k0tqFlq04Pg",
-      "t": "🌿 DIY Round Minimalist No-Zipper Denim Shoulder Bag Out of Old Jeans (Bag Tutorial)"
+      "t": "Aula 10 — Bolsa de Ombro Jeans Redonda Minimalista Sem Zíper"
     },
     {
       "yt": "t8ZP63ulXUo",
-      "t": "🌿 Ways to Make Larger Denim Fabric From Small Denim Scraps — Relaxing Sewing ♻️"
+      "t": "Aula 11 — Como Emendar Retalhos Pequenos de Jeans para Criar Tecido Grande"
     },
     {
       "yt": "OwSV52r7zYk",
-      "t": "🌿 How to Make a Cute Wristlet Bag With Inside Card Pockets Out of Denim Scraps"
+      "t": "Aula 12 — Bolsa de Punho com Bolsos Internos para Cartões usando Jeans e Tecido Estampado"
     },
     {
       "yt": "ETAqxusZkI4",
-      "t": "🌿 How to Make a Diagonal Patchwork Small Denim Crossbody Bag Out of Old Jeans"
+      "t": "Aula 13 — Bolsa Transversal Pequena em Patchwork Diagonal com Jeans Usado"
     },
     {
       "yt": "ET99-_GT-Wc",
-      "t": "✅ 9 DIY Cute Denim Bags Out of Old Jeans (Part 7) — Compilation | Fast Tutorial"
+      "t": "Aula 14 — 9 Bolsas Jeans Criativas Feitas com Jeans Usado (Parte 7 — Compilação Rápida)"
     },
     {
       "yt": "flhiDnaIECA",
-      "t": "🌿 DIY Classic Denim & Plain (Trader Joe's Bag Inspired) Tote Bag From Old Jeans"
+      "t": "Aula 15 — Bolsa Tote Clássica Jeans Inspirada na Trader Joe's com Jeans e Forro"
     },
     {
       "yt": "lhzytkepEnw",
-      "t": "🌿 Denim Wristlet Bag With Patchwork Accent Tutorial — Upcycling Old Jeans"
+      "t": "Aula 16 — Bolsa de Mão / Punho Jeans com Detalhe em Patchwork Geométrico"
     },
     {
       "yt": "iW7DjvBZ0qM",
-      "t": "✅ 4 Old Jeans Ideas — DIY Denim Bags and Wallets (Compilation) ♻️"
+      "t": "Aula 17 — 4 Ideias com Jeans Velho — Bolsas e Carteiras Estilosas (Compilação)"
     },
     {
       "yt": "CFXRC0a0_dA",
-      "t": "🌿 Make Your Own Bag — DIY Everyday Minimalist Denim Crossbody Bag With Zipper"
+      "t": "Aula 18 — Bolsa Transversal Jeans Minimalista para o Dia a Dia com Zíper"
     },
     {
       "yt": "JyDK4oPI8RQ",
-      "t": "✅ 6 DIY Cute Denim and Printed Fabric Bags — Compilation | Old Jeans Ideas ♻️"
+      "t": "Aula 19 — 6 Modelos de Bolsas Jeans com Tecido Estampado (Compilação Passo a Passo)"
     },
     {
       "yt": "2-9-iAoej18",
-      "t": "🌿 Uniquely Shaped Small Denim Patchwork Bag — Bag Tutorial | Old Jeans Scraps Idea"
+      "t": "Aula 20 — Bolsa Jeans com Formato Especial em Patchwork usando Retalhos"
     },
     {
       "yt": "8xXvlNaazwY",
-      "t": "DIY Denim Crossbody Bag That Fits a Tablet / iPad From Old Jeans — Bag Tutorial"
+      "t": "Aula 21 — Bolsa Transversal Jeans com Tamanho Ideal para Tablet / iPad"
     },
     {
       "yt": "TjZkXnLQ8Fg",
-      "t": "Handcrafted Bag Collection — I Turned Old Jeans and Scraps Into These 4 Bags"
+      "t": "Aula 22 — Coleção de 4 Bolsas Artesanais Incríveis com Jeans e Retalhos"
     },
     {
       "yt": "x-iA9w22eUc",
-      "t": "DIY — Turn Small Denim Scraps Into a Large Patchwork Quilted Pouch Bag"
+      "t": "Aula 23 — Como Fazer Bolsa Nécessaire Grande Quiltada em Patchwork com Retalhos"
     },
     {
       "yt": "6XbNqRcLhVE",
-      "t": "DIY Velcro Denim and Plain Fabric Wallet With 6 Card Slots and a Zippered Pocket"
+      "t": "Aula 24 — Carteira Jeans com Velcro, 6 Divisórias de Cartão e Bolso com Zíper"
     },
     {
       "yt": "Kii5pNnECiU",
-      "t": "Sew Your Own Denim Minimalist Smartphone Bag Easily Out of Old Jeans"
+      "t": "Aula 25 — Bolsa Porta-Celular Minimalista Jeans Feita de Calça Usada"
     },
     {
       "yt": "AnOypC4bkzQ",
-      "t": "DIY Denim Crossbody Bag With Zipper and Handles Out of Old Jeans — Bag Tutorial"
+      "t": "Aula 26 — Bolsa Transversal Jeans com Zíper e Alças Duplas de Mão"
     },
     {
       "yt": "_qtb2P5X_Z0",
-      "t": "DIY Small Cute Denim Bag With Patchwork Accent Out of Old Jeans — Bag Tutorial"
+      "t": "Aula 27 — Bolsinha Jeans Delicada com Aplique Frontal em Patchwork"
     },
     {
       "yt": "Zq1IP1F1d4k",
-      "t": "✅ 4 Old Jeans Ideas — DIY Denim Bags and Purse (Compilation)"
+      "t": "Aula 28 — 4 Ideias com Jeans Usado — Bolsas e Carteiras Femininas (Compilação)"
     },
     {
       "yt": "AJKH2GF_eZs",
-      "t": "DIY Casual Checkered Denim Patchwork Crossbody Bag Out of Old Jeans"
+      "t": "Aula 29 — Bolsa Transversal Casual em Patchwork Xadrez com Jeans Usado"
     },
     {
       "yt": "YHzcQI4zniw",
-      "t": "DIY Pretty Printed Fabric and Denim Patchwork Pouch Bag — Old Jeans Idea"
+      "t": "Aula 30 — Bolsa Nécessaire Charmosa combinando Tecido Estampado e Jeans"
     },
     {
       "yt": "PYJJYQC2L1s",
-      "t": "DIY Adorable Denim and Printed Fabric Purse Out of Old Jeans Leftover Fabric"
+      "t": "Aula 31 — Bolsinha Fofa de Jeans com Tecido Estampado usando Sobras de Calça"
     },
     {
       "yt": "xWv4bdLtAww",
-      "t": "DIY Patchwork Denim Crossbody Bag With Handles Out of Old Jeans Leftover Fabric"
+      "t": "Aula 32 — Bolsa Transversal em Patchwork com Alças Fixas e Removíveis"
     },
     {
-      "n": "01",
-      "id": "1MHfWrw8u4WCxNOGce9j8kZ_aGUU1KA-W"
+      "yt": "MbHgsj-xoes",
+      "t": "Aula 33 — 4 Projetos Criativos com Jeans Usado — Bolsas Variadas (Compilação)"
     },
     {
-      "n": "02",
-      "id": "1JZEXUUGhQn7m1K4sA0p7K8jMYDQ38PBa"
+      "yt": "QjfPqQcVJ58",
+      "t": "Aula 34 — Bolsa Nécessaire com Efeito Torcido e Alça de Punho em Jeans"
     },
     {
-      "n": "03",
-      "id": "1Wood5RCc1EWAlYks_0Yw2IjMbX9Uz5F8"
+      "yt": "BJ_Bo-fDUg8",
+      "t": "Aula 35 — 3 Bolsas Transversais Feitas com Roupas Antigas e Tecidos Reaproveitados"
     },
     {
-      "n": "04",
-      "id": "1dQqC6_mSasP6yaUaCjk17wa3rcu4fqis"
+      "yt": "dyIoxlcgojU",
+      "t": "Aula 36 — Carteira Longa Sem Zíper em Jeans e Tecido Floral — Muito Fácil"
     },
     {
-      "n": "05",
-      "id": "17HEt-8sJzVfBpZXTh-zem6ikd9ZAyILg"
+      "yt": "zK5vwJnmFtg",
+      "t": "Aula 37 — Bolsa Transversal com Tampa/Aba e Bolso Frontal com Zíper"
     },
     {
-      "n": "06",
-      "id": "1gypu_TTjUjAJ42UODYoYcLblCnKo1l0L"
+      "yt": "DguttO2AHD8",
+      "t": "Aula 38 — 4 Ideias Fáceis com Jeans e Tecido Estampado (Compilação de Aulas)"
     },
     {
-      "n": "07",
-      "id": "16MvwZjCbK7k7CHs_5fqFPGRKVFL9v5FU"
+      "yt": "PGxNTo68ZgE",
+      "t": "Aula 39 — 9 Bolsas Fáceis de Fazer com Jeans Usado (Parte 6 — Compilação)"
     },
     {
-      "n": "08",
-      "id": "1a37nVwBKwsziqjCzGyjlwQKrccHb8cIv"
+      "yt": "jfzHiYfPhXU",
+      "t": "Aula 40 — Bolsa de Punho com Patchwork de Jeans e Tecido Estampado"
     },
     {
-      "n": "09",
-      "id": "1vEmHwjHPgmmBJrLN7ZZ-LadiOg7I7oO2"
+      "yt": "g5y6kzpngHI",
+      "t": "Aula 41 — Mini Bolsa / Bolsinha Jeans com Retalhos e Sobras de Tecido"
     },
     {
-      "n": "10",
-      "id": "1172e8ZfZydW2jSLiFOVmnwOozfa03T_y"
+      "yt": "r1HwjWDZf78",
+      "t": "Aula 42 — Bolsa Tiracolo Transversal em Patchwork Jeans com Zíper"
     },
     {
-      "n": "11",
-      "id": "1_Mc7wMy7jnce89LCS1yrAHKC-LLolQDa"
+      "yt": "jmygM0HIQ_U",
+      "t": "Aula 43 — Bolsinha Nécessaire Sem Zíper com Fechamento Prático em Jeans"
     },
     {
-      "n": "12",
-      "id": "16La-L781vw-iZPqW94tOCDO-P3vWXVI2"
+      "yt": "uCRmvMfoR4k",
+      "t": "Aula 44 — 4 Ideias com Jeans Usado — Bolsas Estilosas e Capa de Almofada"
     },
     {
-      "n": "13",
-      "id": "1E1kIPXzL9KKT4eTjPqYpZ0RpJP_oYby_"
+      "yt": "Qsq8H6B8O-8",
+      "t": "Aula 45 — Carteira Dobrável Pequena em Jeans com Bolso de Zíper para Moedas"
     },
     {
-      "n": "14",
-      "id": "1iTMxJoyO7VaN1vOybllMXhM95UnqXlu3"
+      "yt": "CG9JlL1KQws",
+      "t": "Aula 46 — Bolsa Clutch Jeans e Tecido Estampado com 2 Compartimentos de Zíper"
     },
     {
-      "n": "15",
-      "id": "1aKJivo8CtI7V_FsohqPWMJG-bxkFGE_J"
+      "yt": "kSb6IMafNhE",
+      "t": "Aula 47 — Bolsa Tiracolo Pequena com Bolso Frontal Prático usando Jeans Usado"
     },
     {
-      "n": "16",
-      "id": "1NVc4wfHgrEz89W6Pxik-A536W0UBKTaw"
+      "yt": "OOkSOlGcNBA",
+      "t": "Aula 48 — Bolsa de Punho em Jeans e Tecido Liso com Retalhos de Calça Velha"
     },
     {
-      "n": "17",
-      "id": "1014b0fsYG6FX52dJpVMCf7YY0NZTyU7h"
+      "yt": "ttATyYAzEa0",
+      "t": "Aula 49 — 4 Ideias com Jeans Velho — Bolsas Modernas e Carteira Compacta"
     },
     {
-      "n": "18",
-      "id": "1qhnOg54UiOIuxnOJq3rMYNDZ_mbkz0Bd"
-    },
-    {
-      "n": "19",
-      "id": "1I752GFwUaGcglQh5XP_JckXjbzIQNjGf"
-    },
-    {
-      "n": "20",
-      "id": "1ymuzB3_BUXps3_8nCgOyi1PJx2PNL0c1"
-    },
-    {
-      "n": "21",
-      "id": "1FUfD1HI8Qz92O1OUsBpqc4e65oZkbQU4"
-    },
-    {
-      "n": "22",
-      "id": "11XdFvBGQrmqqwpXKGsUcHzuIcECZI8MJ"
-    },
-    {
-      "n": "23",
-      "id": "1p4OqL3x4EuwSFivIdxFxFTFa8nvIkyGQ"
-    },
-    {
-      "n": "24",
-      "id": "1reyzxXHZD-gaK-OnSa8FyMLOngSxKq73"
-    },
-    {
-      "n": "25",
-      "id": "12Wy3MsjVMLW_2-HKtqXDoZSeRzvXcDWP"
-    },
-    {
-      "n": "26",
-      "id": "1h1aqTmby7VAgas2P0O6qBZW1V4KWXbUr"
-    },
-    {
-      "n": "27",
-      "id": "1rS5MBsJGYv8yppsYvmre7l_ncZu_hF61"
-    },
-    {
-      "n": "28",
-      "id": "1WyH03Mt9nGzHlri1L9tW8w_nHeQ2d1bd"
+      "yt": "9YufUzIPJhA",
+      "t": "Aula 50 — Bolsa Nécessaire Grande com Alça Lateral em Jeans e Estampa"
     }
   ],
   "DESTAQUE": [
