@@ -435,6 +435,13 @@ img {
   transition: transform 0.2s ease;
 }
 
+@media all and (display-mode: standalone), all and (display-mode: fullscreen) {
+  #btnInstallPwa,
+  .pwa-btn-header {
+    display: none !important;
+  }
+}
+
 .pwa-btn-header:hover {
   transform: translateY(-2px);
 }

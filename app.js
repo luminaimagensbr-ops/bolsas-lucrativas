@@ -177,8 +177,39 @@
     }
   }
 
+  function isPwaInstalled() {
+    return window.matchMedia('(display-mode: standalone)').matches ||
+           window.matchMedia('(display-mode: fullscreen)').matches ||
+           window.navigator.standalone === true ||
+           document.referrer.includes('android-app://') ||
+           localStorage.getItem('pwa_installed') === 'true';
+  }
+
+  function hideInstallButton() {
+    if (DOM.btnInstallPwa) {
+      DOM.btnInstallPwa.style.setProperty('display', 'none', 'important');
+    }
+  }
+
   function setupPwaInstall() {
+    // If running as an installed PWA on mobile or desktop, immediately hide the button
+    if (isPwaInstalled()) {
+      hideInstallButton();
+      return;
+    }
+
+    // Fired by Chrome/Android when the app has been successfully installed
+    window.addEventListener('appinstalled', () => {
+      localStorage.setItem('pwa_installed', 'true');
+      hideInstallButton();
+      showToast('Parabéns! Aplicativo instalado.', '🎉');
+    });
+
     window.addEventListener('beforeinstallprompt', (e) => {
+      if (isPwaInstalled()) {
+        hideInstallButton();
+        return;
+      }
       e.preventDefault();
       state.deferredInstallPrompt = e;
       if (DOM.btnInstallPwa) {
@@ -193,6 +224,8 @@
           state.deferredInstallPrompt.prompt();
           state.deferredInstallPrompt.userChoice.then((choiceResult) => {
             if (choiceResult.outcome === 'accepted') {
+              localStorage.setItem('pwa_installed', 'true');
+              hideInstallButton();
               showToast('Parabéns! Aplicativo instalado.', '🎉');
             }
             state.deferredInstallPrompt = null;
@@ -206,7 +239,13 @@
     }
 
     if (DOM.btnCloseIosModal) DOM.btnCloseIosModal.addEventListener('click', () => DOM.iosModal.classList.remove('active'));
-    if (DOM.btnConfirmIosModal) DOM.btnConfirmIosModal.addEventListener('click', () => DOM.iosModal.classList.remove('active'));
+    if (DOM.btnConfirmIosModal) {
+      DOM.btnConfirmIosModal.addEventListener('click', () => {
+        DOM.iosModal.classList.remove('active');
+        localStorage.setItem('pwa_installed', 'true');
+        hideInstallButton();
+      });
+    }
   }
 
   // =========================================================================
