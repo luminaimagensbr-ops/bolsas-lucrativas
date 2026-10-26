@@ -85,6 +85,9 @@
     mainVideoPlayer: document.getElementById('mainVideoPlayer'),
     currentVideoTitle: document.getElementById('currentVideoTitle'),
     currentVideoIndex: document.getElementById('currentVideoIndex'),
+    ptsLessonIndex: document.getElementById('ptsLessonIndex'),
+    ptsVideoTitle: document.getElementById('ptsVideoTitle'),
+    btnShieldFullscreen: document.getElementById('btnShieldFullscreen'),
     playlistContainer: document.getElementById('playlistContainer'),
     playlistSearch: document.getElementById('playlistSearchInput'),
     btnToggleWatched: document.getElementById('btnToggleWatched'),
@@ -521,7 +524,8 @@
     const playerTopShield = document.getElementById('playerTopShield');
     if (playerTopShield && DOM.mainVideoPlayer) {
       let isPlaying = false;
-      playerTopShield.addEventListener('click', () => {
+      playerTopShield.addEventListener('click', (e) => {
+        if (e.target.closest('button')) return;
         isPlaying = !isPlaying;
         const cmd = isPlaying ? 'playVideo' : 'pauseVideo';
         try {
@@ -532,6 +536,32 @@
           }), '*');
         } catch (_) {}
       });
+    }
+
+    const btnShieldFs = document.getElementById('btnShieldFullscreen');
+    if (btnShieldFs) {
+      btnShieldFs.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleCinemaFullscreen();
+      });
+    }
+  }
+
+  function toggleCinemaFullscreen() {
+    const box = document.querySelector('.cinema-player-box') || DOM.mainVideoPlayer;
+    if (!box) return;
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+      if (box.requestFullscreen) {
+        box.requestFullscreen().catch(() => {});
+      } else if (box.webkitRequestFullscreen) {
+        box.webkitRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
     }
   }
 
@@ -550,6 +580,12 @@
     }
     if (DOM.currentVideoIndex) {
       DOM.currentVideoIndex.textContent = `Aula ${idx + 1} de ${VIDEOS.length}`;
+    }
+    if (DOM.ptsLessonIndex) {
+      DOM.ptsLessonIndex.textContent = `Aula ${idx + 1} de ${VIDEOS.length}`;
+    }
+    if (DOM.ptsVideoTitle) {
+      DOM.ptsVideoTitle.textContent = vidTitle;
     }
 
     updateVideoWatchedUI();

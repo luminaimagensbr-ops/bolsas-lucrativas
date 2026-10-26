@@ -1,5 +1,5 @@
 // Bolsas Lucrativas - Service Worker PWA
-const CACHE_NAME = 'bolsas-lucrativas-v1.1';
+const CACHE_NAME = 'bolsas-lucrativas-v2.0';
 
 const PRECACHE_ASSETS = [
   './',
@@ -66,23 +66,33 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Network first with cache fallback for HTML pages
-  if (req.mode === 'navigate' || req.headers.get('accept')?.includes('text/html')) {
+  // Network First for Core App Files (HTML, CSS, JS, JSON) to ensure updates reflect immediately
+  const isCoreAsset = (
+    req.mode === 'navigate' ||
+    req.headers.get('accept')?.includes('text/html') ||
+    url.pathname.endsWith('.css') ||
+    url.pathname.endsWith('.js') ||
+    url.pathname.endsWith('.json')
+  );
+
+  if (url.origin === self.location.origin && isCoreAsset) {
     event.respondWith(
       fetch(req).then((networkRes) => {
-        const copy = networkRes.clone();
-        caches.open(CACHE_NAME).then((c) => c.put(req, copy));
+        if (networkRes && networkRes.status === 200 && req.method === 'GET') {
+          const copy = networkRes.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(req, copy));
+        }
         return networkRes;
       }).catch(() => {
         return caches.match(req).then((cached) => {
-          return cached || caches.match('./index.html');
+          return cached || (req.mode === 'navigate' ? caches.match('./index.html') : null);
         });
       })
     );
     return;
   }
 
-  // Default Cache first, network fallback
+  // Default Cache first, network fallback for any other static files
   event.respondWith(
     caches.match(req).then((cached) => {
       return cached || fetch(req).then((networkRes) => {
@@ -91,10 +101,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_NAME).then((c) => c.put(req, copy));
         }
         return networkRes;
-      }).catch((err) => {
-        // Fallback for offline if not found
-        return cached;
-      });
+      }).catch(() => cached);
     })
   );
 });
