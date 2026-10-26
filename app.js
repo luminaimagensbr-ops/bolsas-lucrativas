@@ -85,9 +85,6 @@
     mainVideoPlayer: document.getElementById('mainVideoPlayer'),
     currentVideoTitle: document.getElementById('currentVideoTitle'),
     currentVideoIndex: document.getElementById('currentVideoIndex'),
-    ptsLessonIndex: document.getElementById('ptsLessonIndex'),
-    ptsVideoTitle: document.getElementById('ptsVideoTitle'),
-    btnShieldFullscreen: document.getElementById('btnShieldFullscreen'),
     playlistContainer: document.getElementById('playlistContainer'),
     playlistSearch: document.getElementById('playlistSearchInput'),
     btnToggleWatched: document.getElementById('btnToggleWatched'),
@@ -520,31 +517,6 @@
         }
       });
     }
-
-    const playerTopShield = document.getElementById('playerTopShield');
-    if (playerTopShield && DOM.mainVideoPlayer) {
-      let isPlaying = false;
-      playerTopShield.addEventListener('click', (e) => {
-        if (e.target.closest('button')) return;
-        isPlaying = !isPlaying;
-        const cmd = isPlaying ? 'playVideo' : 'pauseVideo';
-        try {
-          DOM.mainVideoPlayer.contentWindow.postMessage(JSON.stringify({
-            event: 'command',
-            func: cmd,
-            args: ''
-          }), '*');
-        } catch (_) {}
-      });
-    }
-
-    const btnShieldFs = document.getElementById('btnShieldFullscreen');
-    if (btnShieldFs) {
-      btnShieldFs.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleCinemaFullscreen();
-      });
-    }
   }
 
   function toggleCinemaFullscreen() {
@@ -580,12 +552,6 @@
     }
     if (DOM.currentVideoIndex) {
       DOM.currentVideoIndex.textContent = `Aula ${idx + 1} de ${VIDEOS.length}`;
-    }
-    if (DOM.ptsLessonIndex) {
-      DOM.ptsLessonIndex.textContent = `Aula ${idx + 1} de ${VIDEOS.length}`;
-    }
-    if (DOM.ptsVideoTitle) {
-      DOM.ptsVideoTitle.textContent = vidTitle;
     }
 
     updateVideoWatchedUI();
