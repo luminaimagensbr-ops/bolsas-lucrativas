@@ -1033,7 +1033,15 @@
 
     if (DOM.modalMoldeBody) {
       if (item.kind === 'pdf') {
-        DOM.modalMoldeBody.innerHTML = `<iframe src="${item.file}#toolbar=1&navpanes=0" title="${item.title}"></iframe>`;
+        DOM.modalMoldeBody.innerHTML = `
+          <div class="pdf-viewer-wrap">
+            <iframe src="${item.file}#toolbar=1&navpanes=0" title="${item.title}"></iframe>
+            <div class="pdf-mobile-bar">
+              <span>Se o PDF não carregar na tela:</span>
+              <a href="${item.file}" target="_blank" rel="noopener" class="btn-open-pdf-direct">Abrir Molde em Nova Aba ↗</a>
+            </div>
+          </div>
+        `;
       } else {
         DOM.modalMoldeBody.innerHTML = `<img src="${item.file}" alt="${item.title}" />`;
       }

@@ -1,5 +1,5 @@
 // Bolsas Lucrativas - Service Worker PWA
-const CACHE_NAME = 'bolsas-lucrativas-v2.4';
+const CACHE_NAME = 'bolsas-lucrativas-v2.5';
 
 const PRECACHE_ASSETS = [
   './',
@@ -48,6 +48,12 @@ self.addEventListener('fetch', (event) => {
 
   // Ignore non-http/https or chrome-extension schemes
   if (!url.protocol.startsWith('http')) return;
+
+  // IMPORTANT: Never intercept PDF files in Service Worker!
+  // Chrome and Safari native PDF viewer plugins break with a blank screen if PDFs are intercepted by a Service Worker.
+  if (url.pathname.endsWith('.pdf') || req.headers.get('accept')?.includes('application/pdf')) {
+    return;
+  }
 
   // Stale-While-Revalidate for local thumbs and assets
   if (url.origin === self.location.origin && (url.pathname.includes('/assets/') || url.pathname.includes('/icons/'))) {

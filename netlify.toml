@@ -11,3 +11,10 @@
   for = "/video_aulas.json"
   [headers.values]
     Cache-Control = "no-cache, must-revalidate"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "inline"
+    Access-Control-Allow-Origin = "*"
