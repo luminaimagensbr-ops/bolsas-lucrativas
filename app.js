@@ -511,7 +511,7 @@
     if (DOM.btnNextLesson) {
       DOM.btnNextLesson.addEventListener('click', () => {
         if (state.currentVideoIdx < VIDEOS.length - 1) {
-          loadVideo(state.currentVideoIdx + 1);
+          loadVideo(state.currentVideoIdx + 1, true);
         } else {
           showToast('Você chegou ao fim das aulas!', '🏆');
         }
@@ -537,7 +537,7 @@
     }
   }
 
-  function loadVideo(idx) {
+  function loadVideo(idx, shouldScroll = false) {
     if (idx < 0 || idx >= VIDEOS.length) return;
     state.currentVideoIdx = idx;
     const v = VIDEOS[idx];
@@ -556,6 +556,23 @@
 
     updateVideoWatchedUI();
     renderPlaylist(DOM.playlistSearch ? DOM.playlistSearch.value.trim().toLowerCase() : '');
+
+    if (shouldScroll) {
+      scrollToVideoPlayer();
+    }
+  }
+
+  function scrollToVideoPlayer() {
+    const target = document.querySelector('.cinema-player-box') || DOM.mainVideoPlayer;
+    if (!target) return;
+    const topbar = document.querySelector('.topbar');
+    const topbarHeight = topbar ? topbar.offsetHeight : 70;
+    const rect = target.getBoundingClientRect();
+    const targetY = window.pageYOffset + rect.top - topbarHeight - 16;
+    window.scrollTo({
+      top: Math.max(0, targetY),
+      behavior: 'smooth'
+    });
   }
 
   function updateVideoWatchedUI() {
@@ -587,7 +604,7 @@
       const thumbUrl = v.thumbnail || `https://i.ytimg.com/vi/${vidId}/hqdefault.jpg`;
 
       return `
-        <div class="playlist-item ${isActive ? 'active' : ''} ${isDone ? 'completed' : ''}" onclick="window.BolsasApp.loadVideo(${i})">
+        <div class="playlist-item ${isActive ? 'active' : ''} ${isDone ? 'completed' : ''}" onclick="window.BolsasApp.loadVideo(${i}, true)">
           <div class="pli-thumb">
             <img src="${thumbUrl}" alt="${vidTitle}" loading="lazy" />
           </div>

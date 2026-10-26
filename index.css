@@ -1425,6 +1425,7 @@ img {
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-glass);
+  scroll-margin-top: calc(var(--topbar-height, 70px) + 20px);
 }
 
 .video-responsive-wrap {
