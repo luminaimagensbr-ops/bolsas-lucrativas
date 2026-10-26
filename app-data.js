@@ -1375,8 +1375,8 @@ window.APP_DATA = {
   ],
   "VIDEOS": [
     {
-      "yt": "4moD3XiT_bs",
-      "t": "Como Fazer Enfeites de Natal Delicados com Retalhos Pequenos de Jeans — Costura Relaxante e Upcycling"
+      "yt": "9YufUzIPJhA",
+      "t": "Bolsa Nécessaire Grande com Alça Lateral em Jeans e Estampa"
     },
     {
       "yt": "PiKu8FnqRRw",
@@ -1571,8 +1571,8 @@ window.APP_DATA = {
       "t": "4 Ideias com Jeans Velho — Bolsas Modernas e Carteira Compacta"
     },
     {
-      "yt": "9YufUzIPJhA",
-      "t": "Bolsa Nécessaire Grande com Alça Lateral em Jeans e Estampa"
+      "yt": "4moD3XiT_bs",
+      "t": "Como Fazer Enfeites de Natal Delicados com Retalhos Pequenos de Jeans — Costura Relaxante e Upcycling"
     }
   ],
   "DESTAQUE": [

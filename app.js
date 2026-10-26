@@ -458,7 +458,7 @@
             titulo: item.titulo || item.t,
             titulo_original: item.titulo_original || '',
             url_youtube: item.url_youtube || `https://www.youtube.com/watch?v=${item.yt || item.id}`,
-            url_embed: item.url_embed || `https://www.youtube-nocookie.com/embed/${item.yt || item.id}?rel=0&autoplay=1`,
+            url_embed: item.url_embed || `https://www.youtube-nocookie.com/embed/${item.yt || item.id}?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&enablejsapi=1&autoplay=1`,
             thumbnail: item.thumbnail || `https://i.ytimg.com/vi/${item.yt || item.id}/hqdefault.jpg`,
             numero: item.numero || (idx + 1)
           }));
@@ -517,6 +517,22 @@
         }
       });
     }
+
+    const playerTopShield = document.getElementById('playerTopShield');
+    if (playerTopShield && DOM.mainVideoPlayer) {
+      let isPlaying = false;
+      playerTopShield.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        const cmd = isPlaying ? 'playVideo' : 'pauseVideo';
+        try {
+          DOM.mainVideoPlayer.contentWindow.postMessage(JSON.stringify({
+            event: 'command',
+            func: cmd,
+            args: ''
+          }), '*');
+        } catch (_) {}
+      });
+    }
   }
 
   function loadVideo(idx) {
@@ -527,7 +543,7 @@
     const vidTitle = v.t || v.titulo;
 
     if (DOM.mainVideoPlayer) {
-      DOM.mainVideoPlayer.src = `https://www.youtube-nocookie.com/embed/${vidId}?rel=0&autoplay=1`;
+      DOM.mainVideoPlayer.src = `https://www.youtube-nocookie.com/embed/${vidId}?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&enablejsapi=1&autoplay=1`;
     }
     if (DOM.currentVideoTitle) {
       DOM.currentVideoTitle.textContent = vidTitle;
