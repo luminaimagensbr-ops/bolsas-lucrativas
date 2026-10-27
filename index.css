@@ -10,13 +10,13 @@
   --navy-800: #152254;
   --navy-700: #1c2e6d;
   --navy-600: #294294;
-  
+
   --pink-500: #e6197f;
   --pink-400: #ff3399;
   --pink-600: #c2126a;
   --pink-glow: rgba(230, 25, 127, 0.45);
   --pink-soft: rgba(230, 25, 127, 0.12);
-  
+
   --gold-300: #ffe699;
   --gold-400: #f6d060;
   --gold-500: #d49c20;
@@ -39,7 +39,7 @@
   --surface-input: #0b1330;
   --border-glass: rgba(255, 255, 255, 0.1);
   --border-focus: rgba(230, 25, 127, 0.6);
-  
+
   --text-main: #f1f5f9;
   --text-muted: #94a3b8;
   --text-dim: #64748b;
@@ -68,7 +68,9 @@
 }
 
 /* Reset & Basics */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -87,8 +89,8 @@ html {
 body {
   min-height: 100vh;
   background: radial-gradient(circle at 85% 15%, rgba(230, 25, 127, 0.08) 0%, transparent 45%),
-              radial-gradient(circle at 15% 85%, rgba(59, 130, 246, 0.08) 0%, transparent 45%),
-              var(--bg-main);
+    radial-gradient(circle at 15% 85%, rgba(59, 130, 246, 0.08) 0%, transparent 45%),
+    var(--bg-main);
   background-attachment: fixed;
   overflow-x: hidden;
   padding-bottom: calc(var(--bottombar-height) + env(safe-area-inset-bottom) + 20px);
@@ -122,13 +124,16 @@ img {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: rgba(11, 19, 48, 0.5);
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-full);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--pink-500);
 }
@@ -163,6 +168,7 @@ img {
   .app-sidebar {
     display: flex;
   }
+
   .app-main {
     margin-left: var(--sidebar-width);
     width: calc(100% - var(--sidebar-width));
@@ -435,7 +441,9 @@ img {
   transition: transform 0.2s ease;
 }
 
-@media all and (display-mode: standalone), all and (display-mode: fullscreen) {
+@media all and (display-mode: standalone),
+all and (display-mode: fullscreen) {
+
   #btnInstallPwa,
   .pwa-btn-header {
     display: none !important;
@@ -601,6 +609,7 @@ img {
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -836,10 +845,25 @@ img {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.quick-card.pink .quick-icon { background: var(--pink-soft); color: var(--pink-400); }
-.quick-card.blue .quick-icon { background: var(--denim-soft); color: var(--denim-400); }
-.quick-card.gold .quick-icon { background: var(--gold-soft); color: var(--gold-400); }
-.quick-card.green .quick-icon { background: var(--emerald-soft); color: var(--emerald-400); }
+.quick-card.pink .quick-icon {
+  background: var(--pink-soft);
+  color: var(--pink-400);
+}
+
+.quick-card.blue .quick-icon {
+  background: var(--denim-soft);
+  color: var(--denim-400);
+}
+
+.quick-card.gold .quick-icon {
+  background: var(--gold-soft);
+  color: var(--gold-400);
+}
+
+.quick-card.green .quick-icon {
+  background: var(--emerald-soft);
+  color: var(--emerald-400);
+}
 
 .quick-info h4 {
   font-family: var(--font-heading);
@@ -1446,7 +1470,8 @@ img {
 
 .video-responsive-wrap {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
+  /* 16:9 */
   height: 0;
   overflow: hidden;
   background: #000;
@@ -1460,6 +1485,24 @@ img {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* Ocultação e redução a zero dos elementos do YouTube */
+.ytmVideoInfoChannelLogo,
+.ytmVideoInfoVideoDetailsContainer,
+.ytSpecTouchFeedbackShapeOverlayTouchResponseInverse .ytSpecTouchFeedbackShapeFill,
+.ytSpecTouchFeedbackShapeStroke,
+.action-menu-engagement-buttons-wrapper,
+.ytmFullscreenRelatedVideosEntryPointViewModelHost {
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
 }
 
 
@@ -1899,7 +1942,8 @@ img {
   margin-bottom: 12px;
 }
 
-.mr-topic-body .tip, .mr-topic-body .ex {
+.mr-topic-body .tip,
+.mr-topic-body .ex {
   background: rgba(30, 41, 79, 0.6);
   border-left: 3px solid var(--pink-500);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
@@ -2698,7 +2742,9 @@ img {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .modal-body img {
@@ -2810,6 +2856,13 @@ img {
 }
 
 @keyframes pulseGentle {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
 }
