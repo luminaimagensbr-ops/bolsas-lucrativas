@@ -983,14 +983,19 @@
       DOM.btnCloseMoldeModal.addEventListener('click', () => {
         if (DOM.moldeModal) DOM.moldeModal.classList.remove('active');
         if (DOM.modalMoldeBody) DOM.modalMoldeBody.innerHTML = '';
+        if (pdfState.renderTask) {
+          try { pdfState.renderTask.cancel(); } catch (_) {}
+          pdfState.renderTask = null;
+        }
+        pdfState.doc = null;
       });
     }
 
     if (DOM.btnModalPrint) {
       DOM.btnModalPrint.addEventListener('click', () => {
-        const iframe = DOM.modalMoldeBody.querySelector('iframe');
-        if (iframe && iframe.contentWindow) {
-          iframe.contentWindow.print();
+        if (state.currentModalFile) {
+          const w = window.open(state.currentModalFile, '_blank');
+          if (w) w.focus();
         } else {
           window.print();
         }
@@ -1001,6 +1006,185 @@
       DOM.btnOpenDestaqueModal.addEventListener('click', () => {
         openMoldePreview(0, true);
       });
+    }
+  }
+
+  let pdfState = {
+    doc: null,
+    pageNum: 1,
+    scale: 1.0,
+    totalPages: 1,
+    renderTask: null
+  };
+
+  async function renderPdfViewer(url, title) {
+    if (!DOM.modalMoldeBody) return;
+
+    if (window.pdfjsLib) {
+      try {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = './assets/vendor/pdfjs/pdf.worker.min.js';
+      } catch (_) {}
+
+      DOM.modalMoldeBody.innerHTML = `
+        <div class="pdfjs-viewer-wrap">
+          <div class="pdfjs-toolbar">
+            <div class="pdfjs-toolbar-group">
+              <button type="button" class="pdfjs-btn" id="pdfBtnPrev" title="Página Anterior">◀ Ant</button>
+              <span class="pdfjs-page-info">Pág <b id="pdfCurPage">1</b> de <span id="pdfTotalPages">1</span></span>
+              <button type="button" class="pdfjs-btn" id="pdfBtnNext" title="Próxima Página">Próx ▶</button>
+            </div>
+            <div class="pdfjs-toolbar-group">
+              <button type="button" class="pdfjs-btn" id="pdfBtnZoomOut" title="Diminuir Zoom">－</button>
+              <span class="pdfjs-page-info" id="pdfZoomLevel">100%</span>
+              <button type="button" class="pdfjs-btn" id="pdfBtnZoomIn" title="Aumentar Zoom">＋</button>
+              <a href="${url}" target="_blank" rel="noopener" class="pdfjs-btn" title="Abrir em Nova Aba">↗</a>
+            </div>
+          </div>
+          <div class="pdfjs-canvas-viewport" id="pdfCanvasViewport">
+            <div class="pdfjs-loading-spinner" id="pdfLoadingSpinner">
+              <div class="pdfjs-spinner-icon"></div>
+              <span>Carregando molde em alta resolução...</span>
+            </div>
+            <canvas id="pdfViewerCanvas" style="display:none;"></canvas>
+          </div>
+        </div>
+      `;
+
+      try {
+        pdfState.scale = 1.0;
+        pdfState.pageNum = 1;
+        const loadingTask = pdfjsLib.getDocument(url);
+        pdfState.doc = await loadingTask.promise;
+        pdfState.totalPages = pdfState.doc.numPages;
+
+        const totalEl = document.getElementById('pdfTotalPages');
+        if (totalEl) totalEl.textContent = pdfState.totalPages;
+
+        const spinner = document.getElementById('pdfLoadingSpinner');
+        const canvas = document.getElementById('pdfViewerCanvas');
+        if (spinner) spinner.style.display = 'none';
+        if (canvas) canvas.style.display = 'block';
+
+        bindPdfToolbarEvents();
+        await renderCurrentPdfPage();
+      } catch (err) {
+        console.warn('PDF.js loading failed, using fallback:', err);
+        fallbackToIframeViewer(url, title);
+      }
+    } else {
+      fallbackToIframeViewer(url, title);
+    }
+  }
+
+  function fallbackToIframeViewer(url, title) {
+    if (!DOM.modalMoldeBody) return;
+    DOM.modalMoldeBody.innerHTML = `
+      <div class="pdf-viewer-wrap">
+        <iframe src="${url}#toolbar=1&navpanes=0" title="${title}"></iframe>
+        <div class="pdf-mobile-bar">
+          <span>Se o PDF não carregar na tela:</span>
+          <a href="${url}" target="_blank" rel="noopener" class="btn-open-pdf-direct">Abrir Molde em Nova Aba ↗</a>
+        </div>
+      </div>
+    `;
+  }
+
+  function bindPdfToolbarEvents() {
+    const btnPrev = document.getElementById('pdfBtnPrev');
+    const btnNext = document.getElementById('pdfBtnNext');
+    const btnZoomIn = document.getElementById('pdfBtnZoomIn');
+    const btnZoomOut = document.getElementById('pdfBtnZoomOut');
+
+    if (btnPrev) {
+      btnPrev.onclick = () => {
+        if (pdfState.pageNum > 1) {
+          pdfState.pageNum--;
+          renderCurrentPdfPage();
+        }
+      };
+    }
+
+    if (btnNext) {
+      btnNext.onclick = () => {
+        if (pdfState.pageNum < pdfState.totalPages) {
+          pdfState.pageNum++;
+          renderCurrentPdfPage();
+        }
+      };
+    }
+
+    if (btnZoomIn) {
+      btnZoomIn.onclick = () => {
+        if (pdfState.scale < 3.0) {
+          pdfState.scale += 0.25;
+          renderCurrentPdfPage();
+        }
+      };
+    }
+
+    if (btnZoomOut) {
+      btnZoomOut.onclick = () => {
+        if (pdfState.scale > 0.5) {
+          pdfState.scale -= 0.25;
+          renderCurrentPdfPage();
+        }
+      };
+    }
+  }
+
+  async function renderCurrentPdfPage() {
+    if (!pdfState.doc) return;
+    const canvas = document.getElementById('pdfViewerCanvas');
+    const viewportBox = document.getElementById('pdfCanvasViewport');
+    if (!canvas || !viewportBox) return;
+
+    if (pdfState.renderTask) {
+      try {
+        pdfState.renderTask.cancel();
+      } catch (_) {}
+      pdfState.renderTask = null;
+    }
+
+    const page = await pdfState.doc.getPage(pdfState.pageNum);
+    const containerWidth = Math.max(280, viewportBox.clientWidth - 32);
+    const unscaledViewport = page.getViewport({ scale: 1 });
+    const fitScale = (containerWidth / unscaledViewport.width);
+    const finalScale = fitScale * pdfState.scale;
+    const viewport = page.getViewport({ scale: finalScale });
+
+    const pixelRatio = window.devicePixelRatio || 1;
+    canvas.width = Math.floor(viewport.width * pixelRatio);
+    canvas.height = Math.floor(viewport.height * pixelRatio);
+    canvas.style.width = `${Math.floor(viewport.width)}px`;
+    canvas.style.height = `${Math.floor(viewport.height)}px`;
+
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+    const curPageEl = document.getElementById('pdfCurPage');
+    if (curPageEl) curPageEl.textContent = pdfState.pageNum;
+
+    const zoomEl = document.getElementById('pdfZoomLevel');
+    if (zoomEl) zoomEl.textContent = `${Math.round(pdfState.scale * 100)}%`;
+
+    const btnPrev = document.getElementById('pdfBtnPrev');
+    const btnNext = document.getElementById('pdfBtnNext');
+    if (btnPrev) btnPrev.disabled = (pdfState.pageNum <= 1);
+    if (btnNext) btnNext.disabled = (pdfState.pageNum >= pdfState.totalPages);
+
+    const renderContext = {
+      canvasContext: ctx,
+      viewport: viewport
+    };
+
+    try {
+      pdfState.renderTask = page.render(renderContext);
+      await pdfState.renderTask.promise;
+      pdfState.renderTask = null;
+    } catch (e) {
+      if (e.name !== 'RenderingCancelledException') {
+        console.warn('Render page error:', e);
+      }
     }
   }
 
@@ -1025,6 +1209,8 @@
 
     if (!item || !DOM.moldeModal) return;
 
+    state.currentModalFile = item.file;
+
     if (DOM.modalMoldeTitle) DOM.modalMoldeTitle.textContent = item.title;
     if (DOM.modalMoldeDl) {
       DOM.modalMoldeDl.href = item.file;
@@ -1033,15 +1219,7 @@
 
     if (DOM.modalMoldeBody) {
       if (item.kind === 'pdf') {
-        DOM.modalMoldeBody.innerHTML = `
-          <div class="pdf-viewer-wrap">
-            <iframe src="${item.file}#toolbar=1&navpanes=0" title="${item.title}"></iframe>
-            <div class="pdf-mobile-bar">
-              <span>Se o PDF não carregar na tela:</span>
-              <a href="${item.file}" target="_blank" rel="noopener" class="btn-open-pdf-direct">Abrir Molde em Nova Aba ↗</a>
-            </div>
-          </div>
-        `;
+        renderPdfViewer(item.file, item.title);
       } else {
         DOM.modalMoldeBody.innerHTML = `<img src="${item.file}" alt="${item.title}" />`;
       }
