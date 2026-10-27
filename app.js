@@ -716,7 +716,7 @@
       const isDone = total > 0 && checks.filter(Boolean).length >= total;
 
       return `
-        <div class="module-item ${isActive ? 'active' : ''} ${isDone ? 'completed' : ''}" onclick="window.BolsasApp.loadGuiaModule(${i})">
+        <div class="module-item ${isActive ? 'active' : ''} ${isDone ? 'completed' : ''}" onclick="window.BolsasApp.loadGuiaModule(${i}, true)">
           <div class="module-emoji">${m.emoji || '📖'}</div>
           <div class="module-text">
             <div class="module-num">Módulo ${m.n || (i + 1)}</div>
@@ -728,7 +728,7 @@
     }).join('');
   }
 
-  function loadGuiaModule(idx) {
+  function loadGuiaModule(idx, shouldScroll = false) {
     if (idx < 0 || idx >= GUIA.length) return;
     state.currentGuiaIdx = idx;
     const m = GUIA[idx];
@@ -777,6 +777,23 @@
         </div>
       ` : ''}
     `;
+
+    if (shouldScroll) {
+      scrollToGuiaReader();
+    }
+  }
+
+  function scrollToGuiaReader() {
+    const target = DOM.guiaReader || document.getElementById('moduleReaderContainer');
+    if (!target) return;
+    const topbar = document.querySelector('.topbar');
+    const topbarHeight = topbar ? topbar.offsetHeight : 70;
+    const rect = target.getBoundingClientRect();
+    const targetY = window.pageYOffset + rect.top - topbarHeight - 16;
+    window.scrollTo({
+      top: Math.max(0, targetY),
+      behavior: 'smooth'
+    });
   }
 
   function toggleMissionItem(moduleIdx, itemIdx) {

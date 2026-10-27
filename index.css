@@ -1829,6 +1829,7 @@ img {
 
 /* Module Reading Pane */
 .module-reader-card {
+  scroll-margin-top: calc(var(--topbar-height, 70px) + 20px);
   background: var(--surface-card);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-xl);
