@@ -23,12 +23,14 @@
     WATCHED: 'bl_watched_v1',
     GUIA_CHECKS: 'bl_guia_checks_v1',
     STUDENT_NAME: 'bl_student_name_v1',
-    VIEW_MODE: 'bl_view_mode_v1'
+    VIEW_MODE: 'bl_view_mode_v1',
+    VIP_UNLOCKED: 'bl_vip_unlocked_v1'
   };
 
   // --- State ---
   let state = {
     currentTab: 'inicio',
+    isUnlocked: localStorage.getItem('bl_vip_unlocked_v1') === 'true',
     favorites: loadJSON(STORAGE_KEYS.FAVORITES, []),
     watchedVideos: loadJSON(STORAGE_KEYS.WATCHED, []),
     guiaChecks: loadJSON(STORAGE_KEYS.GUIA_CHECKS, {}),
@@ -143,7 +145,22 @@
     toastIcon: document.getElementById('toastIcon'),
 
     homeProgressBar: document.getElementById('homeProgressBar'),
-    homeProgressPercent: document.getElementById('homeProgressPercent')
+    homeProgressPercent: document.getElementById('homeProgressPercent'),
+
+    // Modo Degustação & Bloqueio PIX
+    trialWarningBanner: document.getElementById('trialWarningBanner'),
+    btnBannerUnlock: document.getElementById('btnBannerUnlock'),
+    heroAccessBadge: document.getElementById('heroAccessBadge'),
+    paymentModal: document.getElementById('paymentLockModal'),
+    plmDynamicReason: document.getElementById('plmDynamicReason'),
+    plmPixKeyText: document.getElementById('plmPixKeyText'),
+    btnCopyPixKey: document.getElementById('btnCopyPixKey'),
+    btnCopyPixText: document.getElementById('btnCopyPixText'),
+    inputUnlockCode: document.getElementById('inputUnlockCode'),
+    btnSubmitUnlockCode: document.getElementById('btnSubmitUnlockCode'),
+    unlockCodeFeedback: document.getElementById('unlockCodeFeedback'),
+    btnClosePaymentModal: document.getElementById('btnClosePaymentModal'),
+    btnDownloadDestaque: document.getElementById('btnDownloadDestaque')
   };
 
   // =========================================================================
@@ -152,6 +169,8 @@
   function init() {
     registerServiceWorker();
     setupPwaInstall();
+    checkUrlUnlockParams();
+    updateAccessUI();
     setupRouting();
     setupFavorites();
     renderMoldes();
@@ -160,6 +179,7 @@
     setupCalculadora();
     renderBonusSection();
     setupModals();
+    setupPaymentLockModal();
     updateGlobalCounters();
     updateHomeProgress();
   }
@@ -256,6 +276,17 @@
       const validTabs = ['inicio', 'moldes', 'aulas', 'guia', 'calculadora', 'bonus'];
       if (!validTabs.includes(tabId)) tabId = 'inicio';
 
+      // Interceptar abas restritas no Modo Degustação
+      if (!state.isUnlocked && ['guia', 'calculadora', 'bonus'].includes(tabId)) {
+        const tabTitles = {
+          guia: 'Guia de Vendas (20 Módulos)',
+          calculadora: 'Calculadora de Precificação',
+          bonus: 'Bônus e Fornecedores VIP'
+        };
+        openPaymentModal(tabTitles[tabId] || 'Conteúdo Completo');
+        return;
+      }
+
       state.currentTab = tabId;
 
       // Update views
@@ -276,6 +307,10 @@
       el.addEventListener('click', (e) => {
         e.preventDefault();
         const tab = el.getAttribute('data-tab');
+        if (!state.isUnlocked && ['guia', 'calculadora', 'bonus'].includes(tab)) {
+          navigateTo(tab);
+          return;
+        }
         window.location.hash = tab;
         navigateTo(tab);
       });
@@ -285,6 +320,10 @@
     document.querySelectorAll('[data-goto]').forEach((el) => {
       el.addEventListener('click', () => {
         const tab = el.getAttribute('data-goto');
+        if (!state.isUnlocked && ['guia', 'calculadora', 'bonus'].includes(tab)) {
+          navigateTo(tab);
+          return;
+        }
         window.location.hash = tab;
         navigateTo(tab);
       });
@@ -298,7 +337,11 @@
 
     // Initial route check
     const initialHash = window.location.hash.replace('#', '') || 'inicio';
-    navigateTo(initialHash);
+    if (!state.isUnlocked && ['guia', 'calculadora', 'bonus'].includes(initialHash)) {
+      navigateTo('inicio');
+    } else {
+      navigateTo(initialHash);
+    }
 
     // Global Search redirect
     if (DOM.globalSearch) {
@@ -374,17 +417,49 @@
       return;
     }
 
-    DOM.moldesGrid.innerHTML = items.map((m) => {
+    DOM.moldesGrid.innerHTML = items.map((m, idx) => {
       const isFav = state.favorites.includes(m.id);
       const thumb = m.thumb || 'assets/thumbs/destaque-200-moldes.jpg';
       const kindBadge = m.kind === 'pdf' ? `PDF (${m.pages || 1}p)` : 'Molde c/ Medidas';
+      
+      const isFree = state.isUnlocked || idx < 10;
+      const trialBadge = !state.isUnlocked
+        ? (isFree ? '<span class="mc-free-badge">🟢 Liberado</span>' : '<span class="mc-locked-badge">🔒 Liberar no Pix</span>')
+        : '';
+
+      const clickAction = isFree
+        ? `window.BolsasApp.openMoldePreview(${m.id})`
+        : `window.BolsasApp.openPaymentModal('Molde ${m.title}')`;
+
+      const actionButtons = isFree
+        ? `
+            <button type="button" class="btn-mc-view" onclick="window.BolsasApp.openMoldePreview(${m.id})">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <span>Ver</span>
+            </button>
+            <a href="${m.file}" download="${m.title}.pdf" class="btn-mc-dl" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Baixar</span>
+            </a>
+          `
+        : `
+            <button type="button" class="btn-mc-view btn-locked" onclick="window.BolsasApp.openPaymentModal('Molde ${m.title}')">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Liberar</span>
+            </button>
+            <button type="button" class="btn-mc-dl btn-locked" onclick="window.BolsasApp.openPaymentModal('Molde ${m.title}')">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Baixar (Pix)</span>
+            </button>
+          `;
 
       return `
-        <div class="molde-card" data-molde-id="${m.id}">
-          <div class="mc-thumb" onclick="window.BolsasApp.openMoldePreview(${m.id})">
+        <div class="molde-card ${!isFree ? 'is-locked' : ''}" data-molde-id="${m.id}">
+          <div class="mc-thumb" onclick="${clickAction}">
             <img src="${thumb}" alt="${m.title}" loading="lazy" onerror="this.src='assets/thumbs/destaque-200-moldes.jpg'" />
             <div class="mc-badges-top">
               <span class="mc-kind-badge">${kindBadge}</span>
+              ${trialBadge}
               <button type="button" class="mc-fav-btn ${isFav ? 'favorited' : ''}" onclick="event.stopPropagation(); window.BolsasApp.toggleFavorite(${m.id})" title="${isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}">
                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </button>
@@ -397,14 +472,7 @@
               <span>${m.kind === 'pdf' ? 'Pronto p/ Imprimir' : 'Medidas Exatas'}</span>
             </div>
             <div class="mc-actions">
-              <button type="button" class="btn-mc-view" onclick="window.BolsasApp.openMoldePreview(${m.id})">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                <span>Ver</span>
-              </button>
-              <a href="${m.file}" download="${m.title}.pdf" class="btn-mc-dl" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                <span>Baixar</span>
-              </a>
+              ${actionButtons}
             </div>
           </div>
         </div>
@@ -578,6 +646,12 @@
 
   function loadVideo(idx, shouldScroll = false) {
     if (idx < 0 || idx >= VIDEOS.length) return;
+
+    if (!state.isUnlocked && idx >= 10) {
+      openPaymentModal(`Aula ${idx + 1} - Exclusiva`);
+      return;
+    }
+
     state.currentVideoIdx = idx;
     const v = VIDEOS[idx];
     const vidId = v.yt || v.id;
@@ -641,16 +715,25 @@
       const isActive = i === state.currentVideoIdx;
       const isDone = state.watchedVideos.includes(vidId);
       const thumbUrl = v.thumbnail || `https://i.ytimg.com/vi/${vidId}/hqdefault.jpg`;
+      const isFree = state.isUnlocked || i < 10;
+
+      const clickAction = isFree
+        ? `window.BolsasApp.loadVideo(${i}, true)`
+        : `window.BolsasApp.openPaymentModal('Aula ${i + 1} Exclusiva')`;
+
+      const statusHtml = isFree
+        ? (isDone ? '✓' : '')
+        : '<span class="pli-locked">🔒</span>';
 
       return `
-        <div class="playlist-item ${isActive ? 'active' : ''} ${isDone ? 'completed' : ''}" onclick="window.BolsasApp.loadVideo(${i}, true)">
+        <div class="playlist-item ${isActive ? 'active' : ''} ${isDone ? 'completed' : ''} ${!isFree ? 'is-locked' : ''}" onclick="${clickAction}">
           <div class="pli-thumb">
             <img src="${thumbUrl}" alt="${vidTitle}" loading="lazy" />
           </div>
           <div class="pli-info">
             <div class="pli-title">${i + 1}. ${vidTitle}</div>
           </div>
-          <div class="pli-status">${isDone ? '✓' : ''}</div>
+          <div class="pli-status">${statusHtml}</div>
         </div>
       `;
     }).join('');
@@ -1021,7 +1104,11 @@
 
     if (DOM.btnOpenDestaqueModal) {
       DOM.btnOpenDestaqueModal.addEventListener('click', () => {
-        openMoldePreview(0, true);
+        if (!state.isUnlocked) {
+          openPaymentModal('Coleção Completa 200 Moldes');
+        } else {
+          openMoldePreview(0, true);
+        }
       });
     }
   }
@@ -1206,6 +1293,18 @@
   }
 
   function openMoldePreview(id, isDestaque = false) {
+    if (!state.isUnlocked) {
+      if (isDestaque) {
+        openPaymentModal('Coleção Completa 200 Moldes');
+        return;
+      }
+      const itemIdx = MOLDES.findIndex((m) => m.id === id);
+      if (itemIdx >= 10 || (itemIdx === -1 && id >= 1000)) {
+        openPaymentModal('Molde Exclusivo');
+        return;
+      }
+    }
+
     let item;
     if (isDestaque) {
       item = DESTAQUE[0];
@@ -1291,6 +1390,196 @@
     }, 3200);
   }
 
+  // =========================================================================
+  // Bloqueio de Pagamento, Degustação & Desbloqueio VIP
+  // =========================================================================
+  function setupPaymentLockModal() {
+    if (DOM.btnBannerUnlock) {
+      DOM.btnBannerUnlock.addEventListener('click', () => {
+        openPaymentModal('Liberação de Acesso Completo');
+      });
+    }
+
+    if (DOM.btnCopyPixKey) {
+      DOM.btnCopyPixKey.addEventListener('click', async () => {
+        const pixKey = '61995979543';
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(pixKey);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = pixKey;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          if (DOM.btnCopyPixText) DOM.btnCopyPixText.textContent = 'Copiado! ✓';
+          if (DOM.btnCopyPixKey) DOM.btnCopyPixKey.classList.add('copied');
+          showToast('Chave Pix (61995979543) copiada com sucesso!', 'success');
+          setTimeout(() => {
+            if (DOM.btnCopyPixText) DOM.btnCopyPixText.textContent = 'Copiar Chave';
+            if (DOM.btnCopyPixKey) DOM.btnCopyPixKey.classList.remove('copied');
+          }, 3000);
+        } catch (_) {
+          showToast('Chave Pix: 61995979543', 'info');
+        }
+      });
+    }
+
+    function handleCodeSubmit() {
+      if (!DOM.inputUnlockCode) return;
+      const raw = DOM.inputUnlockCode.value.trim().toUpperCase();
+      if (!raw) {
+        if (DOM.unlockCodeFeedback) {
+          DOM.unlockCodeFeedback.className = 'plm-code-feedback error';
+          DOM.unlockCodeFeedback.textContent = 'Por favor, digite o código recebido no WhatsApp.';
+        }
+        return;
+      }
+
+      // Códigos pré-autorizados ou qualquer chave com 5+ caracteres
+      const validPresets = ['BOLSAS-VIP', 'BOLSASVIP', 'VIP', 'PAGO', 'PAGAMENTO', 'LIBERAR', 'THAISE', 'VIP2026', 'BOLSAS2026', '61995979543', '61991168629'];
+      const isValid = validPresets.includes(raw) || raw.length >= 5;
+
+      if (isValid) {
+        if (DOM.unlockCodeFeedback) {
+          DOM.unlockCodeFeedback.className = 'plm-code-feedback success';
+          DOM.unlockCodeFeedback.textContent = 'Código validado com sucesso! Liberando...';
+        }
+        setTimeout(() => {
+          unlockAccess('code');
+        }, 500);
+      } else {
+        if (DOM.unlockCodeFeedback) {
+          DOM.unlockCodeFeedback.className = 'plm-code-feedback error';
+          DOM.unlockCodeFeedback.textContent = 'Código inválido. Envie seu comprovante no WhatsApp de suporte.';
+        }
+      }
+    }
+
+    if (DOM.btnSubmitUnlockCode) {
+      DOM.btnSubmitUnlockCode.addEventListener('click', handleCodeSubmit);
+    }
+
+    if (DOM.inputUnlockCode) {
+      DOM.inputUnlockCode.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleCodeSubmit();
+        }
+      });
+    }
+
+    if (DOM.btnClosePaymentModal) {
+      DOM.btnClosePaymentModal.addEventListener('click', closePaymentModal);
+    }
+
+    if (DOM.paymentModal) {
+      DOM.paymentModal.addEventListener('click', (e) => {
+        if (e.target === DOM.paymentModal) {
+          closePaymentModal();
+        }
+      });
+    }
+
+    if (DOM.btnDownloadDestaque) {
+      DOM.btnDownloadDestaque.addEventListener('click', (e) => {
+        if (!state.isUnlocked) {
+          e.preventDefault();
+          openPaymentModal('Coleção Completa 200 Moldes');
+        }
+      });
+    }
+  }
+
+  function openPaymentModal(reason = '') {
+    if (DOM.plmDynamicReason) {
+      if (reason) {
+        DOM.plmDynamicReason.innerHTML = `Para acessar <b>${reason}</b>, regularize seu pagamento para liberar o site com <b>+200 moldes</b>, Guia de Vendas e Calculadora.`;
+      } else {
+        DOM.plmDynamicReason.innerHTML = `Regularize seu pagamento para manter o acesso ao site com <b>+200 moldes</b>, Guia de Vendas e Calculadora de Preço.`;
+      }
+    }
+    if (DOM.unlockCodeFeedback) {
+      DOM.unlockCodeFeedback.className = 'plm-code-feedback';
+      DOM.unlockCodeFeedback.textContent = '';
+    }
+    if (DOM.inputUnlockCode) {
+      DOM.inputUnlockCode.value = '';
+    }
+    if (DOM.paymentModal) {
+      DOM.paymentModal.classList.add('active');
+    }
+  }
+
+  function closePaymentModal() {
+    if (DOM.paymentModal) {
+      DOM.paymentModal.classList.remove('active');
+    }
+  }
+
+  function unlockAccess(source = 'manual') {
+    state.isUnlocked = true;
+    try {
+      localStorage.setItem(STORAGE_KEYS.VIP_UNLOCKED, 'true');
+    } catch (_) {}
+
+    closePaymentModal();
+    updateAccessUI();
+    renderMoldes();
+    renderPlaylist();
+    showToast('🎉 Parabéns! Seu Acesso Completo foi Liberado com Sucesso!', 'success');
+  }
+
+  function lockAccess() {
+    state.isUnlocked = false;
+    try {
+      localStorage.removeItem(STORAGE_KEYS.VIP_UNLOCKED);
+    } catch (_) {}
+
+    updateAccessUI();
+    renderMoldes();
+    renderPlaylist();
+    showToast('Modo Degustação Ativado (10 Moldes Liberados).', 'info');
+  }
+
+  function updateAccessUI() {
+    if (DOM.trialWarningBanner) {
+      DOM.trialWarningBanner.classList.toggle('is-hidden', state.isUnlocked);
+    }
+    if (DOM.heroAccessBadge) {
+      if (state.isUnlocked) {
+        DOM.heroAccessBadge.className = 'badge-green';
+        DOM.heroAccessBadge.textContent = '✓ Acesso Completo Liberado';
+      } else {
+        DOM.heroAccessBadge.className = 'badge-amber';
+        DOM.heroAccessBadge.textContent = '⚠️ Modo Degustação (10 Moldes)';
+      }
+    }
+  }
+
+  function checkUrlUnlockParams() {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const unlockKeys = ['liberar', 'token', 'pago', 'vip', 'desbloquear', 'senha', 'chave', 'liberado'];
+      let found = false;
+      for (const k of unlockKeys) {
+        if (urlParams.has(k)) {
+          const val = (urlParams.get(k) || '').trim().toLowerCase();
+          if (val === 'false' || val === '0') continue;
+          found = true;
+          break;
+        }
+      }
+      if (found) {
+        unlockAccess('url');
+        const cleanUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+    } catch (_) {}
+  }
+
   // --- Expose Public API ---
   window.BolsasApp = {
     openMoldePreview,
@@ -1304,7 +1593,12 @@
     updateMaterialName,
     updateMaterialCost,
     removeMaterial,
-    showToast
+    showToast,
+    openPaymentModal,
+    closePaymentModal,
+    unlockAccess,
+    lockAccess,
+    isUnlocked: () => state.isUnlocked
   };
 
   // Launch on DOM ready

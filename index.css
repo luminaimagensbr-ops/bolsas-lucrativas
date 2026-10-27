@@ -2866,3 +2866,463 @@ all and (display-mode: fullscreen) {
     transform: scale(1.04);
   }
 }
+
+/* ==========================================================================
+   TRIAL WARNING BANNER (MODO DEGUSTAÇÃO)
+   ========================================================================== */
+.trial-warning-banner {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(245, 158, 11, 0.15));
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  animation: fadeIn 0.3s ease;
+}
+
+.trial-warning-banner.is-hidden {
+  display: none !important;
+}
+
+.twb-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.twb-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.twb-text {
+  font-size: 0.9rem;
+  color: #f8fafc;
+  line-height: 1.45;
+}
+
+.twb-text strong {
+  color: #fca5a5;
+  font-weight: 800;
+}
+
+.btn-twb-unlock {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-twb-unlock:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.6);
+}
+
+.badge-amber {
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #fbbf24;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   MODAL DE BLOQUEIO DE PAGAMENTO (ALERTA PIX & SUPORTE)
+   ========================================================================== */
+.payment-modal-overlay {
+  z-index: 500;
+  background: rgba(4, 8, 22, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.payment-dialog {
+  background: #ffffff;
+  color: #1e293b;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 24px;
+  padding: 32px 24px 24px;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  animation: zoomIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  max-height: 94vh;
+  overflow-y: auto;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.plm-warning-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  background: #fef3c7;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 18px rgba(245, 158, 11, 0.25);
+  animation: pulseGentle 2s infinite;
+}
+
+.plm-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #dc2626;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.plm-badge-blocked {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.plm-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  animation: dotPulse 1.6s infinite;
+}
+
+@keyframes dotPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.plm-desc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.plm-desc b {
+  color: #dc2626;
+}
+
+/* Pix Box */
+.plm-pix-card {
+  background: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.plm-pix-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.plm-pix-badge {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+}
+
+.plm-pix-key-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plm-pix-key {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: monospace;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.05em;
+  user-select: all;
+}
+
+.plm-btn-copy-pix {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.plm-btn-copy-pix:hover {
+  background: #2563eb;
+}
+
+.plm-btn-copy-pix.copied {
+  background: #16a34a !important;
+}
+
+/* Support Row */
+.plm-support-row {
+  font-size: 0.92rem;
+  color: #334155;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.plm-phone-link {
+  color: #0f172a;
+  text-decoration: underline;
+  text-decoration-color: #cbd5e1;
+}
+
+/* WhatsApp Main Button */
+.plm-btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff !important;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding: 15px 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px -4px rgba(34, 197, 94, 0.45);
+  transition: all 0.2s ease;
+  margin-bottom: 16px;
+}
+
+.plm-btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(34, 197, 94, 0.55);
+}
+
+/* Unlock Card with Input */
+.plm-unlock-card {
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.plm-unlock-card label {
+  font-size: 0.78rem;
+  color: #475569;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.plm-code-group {
+  display: flex;
+  gap: 8px;
+}
+
+.plm-code-group input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0f172a;
+  outline: none;
+  background: #fff;
+}
+
+.plm-code-group input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.plm-code-group button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.plm-code-group button:hover {
+  background: #1d4ed8;
+}
+
+.plm-code-feedback {
+  font-size: 0.78rem;
+  margin-top: 6px;
+  display: none;
+}
+
+.plm-code-feedback.error {
+  display: block;
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.plm-code-feedback.success {
+  display: block;
+  color: #16a34a;
+  font-weight: 700;
+}
+
+/* Dismiss / Close */
+.plm-btn-close {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.plm-btn-close:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+/* Badges on Cards */
+.mc-free-badge {
+  background: rgba(34, 197, 94, 0.22);
+  border: 1px solid rgba(34, 197, 94, 0.6);
+  color: #4ade80;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.mc-locked-badge {
+  background: rgba(239, 68, 68, 0.22);
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  color: #f87171;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.btn-locked {
+  background: rgba(239, 68, 68, 0.18) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  color: #fca5a5 !important;
+}
+
+.btn-locked:hover {
+  background: rgba(239, 68, 68, 0.3) !important;
+}
+
+.pli-locked {
+  color: #f87171;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.playlist-item.is-locked {
+  opacity: 0.85;
+}
+
+.playlist-item.is-locked:hover {
+  border-color: rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+@media (max-width: 640px) {
+  .trial-warning-banner {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+  .btn-twb-unlock {
+    justify-content: center;
+  }
+}

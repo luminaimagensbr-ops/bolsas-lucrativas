@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="index.css?v=2.8" />
+  <link rel="stylesheet" href="index.css?v=2.9" />
 </head>
 <body>
 
@@ -118,6 +118,20 @@
       <!-- Main Content Viewport -->
       <div class="content-viewport">
 
+        <!-- Banner de Status de Acesso / Modo Degustação -->
+        <div class="trial-warning-banner" id="trialWarningBanner">
+          <div class="twb-content">
+            <span class="twb-icon">⚠️</span>
+            <div class="twb-text">
+              <strong>Acesso Parcial Liberado:</strong> Você tem 10 moldes e 10 videoaulas de degustação. Regularize seu Pix para liberar os +200 moldes, Guia e Calculadora!
+            </div>
+          </div>
+          <button type="button" class="btn-twb-unlock" id="btnBannerUnlock">
+            <span>Regularizar no Pix</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
         <!-- ==========================================
              TAB 1: INÍCIO (DASHBOARD)
              ========================================== -->
@@ -127,7 +141,7 @@
             <div class="hero-grid">
               <div class="hero-text-content">
                 <div class="hero-badge-row">
-                  <span class="badge-green">✓ Acesso Completo Liberado</span>
+                  <span class="badge-green" id="heroAccessBadge">✓ Acesso Completo Liberado</span>
                   <span class="badge-gold">👑 Curso Vitalício</span>
                 </div>
                 <h2 class="hero-title">Bem-vinda ao seu <span>Ateliê Lucrativo</span></h2>
@@ -202,7 +216,7 @@
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                     <span>Visualizar na Tela</span>
                   </button>
-                  <a href="assets/moldes/200-moldes-bolsas-jeans.pdf" download="200-moldes-bolsas-jeans.pdf" class="btn-outline-gold">
+                  <a href="assets/moldes/200-moldes-bolsas-jeans.pdf" download="200-moldes-bolsas-jeans.pdf" class="btn-outline-gold" id="btnDownloadDestaque">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     <span>Baixar Arquivo Completo (PDF)</span>
                   </a>
@@ -619,6 +633,76 @@
     </div>
   </div>
 
+  <!-- ==========================================
+       MODAL 4: BLOQUEIO / REGULARIZAÇÃO DE PAGAMENTO PIX
+       ========================================== -->
+  <div class="app-modal-overlay payment-modal-overlay" id="paymentLockModal" role="dialog" aria-modal="true">
+    <div class="payment-dialog">
+      <!-- Icon Alert -->
+      <div class="plm-warning-icon">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </div>
+
+      <!-- Title & Warning Badge -->
+      <h2 class="plm-title">PAGAMENTO NÃO IDENTIFICADO</h2>
+      
+      <div class="plm-badge-blocked">
+        <span class="plm-dot"></span>
+        <span>SEU ACESSO PODERÁ SER BLOQUEADO</span>
+      </div>
+
+      <p class="plm-desc" id="plmDynamicReason">
+        Regularize seu pagamento para manter o acesso ao site com <b>+200 moldes</b>, Guia de Vendas e Calculadora de Preço.
+      </p>
+
+      <!-- Pix Copy & Paste Box -->
+      <div class="plm-pix-card">
+        <div class="plm-pix-header">
+          <span>Chave PIX (Telefone)</span>
+          <span class="plm-pix-badge">Aprovação Imediata</span>
+        </div>
+        <div class="plm-pix-key-row">
+          <code class="plm-pix-key" id="plmPixKeyText">61995979543</code>
+          <button type="button" class="plm-btn-copy-pix" id="btnCopyPixKey" title="Copiar Chave Pix">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="btnCopyPixText">Copiar Chave</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Support Phone Indicator -->
+      <div class="plm-support-row">
+        <span>📲 SUPORTE:</span>
+        <a href="https://wa.me/5561991168629" target="_blank" class="plm-phone-link"><b>(61) 99116-8629</b></a>
+      </div>
+
+      <!-- Main Action: WhatsApp Support Button -->
+      <a href="https://wa.me/5561991168629?text=Ol%C3%A1!%20Acabei%20de%20fazer%20o%20Pix%20do%20curso%20de%20bolsas,%20segue%20o%20meu%20comprovante%20para%20libera%C3%A7%C3%A3o." target="_blank" rel="noopener" class="plm-btn-whatsapp" id="btnPlmWhatsapp">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.969.587 1.956.966 2.792.966 3.182 0 5.768-2.587 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.503-4.467 9.969-9.969 9.969-1.748 0-3.385-.45-4.819-1.239l-5.212 1.332 1.385-4.992c-.896-1.492-1.423-3.238-1.423-5.07 0-5.502 4.467-9.969 9.969-9.969 5.502 0 9.969 4.467 9.969 9.969z"/></svg>
+        <span>FALAR COM O SUPORTE</span>
+      </a>
+
+      <!-- Code / Password Unlock Section -->
+      <div class="plm-unlock-card">
+        <label for="inputUnlockCode">Já fez o Pix e recebeu a senha no WhatsApp?</label>
+        <div class="plm-code-group">
+          <input type="text" id="inputUnlockCode" placeholder="Digite sua senha ou código..." autocomplete="off" />
+          <button type="button" id="btnSubmitUnlockCode">Desbloquear</button>
+        </div>
+        <div class="plm-code-feedback" id="unlockCodeFeedback"></div>
+      </div>
+
+      <!-- Close / Dismiss Action -->
+      <button type="button" class="plm-btn-close" id="btnClosePaymentModal">
+        FECHAR AVISO
+      </button>
+    </div>
+  </div>
+
   <!-- Toast Notification -->
   <div class="app-toast" id="appToast" role="status">
     <span id="toastIcon">✨</span>
@@ -627,9 +711,9 @@
 
   <!-- PDF.js Engine for Cross-Device Mobile & PWA Preview -->
   <script src="assets/vendor/pdfjs/pdf.min.js"></script>
-  <!-- Scripts (Cache-Busted v2.7) -->
-  <script src="app-data.js?v=2.7"></script>
-  <script src="guia-data.js?v=2.7"></script>
-  <script src="app.js?v=2.7"></script>
+  <!-- Scripts (Cache-Busted v2.9) -->
+  <script src="app-data.js?v=2.9"></script>
+  <script src="guia-data.js?v=2.9"></script>
+  <script src="app.js?v=2.9"></script>
 </body>
 </html>
