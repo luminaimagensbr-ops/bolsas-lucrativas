@@ -24,13 +24,36 @@
     GUIA_CHECKS: 'bl_guia_checks_v1',
     STUDENT_NAME: 'bl_student_name_v1',
     VIEW_MODE: 'bl_view_mode_v1',
-    VIP_UNLOCKED: 'bl_vip_unlocked_v1'
+    VIP_UNLOCKED: 'bl_vip_unlocked_v1',
+    TRIAL_START: 'bl_trial_start_v1'
   };
+
+  const TRIAL_DURATION_MS = 30 * 60 * 1000; // 30 Minutos de Degustação Gratuita
+
+  // --- Cookie Persistence (Garante que a contagem sobreviva no PWA e navegação privada/reabertura) ---
+  function getTrialCookie() {
+    try {
+      const match = document.cookie.match(new RegExp('(^| )bl_trial_start_v1=([^;]+)'));
+      return match ? parseInt(match[2], 10) : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function setTrialCookie(timestamp) {
+    try {
+      const maxAge = 30 * 24 * 60 * 60; // 30 dias
+      document.cookie = `bl_trial_start_v1=${timestamp}; path=/; max-age=${maxAge}; SameSite=Lax`;
+    } catch (_) {}
+  }
 
   // --- State ---
   let state = {
     currentTab: 'inicio',
     isUnlocked: localStorage.getItem('bl_vip_unlocked_v1') === 'true',
+    isTrialExpired: false,
+    trialStartTime: null,
+    trialInterval: null,
     favorites: loadJSON(STORAGE_KEYS.FAVORITES, []),
     watchedVideos: loadJSON(STORAGE_KEYS.WATCHED, []),
     guiaChecks: loadJSON(STORAGE_KEYS.GUIA_CHECKS, {}),
@@ -147,11 +170,18 @@
     homeProgressBar: document.getElementById('homeProgressBar'),
     homeProgressPercent: document.getElementById('homeProgressPercent'),
 
-    // Modo Degustação & Bloqueio PIX
+    // Modo Degustação 30 Minutos & Bloqueio PIX
     trialWarningBanner: document.getElementById('trialWarningBanner'),
+    twbHeading: document.getElementById('twbHeading'),
+    twbDesc: document.getElementById('twbDesc'),
+    trialCountdownBadge: document.getElementById('trialCountdownBadge'),
+    trialCountdownTimer: document.getElementById('trialCountdownTimer'),
+    trialCountdownPrefix: document.getElementById('trialCountdownPrefix'),
     btnBannerUnlock: document.getElementById('btnBannerUnlock'),
     heroAccessBadge: document.getElementById('heroAccessBadge'),
     paymentModal: document.getElementById('paymentLockModal'),
+    plmBadgeStatus: document.getElementById('plmBadgeStatus'),
+    plmBadgeStatusText: document.getElementById('plmBadgeStatusText'),
     plmDynamicReason: document.getElementById('plmDynamicReason'),
     plmPixKeyText: document.getElementById('plmPixKeyText'),
     btnCopyPixKey: document.getElementById('btnCopyPixKey'),
@@ -170,6 +200,7 @@
     registerServiceWorker();
     setupPwaInstall();
     checkUrlUnlockParams();
+    initTrialTimer();
     updateAccessUI();
     setupRouting();
     setupFavorites();
@@ -276,9 +307,11 @@
       const validTabs = ['inicio', 'moldes', 'aulas', 'guia', 'calculadora', 'bonus'];
       if (!validTabs.includes(tabId)) tabId = 'inicio';
 
-      // Interceptar abas restritas no Modo Degustação
-      if (!state.isUnlocked && ['guia', 'calculadora', 'bonus'].includes(tabId)) {
+      // Se os 30 minutos de degustação expiraram, bloquear o acesso
+      if (!state.isUnlocked && state.isTrialExpired && tabId !== 'inicio') {
         const tabTitles = {
+          moldes: 'Catálogo de Moldes (+200)',
+          aulas: 'Videoaulas Práticas',
           guia: 'Guia de Vendas (20 Módulos)',
           calculadora: 'Calculadora de Precificação',
           bonus: 'Bônus e Fornecedores VIP'
@@ -307,7 +340,7 @@
       el.addEventListener('click', (e) => {
         e.preventDefault();
         const tab = el.getAttribute('data-tab');
-        if (!state.isUnlocked && ['guia', 'calculadora', 'bonus'].includes(tab)) {
+        if (!state.isUnlocked && state.isTrialExpired && tab !== 'inicio') {
           navigateTo(tab);
           return;
         }
@@ -320,7 +353,7 @@
     document.querySelectorAll('[data-goto]').forEach((el) => {
       el.addEventListener('click', () => {
         const tab = el.getAttribute('data-goto');
-        if (!state.isUnlocked && ['guia', 'calculadora', 'bonus'].includes(tab)) {
+        if (!state.isUnlocked && state.isTrialExpired && tab !== 'inicio') {
           navigateTo(tab);
           return;
         }
@@ -337,7 +370,7 @@
 
     // Initial route check
     const initialHash = window.location.hash.replace('#', '') || 'inicio';
-    if (!state.isUnlocked && ['guia', 'calculadora', 'bonus'].includes(initialHash)) {
+    if (!state.isUnlocked && state.isTrialExpired && initialHash !== 'inicio') {
       navigateTo('inicio');
     } else {
       navigateTo(initialHash);
@@ -417,14 +450,15 @@
       return;
     }
 
-    DOM.moldesGrid.innerHTML = items.map((m, idx) => {
+    DOM.moldesGrid.innerHTML = items.map((m) => {
       const isFav = state.favorites.includes(m.id);
       const thumb = m.thumb || 'assets/thumbs/destaque-200-moldes.jpg';
       const kindBadge = m.kind === 'pdf' ? `PDF (${m.pages || 1}p)` : 'Molde c/ Medidas';
       
-      const isFree = state.isUnlocked || idx < 10;
+      // Liberado se estiver dentro dos 30 minutos ou se comprou
+      const isFree = state.isUnlocked || !state.isTrialExpired;
       const trialBadge = !state.isUnlocked
-        ? (isFree ? '<span class="mc-free-badge">🟢 Liberado</span>' : '<span class="mc-locked-badge">🔒 Liberar no Pix</span>')
+        ? (isFree ? '<span class="mc-free-badge">🟢 Degustação Ativa</span>' : '<span class="mc-locked-badge">🔒 Bloqueado</span>')
         : '';
 
       const clickAction = isFree
@@ -647,8 +681,8 @@
   function loadVideo(idx, shouldScroll = false) {
     if (idx < 0 || idx >= VIDEOS.length) return;
 
-    if (!state.isUnlocked && idx >= 10) {
-      openPaymentModal(`Aula ${idx + 1} - Exclusiva`);
+    if (!state.isUnlocked && state.isTrialExpired) {
+      openPaymentModal(`Aula ${idx + 1} - Degustação Expirada`);
       return;
     }
 
@@ -715,11 +749,11 @@
       const isActive = i === state.currentVideoIdx;
       const isDone = state.watchedVideos.includes(vidId);
       const thumbUrl = v.thumbnail || `https://i.ytimg.com/vi/${vidId}/hqdefault.jpg`;
-      const isFree = state.isUnlocked || i < 10;
+      const isFree = state.isUnlocked || !state.isTrialExpired;
 
       const clickAction = isFree
         ? `window.BolsasApp.loadVideo(${i}, true)`
-        : `window.BolsasApp.openPaymentModal('Aula ${i + 1} Exclusiva')`;
+        : `window.BolsasApp.openPaymentModal('Aula ${i + 1} - Degustação Expirada')`;
 
       const statusHtml = isFree
         ? (isDone ? '✓' : '')
@@ -1104,7 +1138,7 @@
 
     if (DOM.btnOpenDestaqueModal) {
       DOM.btnOpenDestaqueModal.addEventListener('click', () => {
-        if (!state.isUnlocked) {
+        if (!state.isUnlocked && state.isTrialExpired) {
           openPaymentModal('Coleção Completa 200 Moldes');
         } else {
           openMoldePreview(0, true);
@@ -1293,16 +1327,9 @@
   }
 
   function openMoldePreview(id, isDestaque = false) {
-    if (!state.isUnlocked) {
-      if (isDestaque) {
-        openPaymentModal('Coleção Completa 200 Moldes');
-        return;
-      }
-      const itemIdx = MOLDES.findIndex((m) => m.id === id);
-      if (itemIdx >= 10 || (itemIdx === -1 && id >= 1000)) {
-        openPaymentModal('Molde Exclusivo');
-        return;
-      }
+    if (!state.isUnlocked && state.isTrialExpired) {
+      openPaymentModal(isDestaque ? 'Coleção Completa 200 Moldes' : 'Molde Exclusivo');
+      return;
     }
 
     let item;
@@ -1391,12 +1418,108 @@
   }
 
   // =========================================================================
-  // Bloqueio de Pagamento, Degustação & Desbloqueio VIP
+  // Bloqueio de Pagamento, Degustação 30 Minutos & Desbloqueio VIP
   // =========================================================================
+  function initTrialTimer() {
+    if (state.isUnlocked) {
+      state.isTrialExpired = false;
+      if (state.trialInterval) {
+        clearInterval(state.trialInterval);
+        state.trialInterval = null;
+      }
+      return;
+    }
+
+    // Leitura resiliente (LocalStorage + Cookie para PWA e sessões)
+    let saved = parseInt(localStorage.getItem(STORAGE_KEYS.TRIAL_START), 10);
+    if (!saved || isNaN(saved)) {
+      saved = getTrialCookie();
+    }
+
+    const now = Date.now();
+    if (!saved || isNaN(saved)) {
+      saved = now;
+      try {
+        localStorage.setItem(STORAGE_KEYS.TRIAL_START, saved.toString());
+      } catch (_) {}
+      setTrialCookie(saved);
+    } else {
+      try {
+        localStorage.setItem(STORAGE_KEYS.TRIAL_START, saved.toString());
+      } catch (_) {}
+      setTrialCookie(saved);
+    }
+
+    state.trialStartTime = saved;
+
+    function tick() {
+      if (state.isUnlocked) {
+        if (state.trialInterval) {
+          clearInterval(state.trialInterval);
+          state.trialInterval = null;
+        }
+        return;
+      }
+
+      const currentTime = Date.now();
+      const elapsed = currentTime - state.trialStartTime;
+      const remainingMs = TRIAL_DURATION_MS - elapsed;
+
+      if (remainingMs <= 0) {
+        state.isTrialExpired = true;
+        if (DOM.trialCountdownTimer) DOM.trialCountdownTimer.textContent = '00:00';
+        if (DOM.trialCountdownBadge) DOM.trialCountdownBadge.classList.add('expired');
+        if (DOM.trialCountdownPrefix) DOM.trialCountdownPrefix.textContent = 'Status:';
+        if (DOM.twbHeading) DOM.twbHeading.textContent = 'Degustação Encerrada:';
+        if (DOM.twbDesc) DOM.twbDesc.textContent = 'Seus 30 minutos de teste acabaram. Regularize o Pix para reativar o curso!';
+
+        if (state.trialInterval) {
+          clearInterval(state.trialInterval);
+          state.trialInterval = null;
+        }
+
+        expireTrial();
+      } else {
+        state.isTrialExpired = false;
+        const totalSecs = Math.floor(remainingMs / 1000);
+        const mins = Math.floor(totalSecs / 60);
+        const secs = totalSecs % 60;
+        const formatted = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+        if (DOM.trialCountdownTimer) DOM.trialCountdownTimer.textContent = formatted;
+        if (DOM.trialCountdownBadge) DOM.trialCountdownBadge.classList.remove('expired');
+        if (DOM.trialCountdownPrefix) DOM.trialCountdownPrefix.textContent = 'Tempo restante:';
+        if (DOM.twbHeading) DOM.twbHeading.textContent = 'Degustação Gratuita (30 min):';
+        if (DOM.twbDesc) DOM.twbDesc.textContent = 'Você tem acesso liberado para conhecer o curso completo!';
+      }
+    }
+
+    tick();
+    if (!state.isTrialExpired) {
+      if (state.trialInterval) clearInterval(state.trialInterval);
+      state.trialInterval = setInterval(tick, 1000);
+    }
+  }
+
+  function expireTrial() {
+    if (state.isUnlocked) return;
+    state.isTrialExpired = true;
+
+    // Pausar qualquer vídeo em execução
+    if (DOM.mainVideoPlayer) {
+      DOM.mainVideoPlayer.src = '';
+    }
+
+    updateAccessUI();
+    renderMoldes();
+    renderPlaylist();
+    openPaymentModal('Tempo de Degustação Expirado (30 Minutos)');
+  }
+
   function setupPaymentLockModal() {
     if (DOM.btnBannerUnlock) {
       DOM.btnBannerUnlock.addEventListener('click', () => {
-        openPaymentModal('Liberação de Acesso Completo');
+        openPaymentModal('Liberação de Acesso Vitalício');
       });
     }
 
@@ -1485,7 +1608,7 @@
 
     if (DOM.btnDownloadDestaque) {
       DOM.btnDownloadDestaque.addEventListener('click', (e) => {
-        if (!state.isUnlocked) {
+        if (!state.isUnlocked && state.isTrialExpired) {
           e.preventDefault();
           openPaymentModal('Coleção Completa 200 Moldes');
         }
@@ -1495,12 +1618,19 @@
 
   function openPaymentModal(reason = '') {
     if (DOM.plmDynamicReason) {
-      if (reason) {
-        DOM.plmDynamicReason.innerHTML = `Para acessar <b>${reason}</b>, regularize seu pagamento para liberar o site com <b>+200 moldes</b>, Guia de Vendas e Calculadora.`;
+      if (state.isTrialExpired) {
+        DOM.plmDynamicReason.innerHTML = `Seu período de degustação gratuita de 30 minutos terminou. Regularize seu pagamento via Pix para continuar com acesso completo aos <b>+200 moldes</b>, videoaulas, Guia de Vendas e Calculadora de Preço.`;
+      } else if (reason) {
+        DOM.plmDynamicReason.innerHTML = `Para garantir acesso vitalício e ilimitado ao <b>${reason}</b>, regularize seu pagamento para manter todos os +200 moldes, Guia e Calculadora.`;
       } else {
-        DOM.plmDynamicReason.innerHTML = `Regularize seu pagamento para manter o acesso ao site com <b>+200 moldes</b>, Guia de Vendas e Calculadora de Preço.`;
+        DOM.plmDynamicReason.innerHTML = `Regularize seu pagamento para garantir seu acesso vitalício ao site com <b>+200 moldes</b>, Guia de Vendas e Calculadora de Preço.`;
       }
     }
+
+    if (DOM.plmBadgeStatusText) {
+      DOM.plmBadgeStatusText.textContent = state.isTrialExpired ? 'SEU ACESSO FOI BLOQUEADO' : 'SEU ACESSO PODERÁ SER BLOQUEADO';
+    }
+
     if (DOM.unlockCodeFeedback) {
       DOM.unlockCodeFeedback.className = 'plm-code-feedback';
       DOM.unlockCodeFeedback.textContent = '';
@@ -1521,6 +1651,12 @@
 
   function unlockAccess(source = 'manual') {
     state.isUnlocked = true;
+    state.isTrialExpired = false;
+    if (state.trialInterval) {
+      clearInterval(state.trialInterval);
+      state.trialInterval = null;
+    }
+
     try {
       localStorage.setItem(STORAGE_KEYS.VIP_UNLOCKED, 'true');
     } catch (_) {}
@@ -1538,10 +1674,38 @@
       localStorage.removeItem(STORAGE_KEYS.VIP_UNLOCKED);
     } catch (_) {}
 
+    initTrialTimer();
     updateAccessUI();
     renderMoldes();
     renderPlaylist();
-    showToast('Modo Degustação Ativado (10 Moldes Liberados).', 'info');
+    showToast('Modo Degustação Ativado.', 'info');
+  }
+
+  function resetTrialTimer() {
+    const now = Date.now();
+    try {
+      localStorage.removeItem(STORAGE_KEYS.VIP_UNLOCKED);
+      localStorage.setItem(STORAGE_KEYS.TRIAL_START, now.toString());
+      setTrialCookie(now);
+    } catch (_) {}
+    state.isUnlocked = false;
+    state.isTrialExpired = false;
+    initTrialTimer();
+    updateAccessUI();
+    renderMoldes();
+    renderPlaylist();
+    showToast('Cronômetro de 30 minutos reiniciado!', 'info');
+  }
+
+  function expireTrialNow() {
+    const past = Date.now() - (TRIAL_DURATION_MS + 2000);
+    try {
+      localStorage.removeItem(STORAGE_KEYS.VIP_UNLOCKED);
+      localStorage.setItem(STORAGE_KEYS.TRIAL_START, past.toString());
+      setTrialCookie(past);
+    } catch (_) {}
+    state.isUnlocked = false;
+    initTrialTimer();
   }
 
   function updateAccessUI() {
@@ -1552,9 +1716,12 @@
       if (state.isUnlocked) {
         DOM.heroAccessBadge.className = 'badge-green';
         DOM.heroAccessBadge.textContent = '✓ Acesso Completo Liberado';
+      } else if (!state.isTrialExpired) {
+        DOM.heroAccessBadge.className = 'badge-amber';
+        DOM.heroAccessBadge.textContent = '⏳ Degustação 30 Minutos Ativa';
       } else {
         DOM.heroAccessBadge.className = 'badge-amber';
-        DOM.heroAccessBadge.textContent = '⚠️ Modo Degustação (10 Moldes)';
+        DOM.heroAccessBadge.textContent = '🔒 Degustação Expirada';
       }
     }
   }
@@ -1598,7 +1765,10 @@
     closePaymentModal,
     unlockAccess,
     lockAccess,
-    isUnlocked: () => state.isUnlocked
+    resetTrialTimer,
+    expireTrialNow,
+    isUnlocked: () => state.isUnlocked,
+    isTrialExpired: () => state.isTrialExpired
   };
 
   // Launch on DOM ready

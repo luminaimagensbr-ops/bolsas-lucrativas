@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="index.css?v=2.9" />
+  <link rel="stylesheet" href="index.css?v=3.0" />
 </head>
 <body>
 
@@ -118,16 +118,22 @@
       <!-- Main Content Viewport -->
       <div class="content-viewport">
 
-        <!-- Banner de Status de Acesso / Modo Degustação -->
+        <!-- Banner de Status de Acesso / Degustação 30 Minutos -->
         <div class="trial-warning-banner" id="trialWarningBanner">
           <div class="twb-content">
-            <span class="twb-icon">⚠️</span>
+            <span class="twb-icon">⏳</span>
             <div class="twb-text">
-              <strong>Acesso Parcial Liberado:</strong> Você tem 10 moldes e 10 videoaulas de degustação. Regularize seu Pix para liberar os +200 moldes, Guia e Calculadora!
+              <strong id="twbHeading">Degustação Gratuita (30 min):</strong>
+              <span id="twbDesc">Você tem acesso liberado para conhecer o curso completo!</span>
+              <div class="trial-countdown-badge" id="trialCountdownBadge">
+                <span class="tcb-dot"></span>
+                <span id="trialCountdownPrefix">Tempo restante:</span>
+                <b id="trialCountdownTimer">30:00</b>
+              </div>
             </div>
           </div>
           <button type="button" class="btn-twb-unlock" id="btnBannerUnlock">
-            <span>Regularizar no Pix</span>
+            <span>Garantir Acesso no Pix</span>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -650,13 +656,13 @@
       <!-- Title & Warning Badge -->
       <h2 class="plm-title">PAGAMENTO NÃO IDENTIFICADO</h2>
       
-      <div class="plm-badge-blocked">
+      <div class="plm-badge-blocked" id="plmBadgeStatus">
         <span class="plm-dot"></span>
-        <span>SEU ACESSO PODERÁ SER BLOQUEADO</span>
+        <span id="plmBadgeStatusText">SEU ACESSO PODERÁ SER BLOQUEADO</span>
       </div>
 
       <p class="plm-desc" id="plmDynamicReason">
-        Regularize seu pagamento para manter o acesso ao site com <b>+200 moldes</b>, Guia de Vendas e Calculadora de Preço.
+        Seu período de degustação gratuita de 30 minutos terminou. Regularize seu pagamento via Pix para continuar o acesso ao site com <b>+200 moldes</b>, todas as videoaulas, Guia de Vendas e Calculadora de Preço.
       </p>
 
       <!-- Pix Copy & Paste Box -->
@@ -680,8 +686,8 @@
         <a href="https://wa.me/5561991168629" target="_blank" class="plm-phone-link"><b>(61) 99116-8629</b></a>
       </div>
 
-      <!-- Main Action: WhatsApp Support Button -->
-      <a href="https://wa.me/5561991168629?text=Ol%C3%A1!%20Acabei%20de%20fazer%20o%20Pix%20do%20curso%20de%20bolsas,%20segue%20o%20meu%20comprovante%20para%20libera%C3%A7%C3%A3o." target="_blank" rel="noopener" class="plm-btn-whatsapp" id="btnPlmWhatsapp">
+      <!-- Main Action: WhatsApp Support Button (Link limpo sem pré-texto) -->
+      <a href="https://wa.me/5561991168629" target="_blank" rel="noopener" class="plm-btn-whatsapp" id="btnPlmWhatsapp">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.969.587 1.956.966 2.792.966 3.182 0 5.768-2.587 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.503-4.467 9.969-9.969 9.969-1.748 0-3.385-.45-4.819-1.239l-5.212 1.332 1.385-4.992c-.896-1.492-1.423-3.238-1.423-5.07 0-5.502 4.467-9.969 9.969-9.969 5.502 0 9.969 4.467 9.969 9.969z"/></svg>
         <span>FALAR COM O SUPORTE</span>
       </a>
@@ -711,9 +717,9 @@
 
   <!-- PDF.js Engine for Cross-Device Mobile & PWA Preview -->
   <script src="assets/vendor/pdfjs/pdf.min.js"></script>
-  <!-- Scripts (Cache-Busted v2.9) -->
-  <script src="app-data.js?v=2.9"></script>
-  <script src="guia-data.js?v=2.9"></script>
-  <script src="app.js?v=2.9"></script>
+  <!-- Scripts (Cache-Busted v3.0) -->
+  <script src="app-data.js?v=3.0"></script>
+  <script src="guia-data.js?v=3.0"></script>
+  <script src="app.js?v=3.0"></script>
 </body>
 </html>

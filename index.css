@@ -2903,11 +2903,53 @@ all and (display-mode: fullscreen) {
   font-size: 0.9rem;
   color: #f8fafc;
   line-height: 1.45;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .twb-text strong {
   color: #fca5a5;
   font-weight: 800;
+}
+
+.trial-countdown-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(239, 68, 68, 0.22);
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  color: #fecaca;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.trial-countdown-badge b {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+
+.trial-countdown-badge.expired {
+  background: #dc2626;
+  border-color: #ef4444;
+  color: #ffffff;
+  animation: pulseGentle 1.5s infinite;
+}
+
+.tcb-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  animation: dotPulse 1.4s infinite;
 }
 
 .btn-twb-unlock {
