@@ -193,13 +193,18 @@
     btnSubmitUnlockCode: document.getElementById('btnSubmitUnlockCode'),
     unlockCodeFeedback: document.getElementById('unlockCodeFeedback'),
     btnClosePaymentModal: document.getElementById('btnClosePaymentModal'),
-    btnDownloadDestaque: document.getElementById('btnDownloadDestaque')
+    btnDownloadDestaque: document.getElementById('btnDownloadDestaque'),
+
+    // Theme Toggle
+    btnThemeToggle: document.getElementById('btnThemeToggle'),
+    metaThemeColor: document.getElementById('metaThemeColor')
   };
 
   // =========================================================================
   // Initialization
   // =========================================================================
   function init() {
+    setupTheme();
     registerServiceWorker();
     setupPwaInstall();
     checkUrlUnlockParams();
@@ -216,6 +221,44 @@
     setupPaymentLockModal();
     updateGlobalCounters();
     updateHomeProgress();
+  }
+
+  // =========================================================================
+  // Theme Manager (Light Mode Default + Dark Mode Toggle)
+  // =========================================================================
+  function setupTheme() {
+    let currentTheme = localStorage.getItem('bolsas_theme') || 'light';
+    applyTheme(currentTheme);
+
+    if (DOM.btnThemeToggle) {
+      DOM.btnThemeToggle.addEventListener('click', () => {
+        currentTheme = (currentTheme === 'light') ? 'dark' : 'light';
+        localStorage.setItem('bolsas_theme', currentTheme);
+        applyTheme(currentTheme);
+        showToast(
+          currentTheme === 'light' ? 'Modo Claro ativado ☀️' : 'Modo Escuro ativado 🌙',
+          currentTheme === 'light' ? '☀️' : '🌙'
+        );
+      });
+    }
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const meta = DOM.metaThemeColor || document.getElementById('metaThemeColor');
+    if (meta) {
+      meta.setAttribute('content', theme === 'dark' ? '#080e22' : '#f8fafc');
+    }
+    if (DOM.btnThemeToggle) {
+      DOM.btnThemeToggle.setAttribute(
+        'title',
+        theme === 'dark' ? 'Alternar para Modo Claro (☀️)' : 'Alternar para Modo Escuro (🌙)'
+      );
+      DOM.btnThemeToggle.setAttribute(
+        'aria-label',
+        theme === 'dark' ? 'Alternar para Modo Claro' : 'Alternar para Modo Escuro'
+      );
+    }
   }
 
   // =========================================================================
