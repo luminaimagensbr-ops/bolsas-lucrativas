@@ -28,7 +28,7 @@
     TRIAL_START: 'bl_trial_start_v1'
   };
 
-  const TRIAL_DURATION_MS = 30 * 60 * 1000; // 30 Minutos de Degustação Gratuita
+  const TRIAL_DURATION_MS = 15 * 60 * 1000; // 15 Minutos de Teste Oculto
 
   // --- Cookie Persistence (Garante que a contagem sobreviva no PWA e navegação privada/reabertura) ---
   function getTrialCookie() {
@@ -170,15 +170,17 @@
     homeProgressBar: document.getElementById('homeProgressBar'),
     homeProgressPercent: document.getElementById('homeProgressPercent'),
 
-    // Modo Degustação 30 Minutos & Bloqueio PIX
+    // Modo Degustação / Teste 15 Minutos & Bloqueio PIX
+    sidebarVipPill: document.getElementById('sidebarVipPill'),
+    sidebarVipAvatar: document.getElementById('sidebarVipAvatar'),
+    sidebarAccessText: document.getElementById('sidebarAccessText'),
+    sidebarAccessSub: document.getElementById('sidebarAccessSub'),
+    heroAccessBadge: document.getElementById('heroAccessBadge'),
+    heroPlanBadge: document.getElementById('heroPlanBadge'),
     trialWarningBanner: document.getElementById('trialWarningBanner'),
     twbHeading: document.getElementById('twbHeading'),
     twbDesc: document.getElementById('twbDesc'),
-    trialCountdownBadge: document.getElementById('trialCountdownBadge'),
-    trialCountdownTimer: document.getElementById('trialCountdownTimer'),
-    trialCountdownPrefix: document.getElementById('trialCountdownPrefix'),
     btnBannerUnlock: document.getElementById('btnBannerUnlock'),
-    heroAccessBadge: document.getElementById('heroAccessBadge'),
     paymentModal: document.getElementById('paymentLockModal'),
     plmBadgeStatus: document.getElementById('plmBadgeStatus'),
     plmBadgeStatusText: document.getElementById('plmBadgeStatusText'),
@@ -1418,7 +1420,7 @@
   }
 
   // =========================================================================
-  // Bloqueio de Pagamento, Degustação 30 Minutos & Desbloqueio VIP
+  // Bloqueio de Pagamento, Teste Oculto de 15 Minutos & Desbloqueio VIP
   // =========================================================================
   function initTrialTimer() {
     if (state.isUnlocked) {
@@ -1452,7 +1454,7 @@
 
     state.trialStartTime = saved;
 
-    function tick() {
+    function checkExpiry() {
       if (state.isUnlocked) {
         if (state.trialInterval) {
           clearInterval(state.trialInterval);
@@ -1467,37 +1469,20 @@
 
       if (remainingMs <= 0) {
         state.isTrialExpired = true;
-        if (DOM.trialCountdownTimer) DOM.trialCountdownTimer.textContent = '00:00';
-        if (DOM.trialCountdownBadge) DOM.trialCountdownBadge.classList.add('expired');
-        if (DOM.trialCountdownPrefix) DOM.trialCountdownPrefix.textContent = 'Status:';
-        if (DOM.twbHeading) DOM.twbHeading.textContent = 'Degustação Encerrada:';
-        if (DOM.twbDesc) DOM.twbDesc.textContent = 'Seus 30 minutos de teste acabaram. Regularize o Pix para reativar o curso!';
-
         if (state.trialInterval) {
           clearInterval(state.trialInterval);
           state.trialInterval = null;
         }
-
         expireTrial();
       } else {
         state.isTrialExpired = false;
-        const totalSecs = Math.floor(remainingMs / 1000);
-        const mins = Math.floor(totalSecs / 60);
-        const secs = totalSecs % 60;
-        const formatted = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-
-        if (DOM.trialCountdownTimer) DOM.trialCountdownTimer.textContent = formatted;
-        if (DOM.trialCountdownBadge) DOM.trialCountdownBadge.classList.remove('expired');
-        if (DOM.trialCountdownPrefix) DOM.trialCountdownPrefix.textContent = 'Tempo restante:';
-        if (DOM.twbHeading) DOM.twbHeading.textContent = 'Degustação Gratuita (30 min):';
-        if (DOM.twbDesc) DOM.twbDesc.textContent = 'Você tem acesso liberado para conhecer o curso completo!';
       }
     }
 
-    tick();
+    checkExpiry();
     if (!state.isTrialExpired) {
       if (state.trialInterval) clearInterval(state.trialInterval);
-      state.trialInterval = setInterval(tick, 1000);
+      state.trialInterval = setInterval(checkExpiry, 1000);
     }
   }
 
@@ -1513,7 +1498,7 @@
     updateAccessUI();
     renderMoldes();
     renderPlaylist();
-    openPaymentModal('Tempo de Degustação Expirado (30 Minutos)');
+    openPaymentModal('Período de Teste Concluído');
   }
 
   function setupPaymentLockModal() {
@@ -1618,17 +1603,11 @@
 
   function openPaymentModal(reason = '') {
     if (DOM.plmDynamicReason) {
-      if (state.isTrialExpired) {
-        DOM.plmDynamicReason.innerHTML = `Seu período de degustação gratuita de 30 minutos terminou. Regularize seu pagamento via Pix para continuar com acesso completo aos <b>+200 moldes</b>, videoaulas, Guia de Vendas e Calculadora de Preço.`;
-      } else if (reason) {
-        DOM.plmDynamicReason.innerHTML = `Para garantir acesso vitalício e ilimitado ao <b>${reason}</b>, regularize seu pagamento para manter todos os +200 moldes, Guia e Calculadora.`;
-      } else {
-        DOM.plmDynamicReason.innerHTML = `Regularize seu pagamento para garantir seu acesso vitalício ao site com <b>+200 moldes</b>, Guia de Vendas e Calculadora de Preço.`;
-      }
+      DOM.plmDynamicReason.innerHTML = `Ainda não identificamos o seu pagamento via Pix. Regularize seu pagamento para liberar o acesso vitalício ao site com <b>+200 moldes</b>, todas as videoaulas, Guia de Vendas e Calculadora de Preço.`;
     }
 
     if (DOM.plmBadgeStatusText) {
-      DOM.plmBadgeStatusText.textContent = state.isTrialExpired ? 'SEU ACESSO FOI BLOQUEADO' : 'SEU ACESSO PODERÁ SER BLOQUEADO';
+      DOM.plmBadgeStatusText.textContent = 'SEU ACESSO FOI BLOQUEADO';
     }
 
     if (DOM.unlockCodeFeedback) {
@@ -1694,7 +1673,7 @@
     updateAccessUI();
     renderMoldes();
     renderPlaylist();
-    showToast('Cronômetro de 30 minutos reiniciado!', 'info');
+    showToast('Período de teste de 15 minutos reiniciado!', 'info');
   }
 
   function expireTrialNow() {
@@ -1712,17 +1691,45 @@
     if (DOM.trialWarningBanner) {
       DOM.trialWarningBanner.classList.toggle('is-hidden', state.isUnlocked);
     }
-    if (DOM.heroAccessBadge) {
-      if (state.isUnlocked) {
+
+    if (state.isUnlocked) {
+      if (DOM.heroAccessBadge) {
         DOM.heroAccessBadge.className = 'badge-green';
         DOM.heroAccessBadge.textContent = '✓ Acesso Completo Liberado';
-      } else if (!state.isTrialExpired) {
-        DOM.heroAccessBadge.className = 'badge-amber';
-        DOM.heroAccessBadge.textContent = '⏳ Degustação 30 Minutos Ativa';
-      } else {
-        DOM.heroAccessBadge.className = 'badge-amber';
-        DOM.heroAccessBadge.textContent = '🔒 Degustação Expirada';
       }
+      if (DOM.heroPlanBadge) {
+        DOM.heroPlanBadge.className = 'badge-gold';
+        DOM.heroPlanBadge.textContent = '👑 Curso Vitalício';
+      }
+      if (DOM.sidebarAccessText) DOM.sidebarAccessText.textContent = 'Acesso Vitalício';
+      if (DOM.sidebarAccessSub) DOM.sidebarAccessSub.textContent = 'Aluna Certificada';
+      if (DOM.sidebarVipAvatar) DOM.sidebarVipAvatar.textContent = 'VIP';
+    } else if (!state.isTrialExpired) {
+      // Durante o período de teste de 15 minutos
+      if (DOM.heroAccessBadge) {
+        DOM.heroAccessBadge.className = 'badge-amber';
+        DOM.heroAccessBadge.textContent = 'Acesso de Teste';
+      }
+      if (DOM.heroPlanBadge) {
+        DOM.heroPlanBadge.className = 'badge-amber';
+        DOM.heroPlanBadge.textContent = 'Acesso de Teste';
+      }
+      if (DOM.sidebarAccessText) DOM.sidebarAccessText.textContent = 'Acesso de Teste';
+      if (DOM.sidebarAccessSub) DOM.sidebarAccessSub.textContent = 'Modo Demonstração';
+      if (DOM.sidebarVipAvatar) DOM.sidebarVipAvatar.textContent = 'TESTE';
+    } else {
+      // Após os 15 minutos (Bloqueado)
+      if (DOM.heroAccessBadge) {
+        DOM.heroAccessBadge.className = 'badge-amber';
+        DOM.heroAccessBadge.textContent = 'Acesso Bloqueado';
+      }
+      if (DOM.heroPlanBadge) {
+        DOM.heroPlanBadge.className = 'badge-amber';
+        DOM.heroPlanBadge.textContent = 'Pagamento Não Identificado';
+      }
+      if (DOM.sidebarAccessText) DOM.sidebarAccessText.textContent = 'Acesso Bloqueado';
+      if (DOM.sidebarAccessSub) DOM.sidebarAccessSub.textContent = 'Pix Pendente';
+      if (DOM.sidebarVipAvatar) DOM.sidebarVipAvatar.textContent = '🔒';
     }
   }
 

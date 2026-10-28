@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="index.css?v=3.0" />
+  <link rel="stylesheet" href="index.css?v=3.1" />
 </head>
 <body>
 
@@ -68,11 +68,11 @@
       </nav>
 
       <div class="sidebar-footer">
-        <div class="vip-pill">
-          <div class="vip-avatar">VIP</div>
+        <div class="vip-pill" id="sidebarVipPill">
+          <div class="vip-avatar" id="sidebarVipAvatar">VIP</div>
           <div class="vip-info">
-            <b>Acesso Vitalício</b>
-            <span>Aluna Certificada</span>
+            <b id="sidebarAccessText">Acesso Vitalício</b>
+            <span id="sidebarAccessSub">Aluna Certificada</span>
           </div>
         </div>
       </div>
@@ -118,22 +118,17 @@
       <!-- Main Content Viewport -->
       <div class="content-viewport">
 
-        <!-- Banner de Status de Acesso / Degustação 30 Minutos -->
+        <!-- Banner de Pagamento Pix Pendente -->
         <div class="trial-warning-banner" id="trialWarningBanner">
           <div class="twb-content">
-            <span class="twb-icon">⏳</span>
+            <span class="twb-icon">⚠️</span>
             <div class="twb-text">
-              <strong id="twbHeading">Degustação Gratuita (30 min):</strong>
-              <span id="twbDesc">Você tem acesso liberado para conhecer o curso completo!</span>
-              <div class="trial-countdown-badge" id="trialCountdownBadge">
-                <span class="tcb-dot"></span>
-                <span id="trialCountdownPrefix">Tempo restante:</span>
-                <b id="trialCountdownTimer">30:00</b>
-              </div>
+              <strong id="twbHeading">Atenção:</strong>
+              <span id="twbDesc">Ainda não identificamos o seu pagamento via Pix. Regularize para garantir o seu acesso ao curso!</span>
             </div>
           </div>
           <button type="button" class="btn-twb-unlock" id="btnBannerUnlock">
-            <span>Garantir Acesso no Pix</span>
+            <span>Pagar o Curso Agora</span>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -148,7 +143,7 @@
               <div class="hero-text-content">
                 <div class="hero-badge-row">
                   <span class="badge-green" id="heroAccessBadge">✓ Acesso Completo Liberado</span>
-                  <span class="badge-gold">👑 Curso Vitalício</span>
+                  <span class="badge-gold" id="heroPlanBadge">👑 Curso Vitalício</span>
                 </div>
                 <h2 class="hero-title">Bem-vinda ao seu <span>Ateliê Lucrativo</span></h2>
                 <p class="hero-desc">
@@ -662,7 +657,7 @@
       </div>
 
       <p class="plm-desc" id="plmDynamicReason">
-        Seu período de degustação gratuita de 30 minutos terminou. Regularize seu pagamento via Pix para continuar o acesso ao site com <b>+200 moldes</b>, todas as videoaulas, Guia de Vendas e Calculadora de Preço.
+        Ainda não identificamos o seu pagamento via Pix. Regularize seu pagamento para liberar o acesso vitalício ao site com <b>+200 moldes</b>, todas as videoaulas, Guia de Vendas e Calculadora de Preço.
       </p>
 
       <!-- Pix Copy & Paste Box -->
@@ -717,9 +712,9 @@
 
   <!-- PDF.js Engine for Cross-Device Mobile & PWA Preview -->
   <script src="assets/vendor/pdfjs/pdf.min.js"></script>
-  <!-- Scripts (Cache-Busted v3.0) -->
-  <script src="app-data.js?v=3.0"></script>
-  <script src="guia-data.js?v=3.0"></script>
-  <script src="app.js?v=3.0"></script>
+  <!-- Scripts (Cache-Busted v3.1) -->
+  <script src="app-data.js?v=3.1"></script>
+  <script src="guia-data.js?v=3.1"></script>
+  <script src="app.js?v=3.1"></script>
 </body>
 </html>
