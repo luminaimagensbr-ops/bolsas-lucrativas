@@ -3224,9 +3224,9 @@ all and (display-mode: fullscreen) {
    TRIAL WARNING BANNER (MODO DEGUSTAÇÃO)
    ========================================================================== */
 .trial-warning-banner {
-  background: linear-gradient(135deg, #fef2f2, #fffbeb);
-  border: 1px solid #fecaca;
-  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.08);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(245, 158, 11, 0.18)), #0b1330;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  box-shadow: 0 8px 24px rgba(11, 19, 48, 0.25), 0 0 16px rgba(239, 68, 68, 0.15);
   border-radius: var(--radius-lg);
   padding: 12px 18px;
   margin-bottom: 24px;
@@ -3238,8 +3238,8 @@ all and (display-mode: fullscreen) {
 }
 
 :root[data-theme="dark"] .trial-warning-banner {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(245, 158, 11, 0.15));
-  border-color: rgba(239, 68, 68, 0.4);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(245, 158, 11, 0.15)), #080e22;
+  border-color: rgba(239, 68, 68, 0.45);
   box-shadow: 0 4px 20px rgba(239, 68, 68, 0.15);
 }
 
@@ -3260,7 +3260,7 @@ all and (display-mode: fullscreen) {
 
 .twb-text {
   font-size: 0.9rem;
-  color: #1e293b;
+  color: #f8fafc;
   line-height: 1.45;
   display: flex;
   align-items: center;
@@ -3268,26 +3268,18 @@ all and (display-mode: fullscreen) {
   gap: 8px;
 }
 
-:root[data-theme="dark"] .twb-text {
-  color: #f8fafc;
-}
-
 .twb-text strong {
-  color: #b91c1c;
-  font-weight: 800;
-}
-
-:root[data-theme="dark"] .twb-text strong {
   color: #fca5a5;
+  font-weight: 800;
 }
 
 .trial-countdown-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #fee2e2;
-  border: 1px solid #fca5a5;
-  color: #991b1b;
+  background: rgba(239, 68, 68, 0.25);
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  color: #fecaca;
   padding: 3px 10px;
   border-radius: 999px;
   font-size: 0.82rem;
@@ -3295,22 +3287,12 @@ all and (display-mode: fullscreen) {
   white-space: nowrap;
 }
 
-:root[data-theme="dark"] .trial-countdown-badge {
-  background: rgba(239, 68, 68, 0.22);
-  border-color: rgba(239, 68, 68, 0.55);
-  color: #fecaca;
-}
-
 .trial-countdown-badge b {
   font-family: monospace;
   font-size: 1rem;
   font-weight: 900;
-  color: #7f1d1d;
-  letter-spacing: 0.04em;
-}
-
-:root[data-theme="dark"] .trial-countdown-badge b {
   color: #ffffff;
+  letter-spacing: 0.04em;
 }
 
 .trial-countdown-badge.expired {
