@@ -182,6 +182,7 @@
     twbDesc: document.getElementById('twbDesc'),
     btnBannerUnlock: document.getElementById('btnBannerUnlock'),
     paymentModal: document.getElementById('paymentLockModal'),
+    plmTitle: document.getElementById('plmTitle'),
     plmBadgeStatus: document.getElementById('plmBadgeStatus'),
     plmBadgeStatusText: document.getElementById('plmBadgeStatusText'),
     plmDynamicReason: document.getElementById('plmDynamicReason'),
@@ -457,10 +458,10 @@
       const thumb = m.thumb || 'assets/thumbs/destaque-200-moldes.jpg';
       const kindBadge = m.kind === 'pdf' ? `PDF (${m.pages || 1}p)` : 'Molde c/ Medidas';
       
-      // Liberado se estiver dentro dos 30 minutos ou se comprou
+      // Liberado se estiver dentro dos 15 minutos ou se comprou
       const isFree = state.isUnlocked || !state.isTrialExpired;
-      const trialBadge = !state.isUnlocked
-        ? (isFree ? '<span class="mc-free-badge">🟢 Degustação Ativa</span>' : '<span class="mc-locked-badge">🔒 Bloqueado</span>')
+      const trialBadge = !state.isUnlocked && state.isTrialExpired
+        ? '<span class="mc-locked-badge">🔒 Bloqueado</span>'
         : '';
 
       const clickAction = isFree
@@ -1593,21 +1594,27 @@
 
     if (DOM.btnDownloadDestaque) {
       DOM.btnDownloadDestaque.addEventListener('click', (e) => {
-        if (!state.isUnlocked && state.isTrialExpired) {
+        if (!state.isUnlocked) {
           e.preventDefault();
-          openPaymentModal('Coleção Completa 200 Moldes');
+          openPaymentModal('download_completo');
         }
       });
     }
   }
 
   function openPaymentModal(reason = '') {
-    if (DOM.plmDynamicReason) {
-      DOM.plmDynamicReason.innerHTML = `Ainda não identificamos o seu pagamento via Pix. Regularize seu pagamento para liberar o acesso vitalício ao site com <b>+200 moldes</b>, todas as videoaulas, Guia de Vendas e Calculadora de Preço.`;
-    }
-
-    if (DOM.plmBadgeStatusText) {
-      DOM.plmBadgeStatusText.textContent = 'SEU ACESSO FOI BLOQUEADO';
+    if (reason === 'download_completo') {
+      if (DOM.plmTitle) DOM.plmTitle.textContent = 'DOWNLOAD BLOQUEADO';
+      if (DOM.plmBadgeStatusText) DOM.plmBadgeStatusText.textContent = 'COMPROVANTE DE PAGAMENTO NECESSÁRIO';
+      if (DOM.plmDynamicReason) {
+        DOM.plmDynamicReason.innerHTML = `O download do arquivo completo com todos os <b>+200 moldes</b> só será liberado depois que o comprovante de pagamento do curso for enviado.`;
+      }
+    } else {
+      if (DOM.plmTitle) DOM.plmTitle.textContent = 'PAGAMENTO NÃO IDENTIFICADO';
+      if (DOM.plmBadgeStatusText) DOM.plmBadgeStatusText.textContent = 'SEU ACESSO FOI BLOQUEADO';
+      if (DOM.plmDynamicReason) {
+        DOM.plmDynamicReason.innerHTML = `Ainda não identificamos o seu pagamento via Pix. Regularize seu pagamento para liberar o acesso vitalício ao site com <b>+200 moldes</b>, todas as videoaulas, Guia de Vendas e Calculadora de Preço.`;
+      }
     }
 
     if (DOM.unlockCodeFeedback) {
