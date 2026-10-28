@@ -1542,19 +1542,19 @@
       if (!raw) {
         if (DOM.unlockCodeFeedback) {
           DOM.unlockCodeFeedback.className = 'plm-code-feedback error';
-          DOM.unlockCodeFeedback.textContent = 'Por favor, digite o código recebido no WhatsApp.';
+          DOM.unlockCodeFeedback.textContent = 'Por favor, digite a senha recebida no WhatsApp.';
         }
         return;
       }
 
-      // Códigos pré-autorizados ou qualquer chave com 5+ caracteres
-      const validPresets = ['BOLSAS-VIP', 'BOLSASVIP', 'VIP', 'PAGO', 'PAGAMENTO', 'LIBERAR', 'THAISE', 'VIP2026', 'BOLSAS2026', '61995979543', '61991168629'];
-      const isValid = validPresets.includes(raw) || raw.length >= 5;
+      // Senha oficial de ativação: LIBERARBOLSAS44
+      const cleanInput = raw.replace(/[^A-Z0-9]/g, '');
+      const isValid = cleanInput === 'LIBERARBOLSAS44';
 
       if (isValid) {
         if (DOM.unlockCodeFeedback) {
           DOM.unlockCodeFeedback.className = 'plm-code-feedback success';
-          DOM.unlockCodeFeedback.textContent = 'Código validado com sucesso! Liberando...';
+          DOM.unlockCodeFeedback.textContent = 'Senha validada com sucesso! Liberando acesso...';
         }
         setTimeout(() => {
           unlockAccess('code');
@@ -1562,7 +1562,7 @@
       } else {
         if (DOM.unlockCodeFeedback) {
           DOM.unlockCodeFeedback.className = 'plm-code-feedback error';
-          DOM.unlockCodeFeedback.textContent = 'Código inválido. Envie seu comprovante no WhatsApp de suporte.';
+          DOM.unlockCodeFeedback.textContent = 'Senha incorreta. Envie seu comprovante no WhatsApp de suporte.';
         }
       }
     }
@@ -1743,14 +1743,16 @@
   function checkUrlUnlockParams() {
     try {
       const urlParams = new URLSearchParams(window.location.search);
-      const unlockKeys = ['liberar', 'token', 'pago', 'vip', 'desbloquear', 'senha', 'chave', 'liberado'];
+      const unlockKeys = ['liberar', 'token', 'pago', 'vip', 'desbloquear', 'senha', 'chave', 'liberado', 'codigo'];
       let found = false;
       for (const k of unlockKeys) {
         if (urlParams.has(k)) {
-          const val = (urlParams.get(k) || '').trim().toLowerCase();
-          if (val === 'false' || val === '0') continue;
-          found = true;
-          break;
+          const rawVal = (urlParams.get(k) || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+          if (rawVal === 'FALSE' || rawVal === '0') continue;
+          if (rawVal === 'LIBERARBOLSAS44' || rawVal === 'TRUE' || rawVal === '1' || rawVal === '') {
+            found = true;
+            break;
+          }
         }
       }
       if (found) {
